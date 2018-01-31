@@ -1,0 +1,214 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-12">
+    <h2><strong><%= @inspection.equipment %></strong> (<%= @inspection.performed_at.to_date.to_s(:db) %>)</h2>
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to 'Inspections', inspections_path %>
+      </li>
+      <li class="active">
+        <strong><%= @inspection %></strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <% if @inspection.analyses.first %>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Analysis</h5>
+        </div>
+        <div class="ibox-content">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Equipment</th>
+                <th>Report</th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @inspection.analyses.each do |analysis| %>
+              <tr>
+                <td><%= link_to analysis, analysis %></td>
+                <td class="analysis-equipment">
+                  <%= analysis.analysis_requests.count %> / <%= analysis.analysis_requests.count %>
+                </td>
+                <td>
+                  <%= link_to "View Report", report_path(analysis) %>
+                </td>
+                <td class="project-actions">
+                  <%= link_to analysis, class: 'btn btn-white btn-sm' do %>
+                  <i class="fa fa-refresh"></i>
+                  <% end %>
+                  <%= link_to analysis, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
+                  <i class="fa fa-times"></i>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Report Details</h5>
+          <div class="ibox-tools">
+            <%= link_to edit_inspection_path(@inspection), class: 'btn btn-primary btn-xs' do %>
+            <i class="fa fa-pencil"></i> Edit
+            <% end %>
+          </div>
+        </div>
+        <div class="ibox-content">
+          <p><% unless @inspection.equipment %><span class="text-danger">Please assign equipment to this report to enable finalizing (and start processing).</span><% end %></p>
+          <dl class="dl-horizontal">
+            <dt>Equipment</dt>
+            <dd>
+              <% if @inspection.equipment %>
+              <%= link_to @inspection.equipment, @inspection.equipment %>
+              <% else %>
+              <span class="text-danger">Unassigned</span>
+              <% end %>
+            </dd>
+            <dt>File Count</dt>
+            <dd><%= @inspection.inspection_files.count %></dd>
+            <dt>Finalized</dt>
+            <dd>
+              Not finalized
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>Files</h5>
+        </div>
+        <div class="ibox-content">
+          <% unless @inspection.analyses.count > 0 %>
+          <div class="well">
+            <form action="#">
+              <input type="file" multiple="" data-presign-path="<%= presign_inspection_files_path %>" data-success-path="<%= inspection_inspection_files_path(@inspection) %>" } %>
+            </form>
+          </div>
+          <% end %>
+
+          <%= render 'inspection_files/inspection_files', inspection_files: @inspection.inspection_files %>
+
+          <% if @inspection.inspection_files.unprofiled.count > 0 %>
+          <div class="panel-group" id="accordionUnprofiled">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h5 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordionUnprofiled" href="#collapseUnprofiled" aria-expanded="true">Unprofiled (<%= @inspection.inspection_files.unprofiled.count %>)</a>
+                </h5>
+              </div>
+              <div id="collapseUnprofiled" class="panel-collapse collapse" aria-expanded="true">
+                <div class="panel-body">
+                  <% if @inspection.inspection_files.unprofiled.count > 0 %>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Preview</th>
+                        <th>File</th>
+                        <th>Type</th>
+                        <th>Modality</th>
+                        <th style="text-align: right">Actions</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <% @inspection.inspection_files.unprofiled do |dicom_file| %>
+                      <tr>
+                        <td class="dicom-file-preview">
+                          <div id="dicomImage" style="">
+                            <%= image_tag dicom_file.file[:preview].url, style: 'width:50px;height:50px;' %>
+                          </div>
+                        </td>
+                        <td class="dicom-file-name">
+                          <span class="text-overflow-dynamic-container">
+                            <span class="text-overflow-dynamic-ellipsis">
+                              <% if dicom_file.file %>
+                              <%= dicom_file.file[:original].original_filename %>
+                              <% else %>
+                              <span class="text-danger">No file</span>
+                              <% end %>
+                            </span>
+                          </span>
+                        </td>
+                        <td>
+                          <% if dicom_file.file %>
+                          <%= dicom_file.file[:original].mime_type %>
+                          <% else %>
+                          <span class="text-danger">n/a</span>
+                          <% end %>
+                        </td>
+                        <td>
+                          <%= dicom_file.file[:original].metadata["modality"] %>
+                        </td>
+                        <td class="text-right">
+                          <%= link_to dicom_file, class: "btn btn-white btn-sm" do %>
+                          <i class="fa fa-info"></i> Info
+                          <% end %>
+                          <% if dicom_file.file %>
+                          <%= link_to dicom_file.file_url(:original), download: dicom_file.file[:original].original_filename, class: "btn btn-white btn-sm" do %>
+                          <i class="fa fa-download"></i> Download
+                          <% end %>
+                          <% end %>
+                          <% unless @inspection.analysis_requests.first %>
+                          <%= link_to dicom_file, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-white btn-sm' do %>
+                          <i class="fa fa-times"></i> Delete
+                          <% end %>
+                          <% end %>
+                        </td>
+                      </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% if @inspection.inspection_files.count > 0 %>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Processing</h5>
+        </div>
+
+        <div class="ibox-content">
+          <% if @inspection.analyses.count > 0 %>
+          <h4>Something went wrong?</h4>
+          <%= link_to "Process again", inspection_analyses_path(@inspection), class: 'btn btn-white btn-lg btn-block', method: :post %>
+          <% else %>
+          <h4>Done uploading?</h4>
+          <%= link_to "Start processing", inspection_analyses_path(@inspection), class: 'btn btn-primary btn-lg btn-block', method: :post %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

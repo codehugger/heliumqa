@@ -1,0 +1,19 @@
+<%= form_with(model: [@inspection, @analysis], local: true, html: { class: 'form-horizontal' }) do |form| %>
+<% if analysis.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(analysis.errors.count, "error") %> prohibited this analysis from being saved:</h2>
+
+  <ul>
+    <% analysis.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+  <div class="col-sm-4 col-sm-offset-2">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+</div>
+<% end %>

@@ -1,14 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Heliumqa</title>
-    <%= csrf_meta_tags %>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Heliumqa</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
+  <script src="https://unpkg.com/babel-polyfill@6.26.0/dist/polyfill.min.js"></script>
+  <script src="https://unpkg.com/whatwg-fetch@2.0.3/fetch.js"></script>
+  <script src="https://unpkg.com/uppy@0.22.0/dist/uppy.min.js"></script>
+  <link href="https://unpkg.com/uppy@0.22.0/dist/uppy.min.css" rel="stylesheet" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-  <body>
-    <%= yield %>
-  </body>
+  <!-- Main css styles -->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <!-- Main javascript files -->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</head>
+<body>
+
+  <!-- Wrapper-->
+  <div id="wrapper">
+
+    <!-- Navigation -->
+    <%= render 'layouts/navigation' %>
+
+    <!-- Page wraper -->
+    <div id="page-wrapper" class="gray-bg">
+
+      <!-- Page wrapper -->
+      <%= render 'layouts/topnavbar' %>
+
+      <!-- Main view  -->
+      <%= yield %>
+
+      <!-- Footer -->
+      <%= render 'layouts/footer' %>
+
+    </div>
+    <!-- End page wrapper-->
+
+  </div>
+  <!-- End wrapper-->
+</body>
 </html>

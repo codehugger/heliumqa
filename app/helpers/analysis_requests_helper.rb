@@ -1,0 +1,2 @@
+module AnalysisRequestsHelper
+end

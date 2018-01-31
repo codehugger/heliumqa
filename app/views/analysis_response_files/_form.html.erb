@@ -1,0 +1,27 @@
+<%= form_with(model: analysis_response_file, local: true) do |form| %>
+  <% if analysis_response_file.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(analysis_response_file.errors.count, "error") %> prohibited this analysis_response_file from being saved:</h2>
+
+      <ul>
+      <% analysis_response_file.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :analysis_response_id %>
+    <%= form.text_field :analysis_response_id, id: :analysis_response_file_analysis_response_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file_data %>
+    <%= form.text_field :file_data, id: :analysis_response_file_file_data %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

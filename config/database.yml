@@ -19,7 +19,7 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 25 } %>
 
 development:
   <<: *default
@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: heliumqa_production
-  username: heliumqa
-  password: <%= ENV['HELIUMQA_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Analysis Responses</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Analysis request</th>
+      <th>Response data</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @analysis_responses.each do |analysis_response| %>
+      <tr>
+        <td><%= analysis_response.analysis_request %></td>
+        <td><%= analysis_response.response_data %></td>
+        <td><%= link_to 'Show', analysis_response %></td>
+        <td><%= link_to 'Edit', edit_analysis_response_path(analysis_response) %></td>
+        <td><%= link_to 'Destroy', analysis_response, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Analysis Response', new_analysis_response_path %>

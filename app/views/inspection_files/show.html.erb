@@ -1,0 +1,92 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-12">
+    <h2><%= @inspection_file %></h2>
+    <ol class="breadcrumb">
+      <li>Manage</li>
+      <li>
+        Inspections
+      </li>
+      <li>
+        <%= link_to @inspection_file.inspection, @inspection_file.inspection %>
+      </li>
+      <li>
+        Dicom Files
+      </li>
+      <li class="active">
+        <strong><%= @inspection_file %></strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>Preview</h5>
+        </div>
+        <div class="ibox-content">
+          <%= image_tag @inspection_file.file[:preview].url, style: 'width:300px;height:300px;' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>Equipment Profile</h5>
+        </div>
+        <div class="ibox-content">
+          <h3><%= @inspection_file.equipment_profile %></h3>
+          <table class="table table-condensed table-bordered">
+            <thead>
+              <tr>
+                <th>Tag</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              </tr>
+              <% @inspection_file.equipment_profile.profile_data.each do |k, v| %>
+              <tr>
+                <td><%= k %></td>
+                <td><%= v %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>Profile Header</h5>
+        </div>
+        <div class="ibox-content">
+          <p><strong>Modality</strong> <%= @inspection_file.modality %></p>
+          <table class="table table-condensed table-bordered">
+            <thead>
+              <tr>
+                <th>Tag</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @inspection_file.profile_header.each do |k, v| %>
+              <tr>
+                <td><%= k %></td>
+                <td><%= v %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

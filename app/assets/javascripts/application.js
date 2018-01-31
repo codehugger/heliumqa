@@ -11,4 +11,21 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery/jquery-3.1.1.min.js
+//= require bootstrap-sprockets
+//= require metisMenu/jquery.metisMenu.js
+//= require pace/pace.min.js
+//= require Chart.bundle
+//= require chartkick
+//= require slimscroll/jquery.slimscroll.min.js
+//= require inspinia.js
+//= require bootstrap-datepicker
 //= require_tree .
+
+$(document).ready(function(){
+  $('.datepicker').datepicker({
+    format: "yyyy-mm-dd",
+    todayHighlight: true,
+    todayBtn: true
+  });
+});

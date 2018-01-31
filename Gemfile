@@ -44,7 +44,41 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+    # Generate Entity-Relationship Diagrams for Rails applications
+  gem 'rails-erd'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# File Attachment toolkit for Ruby applications http://shrinerb.com
+gem 'shrine'
+# Routing Tree Web Toolkit http://roda.jeremyevans.net
+gem 'roda'
+# The official AWS SDK for Ruby. http://aws.amazon.com/sdkforruby
+gem 'aws-sdk-s3'
+# Library for reading, editing and writing DICOM files.
+gem 'dicom', github: 'dicom/ruby-dicom'
+# High-level helpers for image processing with ImageMagick
+gem 'image_processing'
+gem 'mini_magick', '>= 4.3.5'
+# Create beautiful JavaScript charts with one line of Ruby https://www.chartkick.com
+gem 'chartkick'
+# Bunny is a popular, easy to use, mature Ruby client for RabbitMQ (3.3+) http://rubybunny.info
+gem 'bunny'
+# Simple Rails app configuration
+gem 'figaro'
+
+# Collection of extensions frequently used in Spectralis projects.
+gem 'spectralis_ext', github: 'spectralis/spectralis_ext'
+
+# Inspinia
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'font-awesome-rails', '~> 4.7.0.1'
+gem 'bootstrap-datepicker-rails'
+
+# Decorators/View-Models for Rails Applications
+gem 'draper'
+
+# Create beautiful JavaScript charts with one line of Ruby https://www.chartkick.com
+gem 'chartkick'

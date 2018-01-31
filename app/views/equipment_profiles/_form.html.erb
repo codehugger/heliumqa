@@ -1,0 +1,32 @@
+<%= form_with(model: equipment_profile, local: true) do |form| %>
+  <% if equipment_profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(equipment_profile.errors.count, "error") %> prohibited this equipment_profile from being saved:</h2>
+
+      <ul>
+      <% equipment_profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :site_id %>
+    <%= form.text_field :site_id, id: :equipment_profile_site_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :equipment_profile_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :profile %>
+    <%= form.text_field :profile, id: :equipment_profile_profile %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

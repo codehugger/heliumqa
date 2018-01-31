@@ -1,0 +1,53 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-4">
+    <h2><%= @equipment %></h2>
+    <ol class="breadcrumb">
+      <li>Manage</li>
+      <li>
+        <%= link_to 'Equipment', equipment_index_path %>
+      </li>
+      <li class="active">
+        <strong><%= @equipment %></strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>Equipment details</h5>
+          <div class="ibox-tools">
+            <%= link_to new_inspection_path(equipment_id: @equipment), class: 'btn btn-primary btn-xs' do %>
+              <i class="fa fa-check"></i> Inspect
+            <% end %>
+            <%= link_to edit_equipment_path(@equipment), class: 'btn btn-white btn-xs' do %>
+              <i class="fa fa-pencil"></i> Edit
+            <% end %>
+          </div>
+        </div>
+        <div class="ibox-content">
+          <dl class="dl-horizontal">
+            <dt>Site</dt>
+            <dd><%= link_to @equipment.site, @equipment.site %></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>Inspections</h5>
+        </div>
+        <div class="ibox-content">
+          <%= render 'inspections/inspections', inspections: @equipment.inspections %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

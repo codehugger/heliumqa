@@ -1,0 +1,2 @@
+class AnalysisResponseFileUploader < Shrine
+end

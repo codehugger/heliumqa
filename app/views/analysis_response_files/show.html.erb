@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Analysis response:</strong>
+  <%= @analysis_response_file.analysis_response %>
+</p>
+
+<p>
+  <strong>File data:</strong>
+  <%= @analysis_response_file.file_data %>
+</p>
+
+<%= link_to 'Edit', edit_analysis_response_file_path(@analysis_response_file) %> |
+<%= link_to 'Back', analysis_response_files_path %>

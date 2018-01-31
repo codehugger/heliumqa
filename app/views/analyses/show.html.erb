@@ -1,0 +1,23 @@
+<p>
+  <strong>Analyses:</strong>
+  <ul>
+    <% @analysis.analysis_requests.each do |request| %>
+      <li>
+        <div><strong>Processor:</strong><%= request %></div>
+        <div><strong>Profile:</strong><%= request.equipment_profile %></div>
+        <div><strong>Files:</strong></div>
+        <ul>
+          <% request.analysis_request_files.each do |file| %>
+            <li><%= link_to file.original_filename, file.original_url %></li>
+          <% end %>
+        </ul>
+        <div><strong>Request:</strong><pre><%= request.request_data.to_json %></pre></div>
+        <% if request.analysis_response %>
+          <div><strong>Result:</strong><pre><%= request.analysis_response.response_data.to_json %></pre></div>
+        <% else %>
+          <div>Processing ...</div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</p>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Analysis:</strong>
+  <%= @analysis_request.analysis %>
+</p>
+
+<p>
+  <strong>Equipment profile:</strong>
+  <%= @analysis_request.equipment_profile %>
+</p>
+
+<%= link_to 'Edit', edit_analysis_request_path(@analysis_request) %> |
+<%= link_to 'Back', analysis_requests_path %>

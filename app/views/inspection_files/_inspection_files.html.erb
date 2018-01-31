@@ -1,0 +1,77 @@
+<% inspection_files.grouped_by_profile.each do |profile, inspection_files| %>
+<% next unless profile %>
+<div class="panel-group" id="accordion<%= profile.id %>">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h5 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion<%= profile.id %>" href="#collapse<%= profile.id %>" aria-expanded="true"><%= profile %> (<%= inspection_files.count %>)</a>
+      </h5>
+    </div>
+    <div id="collapse<%= profile.id %>" class="panel-collapse collapse in" aria-expanded="true">
+      <div class="panel-body">
+        <% if @inspection.inspection_files.count > 0 %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Preview</th>
+              <th>File</th>
+              <th>Type</th>
+              <th>Modality</th>
+              <th style="text-align: right">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% inspection_files.each do |dicom_file| %>
+            <tr>
+              <td class="dicom-file-preview">
+                <div id="dicomImage" style="">
+                  <%= image_tag dicom_file.file[:preview].url, style: 'width:50px;height:50px;' %>
+                </div>
+              </td>
+              <td class="dicom-file-name">
+                <span class="text-overflow-dynamic-container">
+                  <span class="text-overflow-dynamic-ellipsis">
+                    <% if dicom_file.file %>
+                    <%= dicom_file.file[:original].original_filename %>
+                    <% else %>
+                    <span class="text-danger">No file</span>
+                    <% end %>
+                  </span>
+                </span>
+              </td>
+              <td>
+                <% if dicom_file.file %>
+                <%= dicom_file.file[:original].mime_type %>
+                <% else %>
+                <span class="text-danger">n/a</span>
+                <% end %>
+              </td>
+              <td>
+                <%= dicom_file.modality %>
+              </td>
+              <td class="text-right">
+                <%= link_to dicom_file, class: "btn btn-white btn-sm" do %>
+                <i class="fa fa-info"></i>
+                <% end %>
+                <% if dicom_file.file %>
+                <%= link_to dicom_file.file_url(:original), download: dicom_file.file[:original].original_filename, class: "btn btn-white btn-sm" do %>
+                <i class="fa fa-download"></i>
+                <% end %>
+                <% end %>
+                <% unless @inspection.analysis_requests.first %>
+                <%= link_to dicom_file, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
+                <i class="fa fa-times"></i>
+                <% end %>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  site: one
+  name: MyString
+  profile_data: 
+
+two:
+  site: two
+  name: MyString
+  profile_data: 
