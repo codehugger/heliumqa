@@ -119,7 +119,6 @@
               </div>
               <div id="collapseUnprofiled" class="panel-collapse collapse" aria-expanded="true">
                 <div class="panel-body">
-                  <% if @inspection.inspection_files.unprofiled.count > 0 %>
                   <table class="table">
                     <thead>
                       <tr>
@@ -132,11 +131,11 @@
                     </thead>
 
                     <tbody>
-                      <% @inspection.inspection_files.unprofiled do |dicom_file| %>
+                      <% @inspection.inspection_files.unprofiled.each do |dicom_file| %>
                       <tr>
                         <td class="dicom-file-preview">
                           <div id="dicomImage" style="">
-                            <%= image_tag dicom_file.file[:preview].url, style: 'width:50px;height:50px;' %>
+                            <%= image_tag dicom_file.file[:thumbnail].url, style: 'width:50px;height:50px;' %>
                           </div>
                         </td>
                         <td class="dicom-file-name">
@@ -158,20 +157,20 @@
                           <% end %>
                         </td>
                         <td>
-                          <%= dicom_file.file[:original].metadata["modality"] %>
+                          <%= dicom_file.modality %>
                         </td>
                         <td class="text-right">
                           <%= link_to dicom_file, class: "btn btn-white btn-sm" do %>
-                          <i class="fa fa-info"></i> Info
+                          <i class="fa fa-info"></i>
                           <% end %>
                           <% if dicom_file.file %>
                           <%= link_to dicom_file.file_url(:original), download: dicom_file.file[:original].original_filename, class: "btn btn-white btn-sm" do %>
-                          <i class="fa fa-download"></i> Download
+                          <i class="fa fa-download"></i>
                           <% end %>
                           <% end %>
                           <% unless @inspection.analysis_requests.first %>
-                          <%= link_to dicom_file, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-white btn-sm' do %>
-                          <i class="fa fa-times"></i> Delete
+                          <%= link_to dicom_file, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
+                          <i class="fa fa-times"></i>
                           <% end %>
                           <% end %>
                         </td>
@@ -180,7 +179,6 @@
                     </tbody>
                   </table>
                 </div>
-                <% end %>
               </div>
             </div>
           </div>

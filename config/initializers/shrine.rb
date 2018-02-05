@@ -91,10 +91,6 @@ Shrine.plugin :pretty_location
 # The data_uri plugin enables you to upload files as data URIs with JSON
 Shrine.plugin :data_uri
 
-# The multi_delete plugins allows you to leverage your storage's multi delete
-# capabilities.
-Shrine.plugin :multi_delete
-
 # The delete_promoted plugin deletes files that have been promoted, after the
 # record is saved. This means that cached files handled by the attacher will
 # automatically get deleted once they're uploaded to store. This also applies

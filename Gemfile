@@ -80,5 +80,8 @@ gem 'bootstrap-datepicker-rails'
 # Decorators/View-Models for Rails Applications
 gem 'draper'
 
-# Create beautiful JavaScript charts with one line of Ruby https://www.chartkick.com
-gem 'chartkick'
+# Simple, efficient background processing for Ruby http://sidekiq.org
+gem 'sidekiq'
+
+# Abort requests that are taking too long
+gem 'rack-timeout'
