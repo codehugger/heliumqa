@@ -27,7 +27,11 @@
           <h5>Preview</h5>
         </div>
         <div class="ibox-content">
-          <%= image_tag @inspection_file.file[:preview].url, style: 'width:300px;height:300px;' %>
+          <% if @inspection_file.stored? %>
+            <%= image_tag @inspection_file.file[:preview].url, style: 'width:300px;height:300px;' %>
+          <% else %>
+            <p>n/a</p>
+          <% end %>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ class EquipmentController < ApplicationController
   # GET /equipment
   # GET /equipment.json
   def index
-    @equipment = Equipment.all
+    @equipment = current_account.equipment.all
   end
 
   # GET /equipment/1
@@ -14,7 +14,7 @@ class EquipmentController < ApplicationController
 
   # GET /equipment/new
   def new
-    @equipment = Equipment.new
+    @equipment = current_account.equipment.new
   end
 
   # GET /equipment/1/edit
@@ -24,7 +24,7 @@ class EquipmentController < ApplicationController
   # POST /equipment
   # POST /equipment.json
   def create
-    @equipment = Equipment.new(equipment_params)
+    @equipment = current_account.equipment.new(equipment_params)
 
     respond_to do |format|
       if @equipment.save

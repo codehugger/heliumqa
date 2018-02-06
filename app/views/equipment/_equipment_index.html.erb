@@ -10,7 +10,13 @@
       <% equipment.each do |equipment| %>
       <tr>
         <td><%= link_to equipment, equipment %></td>
-        <td><%= link_to equipment.inspections.last.decorate.performed_at_date, equipment.inspections.last %></td>
+        <td>
+          <% if equipment.inspections.count > 0 %>
+            <% link_to equipment.inspections.last.decorate.performed_at_date, equipment.inspections.last %>
+          <% else %>
+            n/a
+          <% end %>
+        </td>
         <td class="project-actions">
           <%= link_to edit_equipment_path(equipment), class: 'btn btn-white btn-sm' do %>
           <i class="fa fa-pencil"></i>
