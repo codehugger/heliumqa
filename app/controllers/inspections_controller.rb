@@ -1,6 +1,11 @@
 class InspectionsController < ApplicationController
+  # enable streaming responses
+  include ActionController::Streaming
+  # enable zipline
+  include Zipline
+
   before_action :set_equipment, only: [:new]
-  before_action :set_inspection, only: [:show, :edit, :update, :destroy]
+  before_action :set_inspection, only: [:show, :edit, :update, :destroy, :download_files, :reprofile_files]
 
   # GET /inspections
   # GET /inspections.json
@@ -62,6 +67,21 @@ class InspectionsController < ApplicationController
       format.html { redirect_to inspections_url, notice: 'Inspection was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # POST /inspections/1/reprofile_files
+  def reprofile_files
+    @inspection.inspection_files.each { |f| f.match_profile(force: true); f.save }
+    redirect_to @inspection, notice: 'Inspection files successfully reprofiled.'
+  end
+
+  # GET /inspections/1/download_files
+  def download_files
+    # file_value_documents.map { |doc| [doc.document, doc.document_file_name] }
+    files = @inspection.inspection_files
+    original_files = files.map { |f| [f.file[:original], f.original_filename] }
+    preview_files = files.map { |f| [f.file[:preview], "#{f.original_filename}.png"] }
+    zipline(original_files + preview_files, 'originals+previews.zip')
   end
 
   private

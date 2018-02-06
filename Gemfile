@@ -81,3 +81,9 @@ gem 'rack-timeout'
 
 # Devise is a flexible authentication solution for Rails based on Warden.
 gem 'devise'
+
+# A Rails engine that helps you put together a super-flexible admin dashboard. https://administrate-prototype.herokuapp.com
+gem 'administrate', github: 'thoughtbot/administrate'
+
+# A gem that lets you stream a zip file from rails
+gem 'zipline'

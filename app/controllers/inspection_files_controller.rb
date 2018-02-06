@@ -1,5 +1,5 @@
 class InspectionFilesController < ApplicationController
-  before_action :set_inspection, only: [:index, :new, :create]
+  before_action :set_inspection, only: [:index, :new, :create, :download_all, :reprofile_all]
   before_action :set_inspection_file, only: [:show, :edit, :update, :destroy]
 
   # GET /inspection_files
