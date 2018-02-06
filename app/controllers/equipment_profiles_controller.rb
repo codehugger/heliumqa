@@ -4,7 +4,7 @@ class EquipmentProfilesController < ApplicationController
   # GET /equipment_profiles
   # GET /equipment_profiles.json
   def index
-    @equipment_profiles = EquipmentProfile.all
+    @equipment_profiles = current_account.equipment_profiles.all
   end
 
   # GET /equipment_profiles/1
@@ -14,7 +14,7 @@ class EquipmentProfilesController < ApplicationController
 
   # GET /equipment_profiles/new
   def new
-    @equipment_profile = EquipmentProfile.new
+    @equipment_profile = current_account.equipment_profiles.new
   end
 
   # GET /equipment_profiles/1/edit
@@ -24,7 +24,7 @@ class EquipmentProfilesController < ApplicationController
   # POST /equipment_profiles
   # POST /equipment_profiles.json
   def create
-    @equipment_profile = EquipmentProfile.new(equipment_profile_params)
+    @equipment_profile = current_account.equipment_profiles.new(equipment_profile_params)
 
     respond_to do |format|
       if @equipment_profile.save
@@ -64,7 +64,7 @@ class EquipmentProfilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_equipment_profile
-      @equipment_profile = EquipmentProfile.find(params[:id])
+      @equipment_profile = current_account.equipment_profiles.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

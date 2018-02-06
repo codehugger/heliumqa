@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 account = Account.create(name: 'Test Account')
+user = User.create(email: 'user@example.com', password: 'password', account: account)
 site = Site.create(name: 'Test Site', account: account)
 equipment = Equipment.create(name: 'Test Equipment', site: site)
 profiles = EquipmentProfile.create([

@@ -1,6 +1,6 @@
 <div class="row wrapper border-bottom white-bg page-heading article">
   <div class="col-sm-12">
-    <h2>Report - <%= @analysis.equipment %> (<%= @analysis.inspection.performed_at.to_date %>)</h2>
+    <h2>Report - <%= @analysis.equipment %> (Inspected at <%= @analysis.inspection.performed_at.to_date %>)</h2>
     <ol class="breadcrumb">
       <li>
         Reports
@@ -19,7 +19,7 @@
       <div class="ibox">
         <div class="ibox-content">
           <div class="text-center article-title">
-            <span class="text-muted"><%= @analysis.inspection.decorate.performed_at_date %></span>
+            <span class="text-muted">Inspected at <strong><%= @analysis.inspection.decorate.performed_at_date %></strong></span>
             <h1><%= @analysis.equipment %></h1>
             <h2>MagphanRT Analysis</h2>
           </div>

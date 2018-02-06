@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
+    registrations: 'users/registrations'
+  }
   mount Shrine.presign_endpoint(:cache) => "/inspection_files/presign", as: 'presign_inspection_files'
 
   resources :analysis_response_files

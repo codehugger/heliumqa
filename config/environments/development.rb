@@ -54,4 +54,7 @@ Rails.application.configure do
 
   # Set the default queue adapter
   config.active_job.queue_adapter = :async
+
+  # Make sure the default url options are set for Devise to work properly
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
