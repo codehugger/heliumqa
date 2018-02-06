@@ -1,20 +1,25 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    resources :users
-    resources :inspections
-    resources :accounts
-    resources :analyses
-    resources :analysis_requests
-    resources :analysis_request_files
-    resources :analysis_responses
-    resources :analysis_response_files
-    resources :equipment
-    resources :equipment_profiles
-    resources :inspection_files
-    resources :sites
+  require 'sidekiq/web'
+  authenticate :user do
+    mount Sidekiq::Web => '/sidekiq'
 
-    root to: "users#index"
+    namespace :admin do
+      resources :accounts
+      resources :users
+      resources :inspections
+      resources :analyses
+      resources :analysis_requests
+      resources :analysis_request_files
+      resources :analysis_responses
+      resources :analysis_response_files
+      resources :equipment
+      resources :equipment_profiles
+      resources :inspection_files
+      resources :sites
+
+      root to: 'accounts#index'
+    end
   end
 
   devise_for :users, controllers: {
