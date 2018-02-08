@@ -27,8 +27,24 @@
 
   <div class="form-group">
     <%= form.label :profile, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10">
-      <%= form.text_area :profile, id: :equipment_profile_profile, class: "form-control" %>
+    <div class="col-sm-10 col-sm-offset-2">
+      <div class="row">
+        <div class="col-sm-12">
+          <%= form.text_area :profile, id: :equipment_profile_profile, class: "form-control" %>
+        </div>
+      </div>
+      <div class="row">
+        <%= fields_for :profile_data do |profile_data_fields| %>
+          <% equipment_profile.profile_data.each do |key, value| %>
+            <div class="col-sm-2">
+              <%= profile_data_fields.text_field key, value: key, class: 'form-control' %>
+            </div>
+            <div class="col-sm-10">
+              <%= profile_data_fields.text_field key, value: value, class: 'form-control' %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 

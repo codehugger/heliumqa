@@ -74,7 +74,7 @@ class InspectionFile < ApplicationRecord
     # Make sure we have a header to work with
     extract_header
 
-    self.equipment_profile = EquipmentProfile.matching(profile_header).first
+    self.equipment_profile = EquipmentProfile.matching(profile_header).order_by_most_specific.first
     self.profiled_at = Time.now
   end
 end

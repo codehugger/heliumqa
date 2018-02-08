@@ -15,6 +15,9 @@ class EquipmentProfilesController < ApplicationController
   # GET /equipment_profiles/new
   def new
     @equipment_profile = current_account.equipment_profiles.new
+    unless params[:inspection_file_id].blank?
+      @equipment_profile.profile_data = current_account.inspection_files.find(params[:inspection_file_id]).profile_header
+    end
   end
 
   # GET /equipment_profiles/1/edit

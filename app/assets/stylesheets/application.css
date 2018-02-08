@@ -16,3 +16,7 @@
  *= require bootstrap-datepicker3
  *= require style
  */
+
+.table-fixed {
+  table-layout: fixed;
+}

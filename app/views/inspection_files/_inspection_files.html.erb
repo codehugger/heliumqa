@@ -55,6 +55,9 @@
                 <i class="fa fa-info"></i>
                 <% end %>
                 <% if dicom_file.file %>
+                <%= link_to new_equipment_profile_path(inspection_file_id: dicom_file.id), class: "btn btn-white btn-sm" do %>
+                <i class="fa fa-flask"></i>
+                <% end %>
                 <%= link_to dicom_file.file_url(:original), download: dicom_file.file[:original].original_filename, class: "btn btn-white btn-sm" do %>
                 <i class="fa fa-download"></i>
                 <% end %>

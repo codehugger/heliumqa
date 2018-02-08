@@ -24,25 +24,25 @@
           <span class="nav-label">Upload</span>
         <% end %>
       </li>
-      <li class="<%= 'active' if current_page?('/inspections') %>">
+      <li class="<%= 'active' if controller.controller_name == 'inspections' %>">
         <%= link_to inspections_path, class: 'nav-link' do %>
           <i class="fa fa-check" aria-hidden="true"></i>
           <span class="nav-label">Inspections</span>
         <% end %>
       </li>
-      <li class="<%= 'active' if current_page?('/sites') %>">
+      <li class="<%= 'active' if controller.controller_name == 'sites' %>">
         <%= link_to sites_path, class: 'nav-link' do %>
           <i class="fa fa-hospital-o" aria-hidden="true"></i>
           <span class="nav-label">Sites</span>
         <% end %>
       </li>
-      <li class="<%= 'active' if current_page?('/equipment') %>">
+      <li class="<%= 'active' if controller.controller_name == 'equipment' %>">
         <%= link_to equipment_index_path, class: 'nav-link' do %>
           <i class="fa fa-television" aria-hidden="true"></i>
           <span class="nav-label">Equipment</span>
         <% end %>
       </li>
-      <li class="<%= 'active' if current_page?('/equipment_profiles') %>">
+      <li class="<%= 'active' if controller.controller_name == 'equipment_profiles' %>">
         <%= link_to equipment_profiles_path, class: 'nav-link' do %>
           <i class="fa fa-flask" aria-hidden="true"></i>
           <span class="nav-label">Equipment Profiles</span>

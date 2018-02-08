@@ -164,18 +164,21 @@
                           <%= dicom_file.modality %>
                         </td>
                         <td class="text-right">
+                          <%= link_to new_equipment_profile_path(inspection_file_id: dicom_file.id), class: "btn btn-white btn-sm" do %>
+                            <i class="fa fa-flask"></i>
+                          <% end %>
                           <%= link_to dicom_file, class: "btn btn-white btn-sm" do %>
-                          <i class="fa fa-info"></i>
+                            <i class="fa fa-info"></i>
                           <% end %>
                           <% if dicom_file.file %>
-                          <%= link_to dicom_file.file_url(:original), download: dicom_file.file[:original].original_filename, class: "btn btn-white btn-sm" do %>
-                          <i class="fa fa-download"></i>
-                          <% end %>
+                            <%= link_to dicom_file.file_url(:original), download: dicom_file.file[:original].original_filename, class: "btn btn-white btn-sm" do %>
+                              <i class="fa fa-download"></i>
+                            <% end %>
                           <% end %>
                           <% unless @inspection.analysis_requests.first %>
-                          <%= link_to dicom_file, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
-                          <i class="fa fa-times"></i>
-                          <% end %>
+                            <%= link_to dicom_file, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
+                              <i class="fa fa-times"></i>
+                            <% end %>
                           <% end %>
                         </td>
                       </tr>
@@ -189,10 +192,16 @@
           <% end %>
 
           <h4>Something not profiled correctly?</h4>
-          <%= link_to "Profile again", reprofile_files_inspection_path(@inspection), class: 'btn btn-white btn-lg btn-block', method: :post %>
+          <%= link_to reprofile_files_inspection_path(@inspection), class: 'btn btn-white btn-lg btn-block', method: :post do %>
+            <i class="fa fa-flask"></i>
+            Profile again
+          <% end %>
 
           <h4>Need your files back?</h4>
-          <%= link_to "Download files as zip", download_files_inspection_path(@inspection), class: 'btn btn-white btn-lg btn-block' %>
+          <%= link_to download_files_inspection_path(@inspection), class: 'btn btn-white btn-lg btn-block' do %>
+            <i class="fa fa-download"></i>
+            Download files as zip
+          <% end %>
         </div>
       </div>
     </div>

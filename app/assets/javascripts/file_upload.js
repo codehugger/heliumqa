@@ -64,7 +64,7 @@ function fileUpload(fileInput) {
   })
 }
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   document.querySelectorAll('input[type=file]').forEach(function (fileInput) {
     if (fileInput.multiple) {
       fileUpload(fileInput);
