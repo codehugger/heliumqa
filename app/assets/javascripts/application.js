@@ -20,6 +20,7 @@
 //= require slimscroll/jquery.slimscroll.min.js
 //= require inspinia.js
 //= require bootstrap-datepicker
+//= require turbolinks
 //= require_tree .
 
 $(document).ready(function(){
