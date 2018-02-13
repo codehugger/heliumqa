@@ -6,6 +6,7 @@ class EquipmentProfile < ApplicationRecord
   # Scopes
   # - profiles matching as a subset of header
   scope :matching, ->(header) { where('profile_data <@ ?', header.to_json) }
+  scope :matching_keys, ->(keys) { where('profile_data \?& ?', keys)}
 
   # - order by profile key count
   scope :order_by_most_specific, -> { reorder('(select count(*) from jsonb_object_keys(profile_data)) DESC') }
@@ -18,5 +19,14 @@ class EquipmentProfile < ApplicationRecord
   # virtual attribute (getter) to use with forms
   def profile
     profile_data.to_json
+  end
+
+  class HeaderValue
+    attr_accessor :name, :percentage
+
+    def initialize(hash)
+      @name          = hash['name']
+      @percentage    = hash['percentage'].to_i
+    end
   end
 end

@@ -12,15 +12,15 @@
 //
 //= require rails-ujs
 //= require jquery/jquery-3.1.1.min.js
+//= require peity/jquery.peity.min.js
+//= require slimscroll/jquery.slimscroll.min.js
 //= require bootstrap-sprockets
 //= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
+//= require bootstrap-datepicker
+//= require inspinia.js
 //= require Chart.bundle
 //= require chartkick
-//= require slimscroll/jquery.slimscroll.min.js
-//= require inspinia.js
-//= require bootstrap-datepicker
-//= require turbolinks
 //= require_tree .
 
 $(document).ready(function(){

@@ -27,6 +27,8 @@ class EquipmentProfilesController < ApplicationController
   # POST /equipment_profiles
   # POST /equipment_profiles.json
   def create
+    byebug
+
     @equipment_profile = current_account.equipment_profiles.new(equipment_profile_params)
 
     respond_to do |format|
@@ -72,6 +74,8 @@ class EquipmentProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_profile_params
-      params.require(:equipment_profile).permit(:site_id, :name, :profile)
+      params.require(:equipment_profile).permit(:site_id, :name, :profile, :profile_data).tap do |whitelisted|
+        params[:equipment_profile].fetch(:profile_data, ActionController::Parameters.new).permit!
+      end
     end
 end

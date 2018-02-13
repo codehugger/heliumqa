@@ -100,7 +100,7 @@ $(document).ready(function () {
     $('.navbar-minimalize').click(function () {
         $("body").toggleClass("mini-navbar");
         SmoothlyMenu();
-
+        return false;
     });
 
     // Tooltips demo

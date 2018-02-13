@@ -51,12 +51,13 @@
               </tr>
             </thead>
             <tbody>
-              </tr>
-              <% @inspection_file.equipment_profile.profile_data.each do |k, v| %>
-              <tr>
-                <td><%= k %></td>
-                <td><%= v %></td>
-              </tr>
+              <% if @inspection_file.equipment_profile %>
+                <% @inspection_file.equipment_profile.profile_data.each do |k, v| %>
+                <tr>
+                  <td><%= k %></td>
+                  <td><%= v %></td>
+                </tr>
+                <% end %>
               <% end %>
             </tbody>
           </table>
