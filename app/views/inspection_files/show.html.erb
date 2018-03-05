@@ -9,7 +9,7 @@
         <%= link_to @inspection_file.inspection, @inspection_file.inspection %>
       </li>
       <li>
-        Dicom Files
+        Files
       </li>
       <li class="active">
         <strong><%= @inspection_file %></strong>
@@ -72,7 +72,7 @@
           <h5>Profile Header</h5>
         </div>
         <div class="ibox-content">
-          <p><strong>Modality</strong> <%= @inspection_file.modality %></p>
+          <p><strong>Modality</strong> <%= @inspection_file.try(:modality) %></p>
           <table class="table table-condensed table-bordered">
             <thead>
               <tr>
