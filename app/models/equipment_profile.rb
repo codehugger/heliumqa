@@ -6,7 +6,6 @@ class EquipmentProfile < ApplicationRecord
   # Scopes
   # - profiles matching as a subset of header
   scope :matching, ->(header) { where('profile_data <@ ?', header.to_json) }
-  scope :matching_keys, ->(keys) { where('profile_data \?& ?', keys)}
 
   # - order by profile key count
   scope :order_by_most_specific, -> { reorder('(select count(*) from jsonb_object_keys(profile_data)) DESC') }
