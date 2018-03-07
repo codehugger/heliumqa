@@ -6,6 +6,8 @@
     "stimulus": "^1.0.1"
   },
   "devDependencies": {
+    "caniuse-lite": "^1.0.3",
+    "webpack": "^3.0.0",
     "webpack-dev-server": "^2.11.1"
   }
 }
