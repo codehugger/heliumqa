@@ -80,8 +80,11 @@ class InspectionsController < ApplicationController
     # file_value_documents.map { |doc| [doc.document, doc.document_file_name] }
     files = @inspection.inspection_files
     original_files = files.map { |f| [f.file[:original], f.original_filename] }
-    preview_files = files.map { |f| [f.file[:preview], "#{f.original_filename}.png"] }
-    zipline(original_files + preview_files, 'originals+previews.zip')
+    # also download previews
+    if params[:with_preview]
+      original_files += files.map { |f| [f.file[:preview], "#{f.original_filename}.png"] }
+    end
+    zipline(original_files, "inspection_files_#{@inspection.key}.zip")
   end
 
   private
