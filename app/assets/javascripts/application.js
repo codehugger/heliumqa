@@ -17,7 +17,10 @@
 //= require bootstrap-sprockets
 //= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
-//= require bootstrap-datepicker
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.is.js
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.sv.js
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.no.js
 //= require inspinia.js
 //= require Chart.bundle
 //= require chartkick
