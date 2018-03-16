@@ -19,13 +19,4 @@ class EquipmentProfile < ApplicationRecord
   def profile
     profile_data.to_json
   end
-
-  class HeaderValue
-    attr_accessor :name, :percentage
-
-    def initialize(hash)
-      @name          = hash['name']
-      @percentage    = hash['percentage'].to_i
-    end
-  end
 end
