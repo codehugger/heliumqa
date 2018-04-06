@@ -25,7 +25,7 @@ class AnalysesController < ApplicationController
 
     respond_to do |format|
       if @analysis.save
-        format.html { redirect_to @analysis.inspection, notice: 'Analysis was successfully created.' }
+        format.html { redirect_back fallback_location: @analysis, notice: 'Analysis was successfully requested.' }
         format.json { render :show, status: :created, location: @analysis }
       else
         format.html { render :new }
@@ -37,9 +37,10 @@ class AnalysesController < ApplicationController
   # DELETE /analyses/1
   # DELETE /analyses/1.json
   def destroy
+    @inspection = @analysis.inspection
     @analysis.destroy
     respond_to do |format|
-      format.html { redirect_to @inspection, notice: 'Analysis was successfully destroyed.' }
+      format.html { redirect_back fallback_location: @inspection, notice: 'Analysis was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

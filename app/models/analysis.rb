@@ -3,7 +3,7 @@ class Analysis < ApplicationRecord
 
   # Relationships
   belongs_to :inspection
-  has_many :analysis_requests
+  has_many :analysis_requests, dependent: :destroy
   has_many :analysis_responses, through: :analysis_requests
 
   # Hooks

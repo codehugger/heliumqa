@@ -33,6 +33,7 @@ document.addEventListener('turbolinks:load', () => {
   $('.datepicker').datepicker({
     format: "yyyy-mm-dd",
     todayHighlight: true,
-    todayBtn: true
+    todayBtn: true,
+    orientation: "bottom"
   });
 })
