@@ -8,7 +8,7 @@ class InspectionFilePreviewUploader < Shrine
   process(:store) do |io, context|
     original = io.download
 
-    pipeline = ImageProcessing::Vips
+    pipeline = ImageProcessing::MiniMagick
       .source(original)
       .convert("png")
 

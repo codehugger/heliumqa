@@ -112,9 +112,6 @@ gem 'cocoon'
 # math and logic formula parser and evaluator
 gem 'dentaku'
 
-# Ruby extension for the libvips image processing library.
-gem 'ruby-vips'
-
 # Rails Assets (https://rails-assets.org)
 gem 'rails-assets-toastr', source: 'https://rails-assets.org'
 
