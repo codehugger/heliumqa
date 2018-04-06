@@ -1,0 +1,37 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-12">
+    <h2><strong><%= @scan_protocol_matcher.label %></strong> - Edit</h2>
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to "Scan Protocols", scan_protocols_path %>
+      </li>
+      <li>
+        <%= link_to @scan_protocol_matcher.scan_protocol, @scan_protocol_matcher.scan_protocol %>
+      </li>
+      <li>
+        <%= link_to "Matchers", @scan_protocol_matcher.scan_protocol %>
+      </li>
+      <li>
+        <%= link_to @scan_protocol_matcher.label, scan_protocol_matcher_path(@scan_protocol_matcher) %>
+      </li>
+      <li class="active">
+        <strong>Edit</strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>New Scan Protocol Matcher</h5>
+        </div>
+        <div class="ibox-content">
+          <%= render 'form', scan_protocol_matcher: @scan_protocol_matcher %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

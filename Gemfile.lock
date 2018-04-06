@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/dicom/ruby-dicom.git
-  revision: efe2ca6446e486fa28be1d49b2bb70cc13a0a82e
+  revision: da0f97ed00a5e72f076730d36b747a3686e6a746
   specs:
-    dicom (0.9.7)
+    dicom (0.9.8)
 
 GIT
   remote: https://github.com/spectralis/spectralis_ext.git
@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/thoughtbot/administrate.git
-  revision: eb1c9f81c3f126aa0de7e9bf90954d5e1b2fb961
+  revision: 7f56e7ca93726e210cea15865c970205a0533045
   specs:
     administrate (0.9.0)
       actionpack (>= 4.2, < 5.2)
@@ -29,6 +29,7 @@ GIT
 
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actioncable (5.1.5)
       actionpack (= 5.1.5)
@@ -75,10 +76,10 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     amq-protocol (2.3.0)
     arel (8.0.0)
-    autoprefixer-rails (8.1.0.1)
+    autoprefixer-rails (8.2.0)
       execjs
-    aws-partitions (1.70.0)
-    aws-sdk-core (3.17.0)
+    aws-partitions (1.72.0)
+    aws-sdk-core (3.17.1)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
@@ -100,7 +101,7 @@ GEM
     builder (3.2.3)
     bunny (2.9.2)
       amq-protocol (~> 2.3.0)
-    byebug (10.0.0)
+    byebug (10.0.1)
     capybara (2.18.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -112,14 +113,23 @@ GEM
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     choice (0.2.0)
+    cocoon (1.2.11)
     coderay (1.1.2)
+    coffee-rails (4.2.2)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
     crass (1.0.3)
     curb (0.9.4)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
-    devise (4.4.2)
+    dentaku (3.2.0)
+    devise (4.4.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 6.0)
@@ -139,11 +149,13 @@ GEM
       thor (~> 0.14)
     font-awesome-rails (4.7.0.3)
       railties (>= 3.2, < 5.2)
+    friendly_id (5.2.3)
+      activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
-    image_processing (0.4.5)
+    image_processing (0.10.3)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -168,7 +180,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.2.0)
+    loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.0)
@@ -178,10 +190,11 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
-    momentjs-rails (2.17.1)
+    momentjs-rails (2.20.1)
       railties (>= 3.1)
     multi_json (1.13.1)
-    nio4r (2.2.0)
+    mustache (1.0.5)
+    nio4r (2.3.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
@@ -213,6 +226,9 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.1.5)
       sprockets-rails (>= 2.0.0)
+    rails-assets-jquery (2.2.4)
+    rails-assets-toastr (2.1.3)
+      rails-assets-jquery (>= 1.6.3, < 3)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -221,20 +237,20 @@ GEM
       activesupport (>= 3.2)
       choice (~> 0.2.0)
       ruby-graphviz (~> 1.2)
-    rails-html-sanitizer (1.0.3)
-      loofah (~> 2.0)
+    rails-html-sanitizer (1.0.4)
+      loofah (~> 2.2, >= 2.2.2)
     railties (5.1.5)
       actionpack (= 5.1.5)
       activesupport (= 5.1.5)
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (12.3.0)
+    rake (12.3.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     redis (4.0.1)
-    request_store (1.4.0)
+    request_store (1.4.1)
       rack (>= 1.4)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
@@ -242,9 +258,11 @@ GEM
     roda (3.5.0)
       rack
     ruby-graphviz (1.2.3)
+    ruby-vips (2.0.9)
+      ffi (~> 1.9)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
-    sass (3.5.5)
+    sass (3.5.6)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -295,7 +313,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webpacker (3.3.1)
+    webpacker (3.4.1)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
@@ -316,29 +334,36 @@ PLATFORMS
 DEPENDENCIES
   administrate!
   aws-sdk-s3
+  bcrypt (~> 3.1.7)
   bootstrap-datepicker-rails
   bootstrap-sass (~> 3.3.7)
   bunny
   byebug
   capybara (~> 2.13)
   chartkick
+  cocoon
+  coffee-rails (~> 4.2)
+  dentaku
   devise
   dicom!
   draper
   figaro
   font-awesome-rails (~> 4.7.0.1)
+  friendly_id
   image_processing
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mini_magick (>= 4.3.5)
+  mustache (~> 1.0)
   pg (~> 0.18)
   pry-rails
   puma (~> 3.7)
   rack-timeout
-  rails (~> 5.1.4)
+  rails-assets-toastr!
   rails-erd
   redis (~> 4.0)
   roda
+  ruby-vips
   sass-rails (~> 5.0)
   selenium-webdriver
   shrine
@@ -350,7 +375,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
-  webpacker (~> 3.2)
+  webpacker
   zipline
 
 BUNDLED WITH

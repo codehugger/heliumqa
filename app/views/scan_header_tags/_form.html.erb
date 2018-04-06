@@ -1,0 +1,37 @@
+<%= form_with(model: scan_header_tag, local: true) do |form| %>
+  <% if scan_header_tag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(scan_header_tag.errors.count, "error") %> prohibited this scan_header_tag from being saved:</h2>
+
+      <ul>
+      <% scan_header_tag.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :mime_type_id %>
+    <%= form.text_field :mime_type_id, id: :scan_header_tag_mime_type_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :key %>
+    <%= form.text_area :key, id: :scan_header_tag_key %>
+  </div>
+
+  <div class="field">
+    <%= form.label :label %>
+    <%= form.text_area :label, id: :scan_header_tag_label %>
+  </div>
+
+  <div class="field">
+    <%= form.label :value_type %>
+    <%= form.text_area :value_type, id: :scan_header_tag_value_type %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

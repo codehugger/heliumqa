@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
   def show
-    @analysis = Analysis.find(params[:id])
+    @analysis = Analysis.friendly.find(params[:id])
   end
 end

@@ -46,10 +46,10 @@
                   <%= analysis.created_at %>
                 </td>
                 <td class="project-actions">
-                  <%= link_to analysis, class: 'btn btn-white btn-sm' do %>
+                  <%= link_to analysis, class: 'btn btn-white btn-xs' do %>
                   <i class="fa fa-refresh"></i>
                   <% end %>
-                  <%= link_to analysis, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
+                  <%= link_to analysis, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' do %>
                   <i class="fa fa-times"></i>
                   <% end %>
                 </td>
@@ -62,6 +62,7 @@
     </div>
   </div>
   <% end %>
+
   <div class="row">
     <div class="col-sm-12">
       <div class="ibox float-e-margins">
@@ -111,96 +112,18 @@
           </div>
           <% end %>
 
-          <%= render 'inspection_files/inspection_files', inspection_files: @inspection.inspection_files %>
+          <%= render 'inspection_files/inspection_files_by_group', inspection_files: @inspection.inspection_files %>
 
-          <% if @inspection.inspection_files.unprofiled.count > 0 %>
-          <div class="panel-group" id="accordionUnprofiled">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h5 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordionUnprofiled" href="#collapseUnprofiled" aria-expanded="true">Unprofiled (<%= @inspection.inspection_files.unprofiled.count %>)</a>
-                </h5>
-              </div>
-              <div id="collapseUnprofiled" class="panel-collapse collapse" aria-expanded="true">
-                <div class="panel-body">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>Preview</th>
-                        <th>File</th>
-                        <th>Type</th>
-                        <th>Modality</th>
-                        <th style="text-align: right">Actions</th>
-                      </tr>
-                    </thead>
-
-                    <tbody>
-                      <% @inspection.inspection_files.unprofiled.each do |dicom_file| %>
-                      <tr>
-                        <td class="dicom-file-preview">
-                          <div id="dicomImage" style="">
-                            <%= image_tag dicom_file.file[:thumbnail].url, style: 'width:50px;height:50px;' %>
-                          </div>
-                        </td>
-                        <td class="dicom-file-name">
-                          <span class="text-overflow-dynamic-container">
-                            <span class="text-overflow-dynamic-ellipsis">
-                              <% if dicom_file.file %>
-                              <%= dicom_file.file[:original].original_filename %>
-                              <% else %>
-                              <span class="text-danger">No file</span>
-                              <% end %>
-                            </span>
-                          </span>
-                        </td>
-                        <td>
-                          <% if dicom_file.file %>
-                          <%= dicom_file.file[:original].mime_type %>
-                          <% else %>
-                          <span class="text-danger">n/a</span>
-                          <% end %>
-                        </td>
-                        <td>
-                          <%= dicom_file.modality %>
-                        </td>
-                        <td class="text-right">
-                          <%= link_to new_equipment_profile_path(inspection_file_id: dicom_file.id), class: "btn btn-white btn-sm" do %>
-                            <i class="fa fa-flask"></i>
-                          <% end %>
-                          <%= link_to dicom_file, class: "btn btn-white btn-sm" do %>
-                            <i class="fa fa-info"></i>
-                          <% end %>
-                          <% if dicom_file.file %>
-                            <%= link_to dicom_file.file_url(:original), download: dicom_file.file[:original].original_filename, class: "btn btn-white btn-sm" do %>
-                              <i class="fa fa-download"></i>
-                            <% end %>
-                          <% end %>
-                          <% unless @inspection.analysis_requests.first %>
-                            <%= link_to dicom_file, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
-                              <i class="fa fa-times"></i>
-                            <% end %>
-                          <% end %>
-                        </td>
-                      </tr>
-                      <% end %>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <% end %>
-
-          <h4>Something not profiled correctly?</h4>
-          <%= link_to reprofile_files_inspection_path(@inspection), class: 'btn btn-white btn-lg btn-block', method: :post do %>
-            <i class="fa fa-flask"></i>
-            Profile again
+          <h4>Some files not matched correctly?</h4>
+          <%= button_to match_scan_protocols_inspection_path(@inspection), class: 'btn btn-white btn-lg btn-block', method: :post do %>
+          <i class="fa fa-flask"></i>
+          Match Scan Protocols
           <% end %>
 
           <h4>Need your files back?</h4>
           <%= link_to download_files_inspection_path(@inspection), class: 'btn btn-white btn-lg btn-block' do %>
-            <i class="fa fa-download"></i>
-            Download files as zip
+          <i class="fa fa-download"></i>
+          Download
           <% end %>
         </div>
       </div>

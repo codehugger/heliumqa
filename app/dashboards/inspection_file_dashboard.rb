@@ -9,12 +9,12 @@ class InspectionFileDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     inspection: Field::BelongsTo,
-    equipment_profile: Field::BelongsTo,
+    scan_protocol: Field::BelongsTo,
     id: Field::Number,
     file_data: Field::String.with_options(searchable: false),
-    profile_header: Field::String.with_options(searchable: false),
-    profiled_at: Field::DateTime,
-    probed_at: Field::DateTime,
+    scan_header: Field::String.with_options(searchable: false),
+    scanned_at: Field::DateTime,
+    matched_at: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -26,7 +26,7 @@ class InspectionFileDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :inspection,
-    :equipment_profile,
+    :scan_protocol,
     :id,
     :file_data,
   ].freeze
@@ -35,12 +35,12 @@ class InspectionFileDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :inspection,
-    :equipment_profile,
+    :scan_protocol,
     :id,
     :file_data,
-    :profile_header,
-    :profiled_at,
-    :probed_at,
+    :scan_header,
+    :scanned_at,
+    :matched_at,
     :created_at,
     :updated_at,
   ].freeze
@@ -50,11 +50,11 @@ class InspectionFileDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :inspection,
-    :equipment_profile,
+    :scan_protocol,
     :file_data,
-    :profile_header,
-    :profiled_at,
-    :probed_at,
+    :scan_header,
+    :scanned_at,
+    :matched_at,
   ].freeze
 
   # Overwrite this method to customize how inspection files are displayed

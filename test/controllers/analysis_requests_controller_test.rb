@@ -17,7 +17,7 @@ class AnalysisRequestsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create analysis_request" do
     assert_difference('AnalysisRequest.count') do
-      post analysis_requests_url, params: { analysis_request: { analysis_id: @analysis_request.analysis_id, equipment_profile_id: @analysis_request.equipment_profile_id } }
+      post analysis_requests_url, params: { analysis_request: { analysis_id: @analysis_request.analysis_id, scan_protocol_id: @analysis_request.scan_protocol_id } }
     end
 
     assert_redirected_to analysis_request_url(AnalysisRequest.last)
@@ -34,7 +34,7 @@ class AnalysisRequestsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update analysis_request" do
-    patch analysis_request_url(@analysis_request), params: { analysis_request: { analysis_id: @analysis_request.analysis_id, equipment_profile_id: @analysis_request.equipment_profile_id } }
+    patch analysis_request_url(@analysis_request), params: { analysis_request: { analysis_id: @analysis_request.analysis_id, scan_protocol_id: @analysis_request.scan_protocol_id } }
     assert_redirected_to analysis_request_url(@analysis_request)
   end
 

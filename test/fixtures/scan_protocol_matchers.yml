@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scan_protocol: one
+  matcher: one
+  matcher_type: Matcher
+  scan_header_tag: one
+
+two:
+  scan_protocol: two
+  matcher: two
+  matcher_type: Matcher
+  scan_header_tag: two

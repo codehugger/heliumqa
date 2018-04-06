@@ -1,80 +1,75 @@
-<% inspection_files.grouped_by_profile.each do |profile, inspection_files| %>
-<% next unless profile %>
-<div class="panel-group" id="accordion<%= profile.id %>">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h5 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion<%= profile.id %>" href="#collapse<%= profile.id %>" aria-expanded="true"><%= profile %> (<%= inspection_files.count %>)</a>
-      </h5>
-    </div>
-    <div id="collapse<%= profile.id %>" class="panel-collapse collapse in" aria-expanded="true">
-      <div class="panel-body">
-        <% if @inspection.inspection_files.count > 0 %>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Preview</th>
-              <th>File</th>
-              <th>Type</th>
-              <th>Modality</th>
-              <th style="text-align: right">Actions</th>
-            </tr>
-          </thead>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Preview</th>
+        <th>Status</th>
+        <th>Filename</th>
+        <th>Mime Type</th>
+        <th>Modality</th>
+        <th>Scan Protocol</th>
+        <th>Scan Series</th>
+        <th>Equipment</th>
+        <th style="text-align: right">Actions</th>
+      </tr>
+    </thead>
 
-          <tbody>
-            <% inspection_files.each do |dicom_file| %>
-            <tr>
-              <td class="dicom-file-preview">
-                <div id="dicomImage" style="">
-                  <%= image_tag dicom_file.file[:preview].url, style: 'width:50px;height:50px;' %>
-                </div>
-              </td>
-              <td class="dicom-file-name">
-                <span class="text-overflow-dynamic-container">
-                  <span class="text-overflow-dynamic-ellipsis">
-                    <% if dicom_file.file %>
-                    <%= dicom_file.file[:original].original_filename %>
-                    <% else %>
-                    <span class="text-danger">No file</span>
-                    <% end %>
-                  </span>
-                </span>
-              </td>
-              <td>
-                <% if dicom_file.file %>
-                <%= dicom_file.file[:original].mime_type %>
-                <% else %>
-                <span class="text-danger">n/a</span>
-                <% end %>
-              </td>
-              <td>
-                <%= dicom_file.modality %>
-              </td>
-              <td class="text-right">
-                <%= link_to dicom_file, class: "btn btn-white btn-sm" do %>
-                <i class="fa fa-info"></i>
-                <% end %>
-                <% if dicom_file.file %>
-                <%= link_to new_equipment_profile_path(inspection_file_id: dicom_file.id), class: "btn btn-white btn-sm" do %>
-                <i class="fa fa-flask"></i>
-                <% end %>
-                <%= link_to dicom_file.file_url(:original), download: dicom_file.file[:original].original_filename, class: "btn btn-white btn-sm" do %>
-                <i class="fa fa-download"></i>
-                <% end %>
-                <% end %>
-                <% unless @inspection.analysis_requests.first %>
-                <%= link_to dicom_file, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
-                <i class="fa fa-times"></i>
-                <% end %>
-                <% end %>
-              </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
+    <tbody>
+      <% inspection_files.collect(&:decorate).each do |inspection_file| %>
+      <tr>
+        <td>
+          <% if !inspection_file.preview.blank? &&  %>
+          <%= image_tag inspection_file.preview.file_url(:tiny) %>
+          <% else %>
+          n/a
+          <% end %>
+        </td>
+        <td>
+          <%= inspection_file.status %>
+        </td>
+        <td>
+          <span class="text-overflow-dynamic-container">
+            <span class="text-overflow-dynamic-ellipsis">
+              <% if inspection_file.file %>
+              <%= inspection_file.file.original_filename %>
+              <% else %>
+              <span class="text-danger">No file</span>
+              <% end %>
+            </span>
+          </span>
+        </td>
+        <td>
+          <%= inspection_file.try(:mime_type).blank? ? 'n/a' : inspection_file.mime_type %>
+        </td>
+        <td>
+          <%= inspection_file.try(:modality).blank? ? 'n/a' :  inspection_file.modality %>
+        </td>
+        <td>
+          <% if inspection_file.scan_protocol.blank? %>n/a<% else %><%= link_to inspection_file.scan_protocol, inspection_file.scan_protocol %><% end %>
+        </td>
+        <td>
+          <% if inspection_file.scan_series.blank? %>n/a<% else %><%= link_to inspection_file.scan_series, inspection_file.scan_series %><% end %>
+        </td>
+        <td>
+          <%= link_to inspection_file.equipment, inspection_file.equipment %>
+        </td>
+        <td>
+          <div class="dropdown pull-right">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="fa fa-cog"></i>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dLabel">
+              <li><%= link_to 'Show Info', inspection_file %></li>
+              <li><%= link_to 'Download', inspection_file.file_url, download: inspection_file.file.original_filename %></li>
+              <li><%= link_to 'Create Protocol', new_site_scan_protocol_path(inspection_file.inspection.site, inspection_file_id: inspection_file.id) %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to 'Delete', inspection_file, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
       <% end %>
-    </div>
-  </div>
+    </tbody>
+  </table>
 </div>
-<% end %>

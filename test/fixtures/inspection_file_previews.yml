@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inspection_file: one
+  file_data: 
+
+two:
+  inspection_file: two
+  file_data: 

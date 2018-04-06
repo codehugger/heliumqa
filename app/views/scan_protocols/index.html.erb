@@ -1,0 +1,62 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-12">
+    <h2>Scan Protocols</h2>
+    <ol class="breadcrumb">
+      <li class="active">
+        <strong>Scan Protocols</strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>Scan Protocols</h5>
+          <div class="ibox-tools">
+            <%= link_to new_scan_protocol_path, class: 'btn btn-primary btn-xs' do %>
+              <i class="fa fa-plus"></i> Scan Protocol
+            <% end %>
+          </div>
+        </div>
+        <div class="ibox-content">
+          <div class="table-responsive">
+            <table class="table table-hover table-fixed">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Site</th>
+                  <th>Matchers</th>
+                  <th>Matched Files</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @scan_protocols.each do |scan_protocol| %>
+                <tr>
+                  <td><%= link_to scan_protocol, scan_protocol %></td>
+                  <td><%= link_to scan_protocol.site, scan_protocol.site %></td>
+                  <td>
+                    <%= scan_protocol.matchers.count %>
+                  </td>
+                  <td><%= scan_protocol.inspection_files.count %></td>
+                  <td class="project-actions">
+                    <%= link_to edit_scan_protocol_path(scan_protocol), class: 'btn btn-white btn-xs' do %>
+                    <i class="fa fa-pencil"></i>
+                    <% end %>
+                    <%= link_to scan_protocol, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' do %>
+                    <i class="fa fa-times"></i>
+                    <% end %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

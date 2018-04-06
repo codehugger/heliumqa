@@ -1,0 +1,38 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-12">
+    <h2><%= @scan_protocol_matcher %></h2>
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to 'Sites', sites_path %>
+      </li>
+      <li class="active">
+        <strong><%= @scan_protocol_matcher %></strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Site Details</h5>
+          <div class="ibox-tools">
+            <%= link_to edit_scan_protocol_matcher_path(@scan_protocol_matcher), class: 'btn btn-primary btn-xs' do %>
+            <i class="fa fa-pencil"></i> Edit
+            <% end %>
+          </div>
+        </div>
+        <div class="ibox-content">
+          <dl class="dl-horizontal">
+            <dt>Tag</dt>
+            <dd><%= link_to @scan_protocol_matcher.scan_header_tag, @scan_protocol_matcher.scan_header_tag %></dd>
+            <dt>Matcher</dt>
+            <dd><code><%= @scan_protocol_matcher.matcher %></code></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

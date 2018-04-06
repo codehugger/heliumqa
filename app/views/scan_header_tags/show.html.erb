@@ -1,0 +1,68 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-12">
+    <h2><%= @scan_header_tag %></h2>
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to 'Scan Header Tags', sites_path %>
+      </li>
+      <li class="active">
+        <strong><%= @scan_header_tag %></strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Scan Header Tag Details</h5>
+          <div class="ibox-tools">
+            <%= link_to edit_scan_header_tag_path(@scan_header_tag), class: 'btn btn-primary btn-xs' do %>
+            <i class="fa fa-pencil"></i> Edit
+            <% end %>
+          </div>
+        </div>
+        <div class="ibox-content">
+          <dl class="dl-horizontal">
+            <dt>Key</dt>
+            <dd><%= @scan_header_tag.key %></dd>
+            <dt>Label</dt>
+            <dd><%= @scan_header_tag.label %></dd>
+            <dt>Mime Type</dt>
+            <dd><%= @scan_header_tag.mime_type %></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margin">
+        <div class="ibox-title"><h5>Protocol Usage</h5></div>
+        <div class="ibox-content">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Site</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @scan_header_tag.scan_protocols.uniq.each do |protocol| %>
+                <tr>
+                  <td><%= link_to protocol.name, protocol %></td>
+                  <td><%= link_to protocol.site, protocol.site %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

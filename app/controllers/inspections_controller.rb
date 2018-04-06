@@ -5,7 +5,7 @@ class InspectionsController < ApplicationController
   include Zipline
 
   before_action :set_equipment, only: [:new]
-  before_action :set_inspection, only: [:show, :edit, :update, :destroy, :download_files, :reprofile_files]
+  before_action :set_inspection, only: [:show, :edit, :update, :destroy, :download_files, :match_scan_protocols]
 
   # GET /inspections
   # GET /inspections.json
@@ -69,32 +69,26 @@ class InspectionsController < ApplicationController
     end
   end
 
-  # POST /inspections/1/reprofile_files
-  def reprofile_files
-    @inspection.inspection_files.each { |f| f.match_profile(force: true); f.save }
-    redirect_to @inspection, notice: 'Inspection files successfully reprofiled.'
+  # POST /inspections/1/match_scan_protocols
+  def match_scan_protocols
+    @inspection.inspection_files.each { |f| f.match_scan_protocol(force: true); f.save }
+    redirect_to @inspection, notice: 'Inspection files successfully re-analyzed.'
   end
 
   # GET /inspections/1/download_files
   def download_files
-    # file_value_documents.map { |doc| [doc.document, doc.document_file_name] }
-    files = @inspection.inspection_files
-    original_files = files.map { |f| [f.file[:original], f.original_filename] }
-    # also download previews
-    if params[:with_preview]
-      original_files += files.map { |f| [f.file[:preview], "#{f.original_filename}.png"] }
-    end
-    zipline(original_files, "inspection_files_#{@inspection.key}.zip")
+    files = @inspection.inspection_files.map { |f| [f.file, f.original_filename] }
+    zipline(files, "#{@inspection.key}.zip")
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_inspection
-      @inspection = Inspection.find(params[:id])
+      @inspection = current_account.inspections.friendly.find(params[:id])
     end
 
     def set_equipment
-      @equipment = Equipment.find(params[:equipment_id]) if params[:equipment_id]
+      @equipment = current_account.equipment.find(params[:equipment_id]) if params[:equipment_id]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

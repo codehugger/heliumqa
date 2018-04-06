@@ -1,0 +1,28 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-12">
+    <h2>Edit Scan Protocol</h2>
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to 'Scan Protocols', scan_protocols_path %>
+      </li>
+      <li class="active">
+        <%= link_to @scan_protocol.id, @scan_protocol %>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>Edit Scan Protocol</h5>
+        </div>
+        <div class="ibox-content">
+          <%= render 'form', scan_protocol: @scan_protocol %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

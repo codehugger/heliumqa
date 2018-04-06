@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @mime_type.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @mime_type.description %>
+</p>
+
+<%= link_to 'Edit', edit_mime_type_path(@mime_type) %> |
+<%= link_to 'Back', mime_types_path %>

@@ -3,7 +3,7 @@
     <h2>Analysis: <%= @analysis %></h2>
     <ol class="breadcrumb">
       <li>
-        <%= link_to 'analysis', analyses_path %>
+        <%= link_to 'Analyses', analyses_path %>
       </li>
       <li class="active">
         <strong><%= @analysis %></strong>
@@ -18,11 +18,6 @@
       <div class="ibox float-e-margins">
         <div class="ibox-title">
           <h5>Analysis Details</h5>
-          <div class="ibox-tools">
-            <%= link_to edit_analysis_path(@analysis), class: 'btn btn-white btn-xs' do %>
-            <i class="fa fa-refresh"></i> Reprocess
-            <% end %>
-          </div>
         </div>
         <div class="ibox-content">
           <dl class="dl-horizontal">
@@ -35,29 +30,32 @@
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>Report</h5>
+        </div>
+        <div class="ibox-content">
+          <h4>Report</h4>
+          <%= link_to report_path(@analysis), class: 'btn btn-primary btn-block btn-lg' do %>
+          <i class="fa fa-check"></i> View Report
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-lg-12">
       <div class="ibox">
         <div class="ibox-title">
           <h5>Analysis Requests</h5>
         </div>
-        <% @analysis.analysis_requests.each do |request| %>
         <div class="ibox-content">
-          <dl class="dl-horizontal">
-            <dt>Profile</dt>
-            <dd><%= link_to request.equipment_profile, request.equipment_profile %></dd>
-            <dt>Files</dt>
-            <dd>
-              <% request.analysis_request_files.each do |file| %>
-                <%= link_to file.original_filename, file.original_url %>
-              <% end %>
-            </dd>
-            <dt>Request</dt>
-            <dd><pre><%= request.request_data.to_json %></pre></dd>
-            <dt>Response</dt>
-            <dd><pre><%= request.analysis_response.response_data.to_json if request.analysis_response %></pre></dd>
+          <%= render 'analysis_requests/analysis_requests', analysis_requests: @analysis.analysis_requests %>
         </div>
-        <% end %>
       </div>
     </div>
   </div>

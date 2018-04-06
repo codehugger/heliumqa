@@ -14,7 +14,7 @@ class AccountDashboard < Administrate::BaseDashboard
     inspection_files: Field::HasMany,
     analyses: Field::HasMany,
     analysis_requests: Field::HasMany,
-    equipment_profiles: Field::HasMany,
+    scan_protocols: Field::HasMany,
     id: Field::Number,
     name: Field::String,
     created_at: Field::DateTime,
@@ -42,7 +42,7 @@ class AccountDashboard < Administrate::BaseDashboard
     :inspection_files,
     :analyses,
     :analysis_requests,
-    :equipment_profiles,
+    :scan_protocols,
     :id,
     :name,
     :created_at,
@@ -59,7 +59,7 @@ class AccountDashboard < Administrate::BaseDashboard
     :inspection_files,
     :analyses,
     :analysis_requests,
-    :equipment_profiles,
+    :scan_protocols,
     :name,
   ].freeze
 

@@ -9,7 +9,7 @@ class AnalysisRequestDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     analysis: Field::BelongsTo,
-    equipment_profile: Field::BelongsTo,
+    scan_protocol: Field::BelongsTo,
     analysis_response: Field::HasOne,
     analysis_request_files: Field::HasMany,
     id: Field::Number,
@@ -26,7 +26,7 @@ class AnalysisRequestDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :analysis,
-    :equipment_profile,
+    :scan_protocol,
     :analysis_response,
     :analysis_request_files,
   ].freeze
@@ -35,7 +35,7 @@ class AnalysisRequestDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :analysis,
-    :equipment_profile,
+    :scan_protocol,
     :analysis_response,
     :analysis_request_files,
     :id,
@@ -50,7 +50,7 @@ class AnalysisRequestDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :analysis,
-    :equipment_profile,
+    :scan_protocol,
     :analysis_response,
     :analysis_request_files,
     :key,

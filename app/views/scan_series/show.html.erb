@@ -1,0 +1,47 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-12">
+    <h2><%= @scan_series %></h2>
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to 'Scan Series', scan_series_index_path %>
+      </li>
+      <li class="active">
+        <strong><%= @scan_series %></strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Scan Series Details</h5>
+        </div>
+        <div class="ibox-content">
+          <dl class="dl-horizontal">
+            <dt>UID</dt>
+            <dd><%= @scan_series.uid %></dd>
+            <dt>Number</dt>
+            <dd><%= @scan_series.number %></dd>
+            <dt>Description</dt>
+            <dd><%= @scan_series.description %></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>Files (<%= @scan_series.inspection_files.count %>)</h5>
+        </div>
+        <div class="ibox-content">
+          <%= render 'inspection_files/inspection_files', inspection_files: @scan_series.inspection_files %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

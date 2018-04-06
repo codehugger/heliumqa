@@ -1,14 +1,59 @@
-<p id="notice"><%= notice %></p>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-8">
+    <h2>
+      <strong><%= @analysis_request.key %></strong>
+      (<%= @analysis_request.created_at.to_date.to_s(:db) %>)
+    </h2>
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to 'Analyses', analyses_path %>
+      </li>
+      <li>
+        <%= link_to 'Analysis Requests', analysis_analysis_requests_path(@analysis_request.analysis) %>
+      </li>
+      <li class="active">
+        <strong><%= @analysis_request %></strong>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-4" class="page-heading-toolbox">
+    <%= link_to 'View Report', report_path(@analysis_request.analysis), class: 'btn btn-primary btn-block btn-lg' %>
+  </div>
+</div>
 
-<p>
-  <strong>Analysis:</strong>
-  <%= @analysis_request.analysis %>
-</p>
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Details</h5>
+        </div>
+        <div class="ibox-content">
+          <dl class="dl-horizontal">
+            <dt>File Count</dt>
+            <dd><%= @analysis_request.inspection_files.count %></dd>
+            <dt>Request Data</dt>
+            <dd><%= @analysis_request.request_data %></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Equipment profile:</strong>
-  <%= @analysis_request.equipment_profile %>
-</p>
-
-<%= link_to 'Edit', edit_analysis_request_path(@analysis_request) %> |
-<%= link_to 'Back', analysis_requests_path %>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>Files</h5>
+        </div>
+        <div class="ibox-content">
+          <% if @analysis_request.inspection_files.count > 0 %>
+          <%= render 'inspection_files/inspection_files', inspection_files: @analysis_request.inspection_files %>
+          <% else %>
+            <p>No files found.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

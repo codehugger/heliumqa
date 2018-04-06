@@ -1,0 +1,18 @@
+<div class="table-responsive">
+  <% analysis_requests.each do |req| %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>File count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= link_to req, req %></td>
+          <td><%= req.inspection_files.count %></td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+</div>

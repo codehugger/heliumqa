@@ -17,7 +17,13 @@ class InspectionFilesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create inspection_file" do
     assert_difference('InspectionFile.count') do
-      post inspection_files_url, params: { inspection_file: { equipment_profile_id: @inspection_file.equipment_profile_id, file_data: @inspection_file.file_data, inspection_id: @inspection_file.inspection_id, probed_at: @inspection_file.probed_at, profile_header: @inspection_file.profile_header, profiled_at: @inspection_file.profiled_at } }
+      post inspection_files_url, params: { inspection_file: {
+        scan_protocol_id: @inspection_file.scan_protocol_id,
+        file_data: @inspection_file.file_data,
+        inspection_id: @inspection_file.inspection_id,
+        probed_at: @inspection_file.probed_at,
+        profile_header: @inspection_file.profile_header,
+        profiled_at: @inspection_file.profiled_at } }
     end
 
     assert_redirected_to inspection_file_url(InspectionFile.last)
@@ -34,7 +40,13 @@ class InspectionFilesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update inspection_file" do
-    patch inspection_file_url(@inspection_file), params: { inspection_file: { equipment_profile_id: @inspection_file.equipment_profile_id, file_data: @inspection_file.file_data, inspection_id: @inspection_file.inspection_id, probed_at: @inspection_file.probed_at, profile_header: @inspection_file.profile_header, profiled_at: @inspection_file.profiled_at } }
+    patch inspection_file_url(@inspection_file), params: { inspection_file: {
+      scan_protocol_id: @inspection_file.scan_protocol_id,
+      file_data: @inspection_file.file_data,
+      inspection_id: @inspection_file.inspection_id,
+      probed_at: @inspection_file.probed_at,
+      profile_header: @inspection_file.profile_header,
+      profiled_at: @inspection_file.profiled_at } }
     assert_redirected_to inspection_file_url(@inspection_file)
   end
 

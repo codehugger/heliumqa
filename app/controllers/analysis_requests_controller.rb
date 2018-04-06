@@ -69,6 +69,6 @@ class AnalysisRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def analysis_request_params
-      params.require(:analysis_request).permit(:analysis_id, :equipment_profile_id)
+      params.require(:analysis_request).permit(:analysis_id, :scan_protocol_id)
     end
 end

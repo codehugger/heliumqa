@@ -1,0 +1,2 @@
+module ScanProtocolsHelper
+end

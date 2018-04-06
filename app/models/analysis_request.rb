@@ -3,9 +3,10 @@ class AnalysisRequest < ApplicationRecord
 
   # Relationships
   belongs_to :analysis
-  belongs_to :equipment_profile
+  belongs_to :scan_protocol
   has_one :analysis_response, dependent: :destroy
   has_many :analysis_request_files, dependent: :destroy
+  has_many :inspection_files, through: :analysis_request_files
 
   delegate :response_data, to: :analysis_response
 

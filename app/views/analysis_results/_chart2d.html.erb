@@ -1,4 +1,4 @@
 <div class="analysis-result analysis-result-numeric">
-  <h2><%= result["key"] %></h2>
+  <h4><%= result["label"] || result["key"] %></h4>
   <%= line_chart result["series"][0]["data"] %>
 </div>

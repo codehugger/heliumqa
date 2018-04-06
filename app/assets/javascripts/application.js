@@ -24,12 +24,15 @@
 //= require inspinia.js
 //= require Chart.bundle
 //= require chartkick
+//= require cocoon
+//= require turbolinks
 //= require_tree .
 
-$(document).ready(function(){
+// TODO: remove jquery dependency
+document.addEventListener('turbolinks:load', () => {
   $('.datepicker').datepicker({
     format: "yyyy-mm-dd",
     todayHighlight: true,
     todayBtn: true
   });
-});
+})

@@ -14,8 +14,8 @@ class Analysis < ApplicationRecord
   private
 
   def create_analysis_requests
-    inspection.inspection_files.grouped_by_profile.each do |profile, files|
-      request = analysis_requests.find_or_create_by(equipment_profile: profile)
+    inspection.inspection_files.grouped_by_protocol.each do |protocol, files|
+      request = analysis_requests.find_or_create_by(scan_protocol: protocol)
       request.reload
       files.each do |file|
         request.analysis_request_files.create(inspection_file: file)

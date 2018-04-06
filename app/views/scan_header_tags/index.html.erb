@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Scan Header Tags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mime type</th>
+      <th>Key</th>
+      <th>Label</th>
+      <th>Value type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scan_header_tags.each do |scan_header_tag| %>
+      <tr>
+        <td><%= scan_header_tag.mime_type %></td>
+        <td><%= scan_header_tag.key %></td>
+        <td><%= scan_header_tag.label %></td>
+        <td><%= scan_header_tag.value_type %></td>
+        <td><%= link_to 'Show', scan_header_tag %></td>
+        <td><%= link_to 'Edit', edit_scan_header_tag_path(scan_header_tag) %></td>
+        <td><%= link_to 'Destroy', scan_header_tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Scan Header Tag', new_scan_header_tag_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  num_value_1: 
+  operator_1: MyText
+  num_value_2: 
+  operator_2: MyText
+
+two:
+  num_value_1: 
+  operator_1: MyText
+  num_value_2: 
+  operator_2: MyText

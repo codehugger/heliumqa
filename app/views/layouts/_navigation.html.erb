@@ -30,6 +30,12 @@
           <span class="nav-label">Inspections</span>
         <% end %>
       </li>
+      <li class="<%= 'active' if controller.controller_name == 'scan_series' %>">
+        <%= link_to scan_series_index_path, class: 'nav-link' do %>
+          <i class="fa fa-folder" aria-hidden="true"></i>
+          <span class="nav-label">Scan Series</span>
+        <% end %>
+      </li>
       <li class="<%= 'active' if controller.controller_name == 'sites' %>">
         <%= link_to sites_path, class: 'nav-link' do %>
           <i class="fa fa-hospital-o" aria-hidden="true"></i>
@@ -42,10 +48,10 @@
           <span class="nav-label">Equipment</span>
         <% end %>
       </li>
-      <li class="<%= 'active' if controller.controller_name == 'equipment_profiles' %>">
-        <%= link_to equipment_profiles_path, class: 'nav-link' do %>
+      <li class="<%= 'active' if controller.controller_name =~ /scan_protocol/ %>">
+        <%= link_to scan_protocols_path, class: 'nav-link' do %>
           <i class="fa fa-flask" aria-hidden="true"></i>
-          <span class="nav-label">Equipment Profiles</span>
+          <span class="nav-label">Scan Protocols</span>
         <% end %>
       </li>
     </ul>

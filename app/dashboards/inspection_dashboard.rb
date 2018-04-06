@@ -10,7 +10,7 @@ class InspectionDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     equipment: Field::BelongsTo,
     inspection_files: Field::HasMany,
-    equipment_profiles: Field::HasMany,
+    scan_protocols: Field::HasMany,
     analyses: Field::HasMany,
     analysis_requests: Field::HasMany,
     id: Field::Number,
@@ -28,7 +28,7 @@ class InspectionDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :equipment,
     :inspection_files,
-    :equipment_profiles,
+    :scan_protocols,
     :analyses,
   ].freeze
 
@@ -37,7 +37,7 @@ class InspectionDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :equipment,
     :inspection_files,
-    :equipment_profiles,
+    :scan_protocols,
     :analyses,
     :analysis_requests,
     :id,
@@ -53,7 +53,7 @@ class InspectionDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :equipment,
     :inspection_files,
-    :equipment_profiles,
+    :scan_protocols,
     :analyses,
     :analysis_requests,
     :key,

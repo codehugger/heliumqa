@@ -1,0 +1,2 @@
+class MimeType < ApplicationRecord
+end

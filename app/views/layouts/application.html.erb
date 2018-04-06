@@ -7,11 +7,9 @@
   <title>Heliumqa</title>
   <%= csrf_meta_tags %>
 
-  <script src="https://unpkg.com/babel-polyfill@6.26.0/dist/polyfill.min.js"></script>
-  <script src="https://unpkg.com/whatwg-fetch@2.0.3/fetch.js"></script>
-  <script src="https://unpkg.com/uppy@0.22.0/dist/uppy.min.js"></script>
-  <link href="https://unpkg.com/uppy@0.22.0/dist/uppy.min.css" rel="stylesheet" />
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- Vendor css styles -->
+  <link href="//unpkg.com/uppy@0.22.0/dist/uppy.min.css" rel="stylesheet" />
+  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 
   <!-- Main css styles -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -19,7 +17,13 @@
   <!-- Main javascript files -->
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
-  <%= javascript_pack_tag 'application' %>
+  <!-- Vendor javascript files -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script src="//unpkg.com/babel-polyfill@6.26.0/dist/polyfill.min.js"></script>
+  <script src="//unpkg.com/whatwg-fetch@2.0.3/fetch.js"></script>
+  <script src="//unpkg.com/uppy@0.22.0/dist/uppy.min.js"></script>
+  <script src="//unpkg.com/axios/dist/axios.min.js"></script>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-MML-AM_CHTML' async></script>
 </head>
 <body>
 

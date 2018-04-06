@@ -1,5 +1,5 @@
 <div class="analysis-result analysis-result-pass-fail">
-  <h2><%= result["key"] %></h2>
+  <h4><%= result["label"] || result["key"] %></h4>
   <% if result["passes"] %>
     <div class="alert alert-success">
       <strong>PASSES</strong> - <%= result["message"] %>

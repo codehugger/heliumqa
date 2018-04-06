@@ -15,7 +15,7 @@
 <% @analysis.analysis_requests.each do |analysis| %>
 <div class="wrapper wrapper-content article">
   <div class="row">
-    <div class="col-lg-10 col-lg-offset-1">
+    <div class="col-lg-12">
       <div class="ibox">
         <div class="ibox-content">
           <div class="text-center article-title">
@@ -31,13 +31,17 @@
             <div class="tab-content">
               <div id="tab-1" class="tab-pane active">
                 <div class="panel-body">
-                  <% analysis.response_data["results"].each do |result| %>
-                  <div class="row">
-                    <div class="hr-line-dashed"></div>
-                    <div class="col-sm-12">
-                      <%= render "analysis_results/#{result["type"]}", result: result %>
-                    </div>
-                  </div>
+                  <% analysis.response_data["groups"].each do |group| %>
+                    <h3><%= group["label"] %></h3>
+                    <% group["results"].each do |result| %>
+                      <% next if result["hidden"] %>
+                      <div class="row">
+                        <div class="hr-line-dashed"></div>
+                        <div class="col-sm-12">
+                          <%= render "analysis_results/#{result["type"]}", result: result %>
+                        </div>
+                      </div>
+                    <% end %>
                   <% end %>
                 </div>
               </div>

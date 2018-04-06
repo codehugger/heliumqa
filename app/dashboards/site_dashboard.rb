@@ -10,7 +10,7 @@ class SiteDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     account: Field::BelongsTo,
     equipment: Field::HasMany,
-    equipment_profiles: Field::HasMany,
+    scan_protocols: Field::HasMany,
     id: Field::Number,
     name: Field::String,
     created_at: Field::DateTime,
@@ -25,7 +25,7 @@ class SiteDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :account,
     :equipment,
-    :equipment_profiles,
+    :scan_protocols,
     :id,
   ].freeze
 
@@ -34,7 +34,7 @@ class SiteDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :account,
     :equipment,
-    :equipment_profiles,
+    :scan_protocols,
     :id,
     :name,
     :created_at,
@@ -47,7 +47,7 @@ class SiteDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :account,
     :equipment,
-    :equipment_profiles,
+    :scan_protocols,
     :name,
   ].freeze
 

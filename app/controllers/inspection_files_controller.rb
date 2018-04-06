@@ -1,5 +1,5 @@
 class InspectionFilesController < ApplicationController
-  before_action :set_inspection, only: [:index, :new, :create, :download_all, :reprofile_all]
+  before_action :set_inspection, only: [:index, :new, :create]
   before_action :set_inspection_file, only: [:show, :edit, :update, :destroy]
 
   # GET /inspection_files
@@ -66,11 +66,11 @@ class InspectionFilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_inspection_file
-      @inspection_file = InspectionFile.find(params[:id])
+      @inspection_file = current_account.inspection_files.friendly.find(params[:id])
     end
 
     def set_inspection
-      @inspection = Inspection.find(params[:inspection_id])
+      @inspection = current_account.inspections.friendly.find(params[:inspection_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
