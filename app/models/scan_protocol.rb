@@ -1,7 +1,7 @@
 class ScanProtocol < ApplicationRecord
   # Relationships
   belongs_to :site
-  has_many :inspection_files, dependent: :nullify
+  has_many :qa_session_files, dependent: :nullify
   has_many :matchers, class_name: "ScanProtocolMatcher", dependent: :destroy
 
   # Nested attributes

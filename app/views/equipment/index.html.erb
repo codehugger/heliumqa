@@ -1,5 +1,5 @@
 <div class="row wrapper border-bottom white-bg page-heading">
-  <div class="col-sm-12">
+  <div class="col-sm-6">
     <h2>Equipment</h2>
     <ol class="breadcrumb">
       <li class="active">
@@ -7,38 +7,26 @@
       </li>
     </ol>
   </div>
+  <div class="col-sm-6">
+    <div class="title-action">
+      <%= link_to new_equipment_path, class: 'btn btn-primary' do %>
+        <i class="fa fa-plus"></i> Equipment
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <div class="wrapper wrapper-content">
   <div class="row">
     <div class="col-lg-12">
-      <% if current_account.sites.count > 0 %>
       <div class="ibox">
         <div class="ibox-title">
           <h5>Equipment</h5>
-          <div class="ibox-tools">
-            <%= link_to new_equipment_path, class: 'btn btn-primary btn-xs' do %>
-              <i class="fa fa-plus"></i> Equipment
-            <% end %>
-          </div>
         </div>
         <div class="ibox-content">
           <%= render 'equipment/equipment_index', equipment: @equipment %>
         </div>
       </div>
-      <% else %>
-      <div class="ibox">
-        <div class="ibox-title">
-          <h5>Equipment</h5>
-        </div>
-        <div class="ibox-content">
-          <p>You have no sites.</p>
-          <%= link_to new_site_path, class: 'btn btn-primary' do %>
-            Create Site
-          <% end %>
-        </div>
-      </div>
-      <% end %>
     </div>
   </div>
 </div>

@@ -35,33 +35,4 @@
       </div>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="ibox">
-        <div class="ibox-title">
-          <h5>Inspect</h5>
-        </div>
-        <div class="ibox-content">
-          <h4>Inspect now?</h4>
-          <%= link_to new_inspection_path(equipment_id: @equipment), class: 'btn btn-primary btn-block btn-lg' do %>
-          <i class="fa fa-check"></i> Inspect
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="ibox">
-        <div class="ibox-title">
-          <h5>Inspection History</h5>
-        </div>
-        <div class="ibox-content">
-          <%= render 'inspections/inspections', inspections: @equipment.inspections %>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>

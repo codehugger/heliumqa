@@ -81,12 +81,12 @@ scan_header_tags = ScanHeaderTag.create([
 dicom_modality_tag        = ScanHeaderTag.find_by(key: '0008,0060')
 dicom_slice_thickness_tag = ScanHeaderTag.find_by(key: '0018,0050')
 
-# Set up a test account for MR DICOM inspections
+# Set up a test account for MR DICOM QA sessions
 account     = Account.create(name: 'Test Account')
 user        = User.create(email: 'user@example.com', password: 'password', account: account)
 site        = Site.create(name: 'Test Site', account: account)
+qa_session  = QaSession.create(account: account)
 equipment   = Equipment.create(name: 'My MR Machine', site: site)
-inspection  = Inspection.create(performed_at: Date.today.to_s(:db), equipment: equipment)
 mr_protocol = ScanProtocol.create(name: 'ST ~= 1.5', site: site)
 
 mr_modality_matcher = ScanProtocolMatcher.create(

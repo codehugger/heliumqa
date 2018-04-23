@@ -31,7 +31,7 @@
         <div class="ibox-content">
           <dl class="dl-horizontal">
             <dt>File Count</dt>
-            <dd><%= @analysis_request.inspection_files.count %></dd>
+            <dd><%= @analysis_request.qa_session_files.count %></dd>
             <dt>Request Data</dt>
             <dd><%= @analysis_request.request_data %></dd>
           </dl>
@@ -47,8 +47,8 @@
           <h5>Files</h5>
         </div>
         <div class="ibox-content">
-          <% if @analysis_request.inspection_files.count > 0 %>
-          <%= render 'inspection_files/inspection_files', inspection_files: @analysis_request.inspection_files %>
+          <% if @analysis_request.qa_session_files.count > 0 %>
+          <%= render 'qa_session_files/qa_session_files', qa_session_files: @analysis_request.qa_session_files %>
           <% else %>
             <p>No files found.</p>
           <% end %>

@@ -1,9 +1,9 @@
 require "application_system_test_case"
 
-class InspectionFilesTest < ApplicationSystemTestCase
+class QaSessionFilesTest < ApplicationSystemTestCase
   # test "visiting the index" do
-  #   visit inspection_files_url
+  #   visit qa_session_files_url
   #
-  #   assert_selector "h1", text: "InspectionFile"
+  #   assert_selector "h1", text: "QaSessionFile"
   # end
 end

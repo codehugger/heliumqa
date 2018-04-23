@@ -1,12 +1,12 @@
 <div class="row wrapper border-bottom white-bg page-heading article">
   <div class="col-sm-12">
-    <h2>Report - <%= @analysis.equipment %> (Inspected at <%= @analysis.inspection.performed_at.to_date %>)</h2>
+    <h2>Report - <%= @analysis.equipment %> (Inspected at <%= @analysis.qa_session.performed_at.to_date %>)</h2>
     <ol class="breadcrumb">
       <li>
         Reports
       </li>
       <li class="active">
-        <strong><%= link_to @analysis.inspection, @analysis.inspection %></strong>
+        <strong><%= link_to @analysis.qa_session, @analysis.qa_session %></strong>
       </li>
     </ol>
   </div>
@@ -19,7 +19,7 @@
       <div class="ibox">
         <div class="ibox-content">
           <div class="text-center article-title">
-            <span class="text-muted">Inspected at <strong><%= @analysis.inspection.decorate.performed_at_date %></strong></span>
+            <span class="text-muted">Inspected at <strong><%= @analysis.qa_session.decorate.performed_at_date %></strong></span>
             <h1><%= @analysis.equipment %></h1>
             <h2>MagphanRT Analysis</h2>
           </div>
@@ -31,9 +31,21 @@
             <div class="tab-content">
               <div id="tab-1" class="tab-pane active">
                 <div class="panel-body">
-                  <% analysis.response_data["groups"].each do |group| %>
-                    <h3><%= group["label"] %></h3>
-                    <% group["results"].each do |result| %>
+                  <% if analysis.response_data.key?("groups") %>
+                    <% analysis.response_data["groups"].each do |group| %>
+                      <h3><%= group["label"] %></h3>
+                        <% group["results"].each do |result| %>
+                          <% next if result["hidden"] %>
+                          <div class="row">
+                            <div class="hr-line-dashed"></div>
+                            <div class="col-sm-12">
+                              <%= render "analysis_results/#{result["type"]}", result: result %>
+                            </div>
+                          </div>
+                        <% end %>
+                      <% end %>
+                  <% else %>
+                    <% analysis.response_data["results"].each do |result| %>
                       <% next if result["hidden"] %>
                       <div class="row">
                         <div class="hr-line-dashed"></div>

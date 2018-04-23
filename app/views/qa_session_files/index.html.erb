@@ -1,0 +1,31 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-12">
+    <h2>QA Session Files</h2>
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to "QA Sessions", qa_sessions_path %>
+      </li>
+      <li>
+        <%= link_to @qa_session, @qa_session %>
+      </li>
+      <li class="active">
+        <strong>QA Files</strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>QA Files (<%= @qa_session_files.count %>)</h5>
+        </div>
+        <div class="ibox-content">
+          <%= render 'qa_session_files', qa_session_files: @qa_session_files %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

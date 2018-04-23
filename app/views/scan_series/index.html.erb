@@ -26,7 +26,6 @@
                     <th>UID</th>
                     <th>Number</th>
                     <th>File Count</th>
-                    <th>Actions</th>
                   </tr>
                 </thead>
 
@@ -36,15 +35,7 @@
                     <td><%= link_to scan_series, scan_series %></td>
                     <td><%= scan_series.uid %></td>
                     <td><%= scan_series.number %></td>
-                    <td><%= scan_series.inspection_files.count %></td>
-                    <td class="project-actions">
-                      <%= link_to edit_scan_series_path(scan_series), class: 'btn btn-white btn-xs' do %>
-                      <i class="fa fa-pencil"></i>
-                      <% end %>
-                      <%= link_to scan_series, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' do %>
-                      <i class="fa fa-times"></i>
-                      <% end %>
-                    </td>
+                    <td><%= scan_series.qa_session_files.count %></td>
                   </tr>
                   <% end %>
                 </tbody>

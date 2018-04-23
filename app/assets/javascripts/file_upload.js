@@ -37,6 +37,12 @@ function fileUpload(fileInput) {
     }
   })
 
+  uppy.on('complete', (result) => {
+    if (result.failed == 0) {
+      location.reload();
+    }
+  })
+
   uppy.run()
 
   uppy.on('upload-success', function (fileId, data) {
@@ -53,7 +59,7 @@ function fileUpload(fileInput) {
       }
     }
 
-    axios.post(successPath, { inspection_file: { file: uploadedFileData } })
+    axios.post(successPath, { qa_session_file: { file: uploadedFileData } })
     .then(function (response) {
       console.log(response);
     })

@@ -36,10 +36,10 @@
     <div class="col-lg-12">
       <div class="ibox">
         <div class="ibox-title">
-          <h5>Files (<%= @scan_series.inspection_files.count %>)</h5>
+          <h5>Files (<%= @scan_series.qa_session_files.count %>)</h5>
         </div>
         <div class="ibox-content">
-          <%= render 'inspection_files/inspection_files', inspection_files: @scan_series.inspection_files %>
+          <%= render 'qa_session_files/qa_session_files', qa_session_files: @scan_series.qa_session_files %>
         </div>
       </div>
     </div>

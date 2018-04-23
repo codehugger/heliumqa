@@ -1,0 +1,96 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-12">
+    <h2><strong><%= @qa_session_file.file.original_filename %></strong> (<%= @qa_session_file.modality %>)</h2>
+    <ol class="breadcrumb">
+      <li>
+        QaSessions
+      </li>
+      <li>
+        <%= link_to @qa_session_file.qa_session, @qa_session_file.qa_session %>
+      </li>
+      <li>
+        Files
+      </li>
+      <li class="active">
+        <strong><%= link_to @qa_session_file, @qa_session_file %></strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>Preview</h5>
+        </div>
+        <div class="ibox-content">
+          <%= image_tag @qa_session_file.preview.file_url(:medium) %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>Scan Protocol (Matchers)</h5>
+        </div>
+        <div class="ibox-content">
+          <h3><%= @qa_session_file.scan_protocol %></h3>
+          <div class="table-responsive">
+            <table class="table table-condensed table-bordered">
+              <thead>
+                <tr>
+                  <th>Tag</th>
+                  <th>Matcher</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% if @qa_session_file.scan_protocol %>
+                  <% @qa_session_file.scan_protocol.matchers.each do |m| %>
+                  <tr>
+                    <td><%= m.tag %></td>
+                    <td><%= m %></td>
+                  </tr>
+                  <% end %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>Scan Header</h5>
+        </div>
+        <div class="ibox-content">
+          <p><strong>Modality</strong> <%= @qa_session_file.try(:modality) %></p>
+          <div class="table-responsive">
+            <table class="table table-condensed table-bordered">
+              <thead>
+                <tr>
+                  <th>Tag</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @qa_session_file.try(:scan_header).try(:each) do |k, v| %>
+                <tr>
+                  <td><%= k %></td>
+                  <td><%= v %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

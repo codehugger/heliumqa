@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  inspection: one
+  qa_session: one
   equipment_profile: one
-  file_data: 
-  profile_header: 
+  file_data:
+  profile_header:
   profiled_at: 2018-01-24 15:37:56
   probed_at: 2018-01-24 15:37:56
 
 two:
-  inspection: two
+  qa_session: two
   equipment_profile: two
-  file_data: 
-  profile_header: 
+  file_data:
+  profile_header:
   profiled_at: 2018-01-24 15:37:56
   probed_at: 2018-01-24 15:37:56

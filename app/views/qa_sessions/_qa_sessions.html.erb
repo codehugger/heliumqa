@@ -1,0 +1,55 @@
+<% if qa_sessions && qa_sessions.count > 0 %>
+<div class="table-responsive">
+  <table class="table table-hover issue-tracker">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>Nr.</th>
+        <th>Subject</th>
+        <th>Created at</th>
+        <th>Created by</th>
+        <th>Files</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% qa_sessions.order(created_at: :desc).decorate.each do |qa_session| %>
+      <tr>
+        <td>
+          <% if qa_session.analysis_sessions.count > 0 %>
+            <span class="label label-success">Finalized</span>
+          <% else %>
+            <span class="label label-warning">Unfinalized</span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to qa_session.friendly_name, qa_session %>
+        </td>
+        <td>
+          TODO
+        </td>
+        <td>
+          <%= qa_session.created_at %>
+        </td>
+        <td>
+          Bjarki
+        </td>
+        <td>
+          <%= qa_session.qa_session_files.count %>
+        </td>
+        <td class="project-actions">
+          <% if qa_session.analysis_sessions.empty? %>
+            <%= link_to qa_session, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' do %>
+            <i class="fa fa-times"></i>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<% else %>
+<div>
+  <p>No qa_sessions yet.</p>
+</div>
+<% end %>

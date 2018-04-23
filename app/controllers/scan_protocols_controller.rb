@@ -16,10 +16,10 @@ class ScanProtocolsController < ApplicationController
   # GET /scan_protocols/new
   def new
     @scan_protocol = (@site.blank? ? ScanProtocol : @site.scan_protocols).new
-    if params[:inspection_file_id]
-      @inspection_file = current_account.inspection_files.find(params[:inspection_file_id])
-      @scan_protocol.name = "#{@inspection_file.scan_series} -- [GENERATED]"
-      @scan_protocol.matchers << @inspection_file.matchers
+    if params[:qa_session_file_id]
+      @qa_session_file = current_account.qa_session_files.find(params[:qa_session_file_id])
+      @scan_protocol.name = "#{@qa_session_file.scan_series} -- [GENERATED]"
+      @scan_protocol.matchers << @qa_session_file.matchers
     end
   end
 

@@ -69,6 +69,8 @@ class AnalysisResponsesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def analysis_response_params
-      params.require(:analysis_response).permit(:analysis_request_id, :response_data)
+      params.require(:analysis_response).permit(:analysis_request_id).tap do |whitelisted|
+        whitelisted[:response_data] = params[:analysis_response].try(:response_data) || {}
+      end
     end
 end

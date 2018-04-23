@@ -20,7 +20,7 @@ gem 'webpacker'
 # gem 'therubyracer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+# gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -117,3 +117,6 @@ gem 'rails-assets-toastr', source: 'https://rails-assets.org'
 
 # Mustache
 gem 'mustache', '~> 1.0'
+
+# A pure ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard. http://jwt.github.io/ruby-jwt/
+gem 'jwt'

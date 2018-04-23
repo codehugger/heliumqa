@@ -3,25 +3,9 @@ Rails.application.routes.draw do
   resources :scan_header_tags
   resources :mime_types
   require 'sidekiq/web'
+
   authenticate :user do
     mount Sidekiq::Web => '/sidekiq'
-
-    namespace :admin do
-      resources :accounts
-      resources :users
-      resources :inspections
-      resources :analyses
-      resources :analysis_requests
-      resources :analysis_request_files
-      resources :analysis_responses
-      resources :analysis_response_files
-      resources :equipment
-      resources :scan_protocols
-      resources :inspection_files
-      resources :sites
-
-      root to: 'accounts#index'
-    end
   end
 
   devise_for :users, controllers: {
@@ -29,11 +13,9 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
-  mount Shrine.presign_endpoint(:cache) => "/inspection_files/presign", as: 'presign_inspection_files'
+  mount Shrine.presign_endpoint(:cache) => "/qa_session_files/presign", as: 'presign_qa_session_files'
 
-  resources :analysis_response_files
   resources :analysis_responses
-  resources :analysis_request_files
   resources :analyses do
     resources :analysis_requests, shallow: true
   end
@@ -44,13 +26,17 @@ Rails.application.routes.draw do
     resources :scan_protocols, shallow: true
   end
 
-  resources :inspections do
+  resources :analysis_requests do
+    resources :analysis_responses, shallow: true
+  end
+
+  resources :qa_sessions do
     member do
       get :download_files
       post :match_scan_protocols
     end
-    resources :inspection_files, shallow: true
-    resources :analyses, shallow: true
+    resources :qa_session_files, shallow: true
+    resources :analysis_sessions, shallow: true
   end
 
   resources :equipment
@@ -59,6 +45,13 @@ Rails.application.routes.draw do
 
   resources :scan_series
 
-  root to: 'inspections#index'
+  namespace :api do
+    namespace :v1 do
+      resources :accounts
+      resources :auth
+    end
+  end
+
+  root to: 'qa_sessions#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

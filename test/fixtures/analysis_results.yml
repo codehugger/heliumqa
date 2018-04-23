@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  analysis_response: one
+  key: MyText
+  result_type: MyText
+  type: MyText
+  result_data: 
+  file_data: 
+
+two:
+  analysis_response: two
+  key: MyText
+  result_type: MyText
+  type: MyText
+  result_data: 
+  file_data: 

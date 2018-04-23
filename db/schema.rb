@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180405124321) do
+ActiveRecord::Schema.define(version: 20180420155025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,40 +21,15 @@ ActiveRecord::Schema.define(version: 20180405124321) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "analyses", force: :cascade do |t|
-    t.bigint "inspection_id"
-    t.string "key", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["inspection_id"], name: "index_analyses_on_inspection_id"
-  end
-
-  create_table "analysis_request_files", force: :cascade do |t|
-    t.bigint "analysis_request_id"
-    t.bigint "inspection_file_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["analysis_request_id"], name: "index_analysis_request_files_on_analysis_request_id"
-    t.index ["inspection_file_id"], name: "index_analysis_request_files_on_inspection_file_id"
-  end
-
   create_table "analysis_requests", force: :cascade do |t|
-    t.bigint "analysis_id"
-    t.bigint "scan_protocol_id"
+    t.bigint "scan_series_id"
     t.string "key", null: false
     t.jsonb "request_data", default: {}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["analysis_id"], name: "index_analysis_requests_on_analysis_id"
-    t.index ["scan_protocol_id"], name: "index_analysis_requests_on_scan_protocol_id"
-  end
-
-  create_table "analysis_response_files", force: :cascade do |t|
-    t.bigint "analysis_response_id"
-    t.jsonb "file_data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["analysis_response_id"], name: "index_analysis_response_files_on_analysis_response_id"
+    t.bigint "analysis_session_id"
+    t.index ["analysis_session_id"], name: "index_analysis_requests_on_analysis_session_id"
+    t.index ["scan_series_id"], name: "index_analysis_requests_on_scan_series_id"
   end
 
   create_table "analysis_responses", force: :cascade do |t|
@@ -64,6 +39,26 @@ ActiveRecord::Schema.define(version: 20180405124321) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["analysis_request_id"], name: "index_analysis_responses_on_analysis_request_id"
+  end
+
+  create_table "analysis_results", force: :cascade do |t|
+    t.bigint "analysis_response_id"
+    t.text "key"
+    t.text "result_type"
+    t.text "type"
+    t.jsonb "result_data"
+    t.jsonb "file_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["analysis_response_id"], name: "index_analysis_results_on_analysis_response_id"
+    t.index ["key"], name: "index_analysis_results_on_key"
+  end
+
+  create_table "analysis_sessions", force: :cascade do |t|
+    t.bigint "qa_session_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["qa_session_id"], name: "index_analysis_sessions_on_qa_session_id"
   end
 
   create_table "equipment", force: :cascade do |t|
@@ -86,16 +81,23 @@ ActiveRecord::Schema.define(version: 20180405124321) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
-  create_table "inspection_file_previews", force: :cascade do |t|
-    t.bigint "inspection_file_id"
+  create_table "mime_types", force: :cascade do |t|
+    t.text "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "qa_session_file_previews", force: :cascade do |t|
+    t.bigint "qa_session_file_id"
     t.jsonb "file_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["inspection_file_id"], name: "index_inspection_file_previews_on_inspection_file_id"
+    t.index ["qa_session_file_id"], name: "index_qa_session_file_previews_on_qa_session_file_id"
   end
 
-  create_table "inspection_files", force: :cascade do |t|
-    t.bigint "inspection_id"
+  create_table "qa_session_files", force: :cascade do |t|
+    t.bigint "qa_session_id"
     t.bigint "scan_protocol_id"
     t.bigint "scan_series_id"
     t.text "key", null: false
@@ -104,32 +106,25 @@ ActiveRecord::Schema.define(version: 20180405124321) do
     t.text "modality"
     t.jsonb "file_data"
     t.jsonb "scan_header"
-    t.datetime "file_metadata_extracted"
+    t.datetime "scan_attributes_extracted"
     t.datetime "scan_header_extracted"
     t.datetime "scan_protocol_matched"
     t.datetime "preview_generated"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["filename"], name: "index_inspection_files_on_filename"
-    t.index ["inspection_id"], name: "index_inspection_files_on_inspection_id"
-    t.index ["scan_protocol_id"], name: "index_inspection_files_on_scan_protocol_id"
-    t.index ["scan_series_id"], name: "index_inspection_files_on_scan_series_id"
+    t.index ["filename"], name: "index_qa_session_files_on_filename"
+    t.index ["qa_session_id"], name: "index_qa_session_files_on_qa_session_id"
+    t.index ["scan_protocol_id"], name: "index_qa_session_files_on_scan_protocol_id"
+    t.index ["scan_series_id"], name: "index_qa_session_files_on_scan_series_id"
   end
 
-  create_table "inspections", force: :cascade do |t|
-    t.bigint "equipment_id"
+  create_table "qa_sessions", force: :cascade do |t|
+    t.bigint "account_id"
     t.text "key", null: false
     t.datetime "performed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["equipment_id"], name: "index_inspections_on_equipment_id"
-  end
-
-  create_table "mime_types", force: :cascade do |t|
-    t.text "name"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_qa_sessions_on_account_id"
   end
 
   create_table "scan_header_tags", force: :cascade do |t|
@@ -218,18 +213,16 @@ ActiveRecord::Schema.define(version: 20180405124321) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "analyses", "inspections"
-  add_foreign_key "analysis_request_files", "analysis_requests"
-  add_foreign_key "analysis_request_files", "inspection_files"
-  add_foreign_key "analysis_requests", "analyses"
-  add_foreign_key "analysis_requests", "scan_protocols"
-  add_foreign_key "analysis_response_files", "analysis_responses"
+  add_foreign_key "analysis_requests", "analysis_sessions"
+  add_foreign_key "analysis_requests", "scan_series"
   add_foreign_key "analysis_responses", "analysis_requests"
+  add_foreign_key "analysis_results", "analysis_responses"
+  add_foreign_key "analysis_sessions", "qa_sessions"
   add_foreign_key "equipment", "sites"
-  add_foreign_key "inspection_file_previews", "inspection_files"
-  add_foreign_key "inspection_files", "inspections"
-  add_foreign_key "inspection_files", "scan_protocols"
-  add_foreign_key "inspections", "equipment"
+  add_foreign_key "qa_session_file_previews", "qa_session_files"
+  add_foreign_key "qa_session_files", "qa_sessions"
+  add_foreign_key "qa_session_files", "scan_protocols"
+  add_foreign_key "qa_sessions", "accounts"
   add_foreign_key "scan_protocol_matchers", "scan_header_tags"
   add_foreign_key "scan_protocol_matchers", "scan_protocols"
   add_foreign_key "scan_protocol_matchers", "value_type_matchers"

@@ -1,5 +1,9 @@
 class ReportsController < ApplicationController
+  def index
+    @reports = AnalysisRequest.all
+  end
+
   def show
-    @analysis = Analysis.friendly.find(params[:id])
+    @report = AnalysisResponse.friendly.find(params[:id])
   end
 end

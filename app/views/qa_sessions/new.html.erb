@@ -1,0 +1,28 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-12">
+    <h2>Create qa_session</h2>
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to 'QaSessions', qa_sessions_path %>
+      </li>
+      <li class="active">
+        <strong>New</strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>New qa_session</h5>
+        </div>
+        <div class="ibox-content">
+          <%= render 'form', qa_session: @qa_session %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

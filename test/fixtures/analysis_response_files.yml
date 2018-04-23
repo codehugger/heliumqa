@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  analysis_response: one
-  file_data: 
-
-two:
-  analysis_response: two
-  file_data: 

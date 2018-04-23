@@ -3,5 +3,5 @@ class AnalysisResponse < ApplicationRecord
 
   # Relationships
   belongs_to :analysis_request
-  has_many :analysis_response_files, dependent: :destroy
+  has_many :analysis_results
 end

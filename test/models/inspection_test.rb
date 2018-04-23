@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class InspectionTest < ActiveSupport::TestCase
+class QaSessionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

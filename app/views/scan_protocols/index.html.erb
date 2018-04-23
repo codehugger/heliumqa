@@ -1,11 +1,18 @@
 <div class="row wrapper border-bottom white-bg page-heading">
-  <div class="col-sm-12">
+  <div class="col-sm-6">
     <h2>Scan Protocols</h2>
     <ol class="breadcrumb">
       <li class="active">
         <strong>Scan Protocols</strong>
       </li>
     </ol>
+  </div>
+  <div class="col-sm-6">
+    <div class="title-action">
+      <%= link_to new_scan_protocol_path, class: 'btn btn-primary' do %>
+        <i class="fa fa-plus"></i> Scan Protocol
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -15,11 +22,6 @@
       <div class="ibox">
         <div class="ibox-title">
           <h5>Scan Protocols</h5>
-          <div class="ibox-tools">
-            <%= link_to new_scan_protocol_path, class: 'btn btn-primary btn-xs' do %>
-              <i class="fa fa-plus"></i> Scan Protocol
-            <% end %>
-          </div>
         </div>
         <div class="ibox-content">
           <div class="table-responsive">
@@ -41,7 +43,7 @@
                   <td>
                     <%= scan_protocol.matchers.count %>
                   </td>
-                  <td><%= scan_protocol.inspection_files.count %></td>
+                  <td><%= scan_protocol.qa_session_files.count %></td>
                   <td class="project-actions">
                     <%= link_to edit_scan_protocol_path(scan_protocol), class: 'btn btn-white btn-xs' do %>
                     <i class="fa fa-pencil"></i>

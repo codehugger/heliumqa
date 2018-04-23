@@ -10,6 +10,13 @@
       </li>
     </ol>
   </div>
+  <div class="col-sm-6">
+    <div class="title-action">
+      <%= link_to edit_scan_protocol_path(@scan_protocol), class: 'btn btn-primary btn-xs' do %>
+      <i class="fa fa-pencil"></i> Edit
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <div class="wrapper wrapper-content">
@@ -18,18 +25,13 @@
       <div class="ibox float-e-margins">
         <div class="ibox-title">
           <h5>Scan Protocol Details</h5>
-          <div class="ibox-tools">
-            <%= link_to edit_scan_protocol_path(@scan_protocol), class: 'btn btn-primary btn-xs' do %>
-            <i class="fa fa-pencil"></i> Edit
-            <% end %>
-          </div>
         </div>
         <div class="ibox-content">
           <dl class="dl-horizontal">
             <dt>Name</dt>
             <dd><%= @scan_protocol.name %></dd>
             <dt>Matched Files</dt>
-            <dd><%= @scan_protocol.inspection_files.count %></dd>
+            <dd><%= @scan_protocol.qa_session_files.count %></dd>
           </dl>
         </div>
       </div>

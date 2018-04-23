@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class InspectionsControllerTest < ActionDispatch::IntegrationTest
+class QaSessionsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @inspection = inspections(:one)
+    @qa_session = qa_sessions(:one)
   end
 
   test "should get index" do
-    get inspections_url
+    get qa_sessions_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_inspection_url
+    get new_qa_session_url
     assert_response :success
   end
 
-  test "should create inspection" do
-    assert_difference('Inspection.count') do
-      post inspections_url, params: { inspection: { equipment_id: @inspection.equipment_id, performed_at: @inspection.performed_at } }
+  test "should create qa_session" do
+    assert_difference('QaSession.count') do
+      post qa_sessions_url, params: { qa_session: { equipment_id: @qa_session.equipment_id, performed_at: @qa_session.performed_at } }
     end
 
-    assert_redirected_to inspection_url(Inspection.last)
+    assert_redirected_to qa_session_url(QaSession.last)
   end
 
-  test "should show inspection" do
-    get inspection_url(@inspection)
+  test "should show qa_session" do
+    get qa_session_url(@qa_session)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_inspection_url(@inspection)
+    get edit_qa_session_url(@qa_session)
     assert_response :success
   end
 
-  test "should update inspection" do
-    patch inspection_url(@inspection), params: { inspection: { equipment_id: @inspection.equipment_id, performed_at: @inspection.performed_at } }
-    assert_redirected_to inspection_url(@inspection)
+  test "should update qa_session" do
+    patch qa_session_url(@qa_session), params: { qa_session: { equipment_id: @qa_session.equipment_id, performed_at: @qa_session.performed_at } }
+    assert_redirected_to qa_session_url(@qa_session)
   end
 
-  test "should destroy inspection" do
-    assert_difference('Inspection.count', -1) do
-      delete inspection_url(@inspection)
+  test "should destroy qa_session" do
+    assert_difference('QaSession.count', -1) do
+      delete qa_session_url(@qa_session)
     end
 
-    assert_redirected_to inspections_url
+    assert_redirected_to qa_sessions_url
   end
 end

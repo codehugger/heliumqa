@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class InspectionDecoratorTest < Draper::TestCase
+class QaSessionDecoratorTest < Draper::TestCase
 end
