@@ -1,9 +1,5 @@
-module Api
-  module V1
-    class AccountsController < ApiController
-      def index
-        render json: Account.all
-      end
-    end
+class Api::V1::AccountsController < ApiController
+  def index
+    render json: Account.all
   end
 end

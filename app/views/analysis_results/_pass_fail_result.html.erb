@@ -1,0 +1,11 @@
+<div class="analysis-result analysis-result-pass-fail">
+  <% if analysis_result.result_data["passes"] %>
+    <div class="alert alert-success">
+      <strong>PASSES</strong> - <%= analysis_result.result_data["message"] %>
+    </div>
+  <% else %>
+    <div class="alert alert-danger">
+      <strong>FAILS</strong> - <%= analysis_result.result_data["message"] %>
+    </div>
+    <% end %>
+</div>

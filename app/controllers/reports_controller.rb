@@ -4,6 +4,6 @@ class ReportsController < ApplicationController
   end
 
   def show
-    @report = AnalysisResponse.friendly.find(params[:id])
+    @report = AnalysisRequest.friendly.find(params[:id])
   end
 end

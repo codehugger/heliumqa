@@ -1,14 +1,13 @@
 <div class="analysis-result analysis-result-table">
-  <h4><%= result["label"] || result["key"] %></h4>
-  <div class="table-responsive">
+  <div class="table-responsive" style="display: inline-block">
     <table class="table">
       <thead>
-        <% result["table_columns"].each do |column| %>
+        <% analysis_result.result_data["table_columns"].each do |column| %>
         <th><%= column["label"] || column["key"] || column %></th>
         <% end %>
       </thead>
       <tbody>
-        <% result["table_rows"].each do |row| %>
+        <% analysis_result.result_data["table_rows"].each do |row| %>
         <tr>
           <% row.each do |col| %>
           <td><%= col %></td>

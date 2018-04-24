@@ -18,29 +18,7 @@
         </div>
         <div class="ibox-content">
           <% if @scan_series.count > 0 %>
-            <div class="table-responsive">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th>Description</th>
-                    <th>UID</th>
-                    <th>Number</th>
-                    <th>File Count</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <% @scan_series.each do |scan_series| %>
-                  <tr>
-                    <td><%= link_to scan_series, scan_series %></td>
-                    <td><%= scan_series.uid %></td>
-                    <td><%= scan_series.number %></td>
-                    <td><%= scan_series.qa_session_files.count %></td>
-                  </tr>
-                  <% end %>
-                </tbody>
-              </table>
-            </div>
+            <%= render 'scan_series/scan_series', scan_series: @scan_series %>
           <% else %>
             <p>No scan series found.</p>
           <% end %>

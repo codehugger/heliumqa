@@ -120,3 +120,6 @@ gem 'mustache', '~> 1.0'
 
 # A pure ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard. http://jwt.github.io/ruby-jwt/
 gem 'jwt'
+
+# Upsert for Rails 5 / Active Record 5
+gem 'active_record_upsert'

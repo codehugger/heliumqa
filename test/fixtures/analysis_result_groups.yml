@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  analysis_response: one
+  key: MyText
+  label: MyText
+
+two:
+  analysis_response: two
+  key: MyText
+  label: MyText

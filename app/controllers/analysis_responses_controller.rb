@@ -12,31 +12,6 @@ class AnalysisResponsesController < ApplicationController
   def show
   end
 
-  # GET /analysis_responses/new
-  def new
-    @analysis_response = AnalysisResponse.new
-  end
-
-  # GET /analysis_responses/1/edit
-  def edit
-  end
-
-  # POST /analysis_responses
-  # POST /analysis_responses.json
-  def create
-    @analysis_response = AnalysisResponse.new(analysis_response_params)
-
-    respond_to do |format|
-      if @analysis_response.save
-        format.html { redirect_to @analysis_response, notice: 'Analysis response was successfully created.' }
-        format.json { render :show, status: :created, location: @analysis_response }
-      else
-        format.html { render :new }
-        format.json { render json: @analysis_response.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # PATCH/PUT /analysis_responses/1
   # PATCH/PUT /analysis_responses/1.json
   def update

@@ -36,3 +36,14 @@
 .links {
   margin-left: 10px;
 }
+
+.affix {
+  top: 30px;
+  z-index: 9999 !important;
+}
+
+/* Sortable tables */
+table.sortable thead {
+    font-weight: bold;
+    cursor: default;
+}

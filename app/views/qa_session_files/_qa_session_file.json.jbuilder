@@ -1,0 +1,18 @@
+json.extract! qa_session_file,
+  :id,
+  :qa_session_id,
+  :scan_protocol_id,
+  :scan_series_id,
+  :key,
+  :filename,
+  :mime_type,
+  :modality,
+  :file_data,
+  :scan_header,
+  :scan_attributes_extracted,
+  :scan_header_extracted,
+  :scan_protocol_matched,
+  :preview_generated,
+  :created_at,
+  :updated_at
+json.url qa_session_file_url(qa_session_file, format: :json)

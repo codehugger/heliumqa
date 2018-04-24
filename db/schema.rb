@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180420155025) do
+ActiveRecord::Schema.define(version: 20180424185841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 20180420155025) do
     t.index ["analysis_request_id"], name: "index_analysis_responses_on_analysis_request_id"
   end
 
+  create_table "analysis_result_groups", force: :cascade do |t|
+    t.bigint "analysis_response_id"
+    t.text "key"
+    t.text "label"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["analysis_response_id"], name: "index_analysis_result_groups_on_analysis_response_id"
+    t.index ["key"], name: "index_analysis_result_groups_on_key"
+  end
+
   create_table "analysis_results", force: :cascade do |t|
     t.bigint "analysis_response_id"
     t.text "key"
@@ -50,7 +60,10 @@ ActiveRecord::Schema.define(version: 20180420155025) do
     t.jsonb "file_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "analysis_result_group_id"
+    t.text "label"
     t.index ["analysis_response_id"], name: "index_analysis_results_on_analysis_response_id"
+    t.index ["analysis_result_group_id"], name: "index_analysis_results_on_analysis_result_group_id"
     t.index ["key"], name: "index_analysis_results_on_key"
   end
 
@@ -112,6 +125,7 @@ ActiveRecord::Schema.define(version: 20180420155025) do
     t.datetime "preview_generated"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "scan_acquisition_date"
     t.index ["filename"], name: "index_qa_session_files_on_filename"
     t.index ["qa_session_id"], name: "index_qa_session_files_on_qa_session_id"
     t.index ["scan_protocol_id"], name: "index_qa_session_files_on_scan_protocol_id"
@@ -216,7 +230,9 @@ ActiveRecord::Schema.define(version: 20180420155025) do
   add_foreign_key "analysis_requests", "analysis_sessions"
   add_foreign_key "analysis_requests", "scan_series"
   add_foreign_key "analysis_responses", "analysis_requests"
+  add_foreign_key "analysis_result_groups", "analysis_responses"
   add_foreign_key "analysis_results", "analysis_responses"
+  add_foreign_key "analysis_results", "analysis_result_groups"
   add_foreign_key "analysis_sessions", "qa_sessions"
   add_foreign_key "equipment", "sites"
   add_foreign_key "qa_session_file_previews", "qa_session_files"

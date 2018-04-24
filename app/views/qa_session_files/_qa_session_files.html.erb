@@ -1,71 +1,69 @@
-<div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Preview</th>
-        <th>Status</th>
-        <th>Filename</th>
-        <th>Mime Type</th>
-        <th>Modality</th>
-        <th>Scan Protocol</th>
-        <th>Scan Series</th>
-        <th style="text-align: right">Actions</th>
-      </tr>
-    </thead>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Preview</th>
+      <th>Status</th>
+      <th>Filename</th>
+      <th>Mime Type</th>
+      <th>Modality</th>
+      <th>Scan Protocol</th>
+      <th>Scan Series</th>
+      <th style="text-align: right">Actions</th>
+    </tr>
+  </thead>
 
-    <tbody>
-      <% qa_session_files.collect(&:decorate).each do |qa_session_file| %>
-      <tr>
-        <td>
-          <% if !qa_session_file.preview.blank? &&  %>
-          <%= image_tag qa_session_file.preview.file_url(:tiny) %>
-          <% else %>
-          n/a
-          <% end %>
-        </td>
-        <td>
-          <%= qa_session_file.status %>
-        </td>
-        <td>
-          <span class="text-overflow-dynamic-container">
-            <span class="text-overflow-dynamic-ellipsis">
-              <% if qa_session_file.file %>
-              <%= qa_session_file.file.original_filename %>
-              <% else %>
-              <span class="text-danger">No file</span>
-              <% end %>
-            </span>
+  <tbody>
+    <% qa_session_files.collect(&:decorate).each do |qa_session_file| %>
+    <tr>
+      <td>
+        <% if !qa_session_file.preview.blank? &&  %>
+        <%= image_tag qa_session_file.preview.file_url(:tiny) %>
+        <% else %>
+        n/a
+        <% end %>
+      </td>
+      <td>
+        <%= qa_session_file.status %>
+      </td>
+      <td>
+        <span class="text-overflow-dynamic-container">
+          <span class="text-overflow-dynamic-ellipsis">
+            <% if qa_session_file.file %>
+            <%= qa_session_file.file.original_filename %>
+            <% else %>
+            <span class="text-danger">No file</span>
+            <% end %>
           </span>
-        </td>
-        <td>
-          <%= qa_session_file.try(:mime_type).blank? ? 'n/a' : qa_session_file.mime_type %>
-        </td>
-        <td>
-          <%= qa_session_file.try(:modality).blank? ? 'n/a' :  qa_session_file.modality %>
-        </td>
-        <td>
-          <% if qa_session_file.scan_protocol.blank? %>n/a<% else %><%= link_to qa_session_file.scan_protocol, qa_session_file.scan_protocol %><% end %>
-        </td>
-        <td>
-          <% if qa_session_file.scan_series.blank? %>n/a<% else %><%= link_to qa_session_file.scan_series, qa_session_file.scan_series %><% end %>
-        </td>
-        <td>
-          <div class="dropdown pull-right">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <i class="fa fa-cog"></i>
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dLabel">
-              <li><%= link_to 'Show Info', qa_session_file %></li>
-              <li><%= link_to 'Download', qa_session_file.file_url, download: qa_session_file.file.original_filename %></li>
-              <li><%= link_to 'Create Protocol', new_scan_protocol_path(qa_session_file_id: qa_session_file.id) %></li>
-              <li role="separator" class="divider"></li>
-              <li><%= link_to 'Delete', qa_session_file, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-            </ul>
-          </div>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+        </span>
+      </td>
+      <td>
+        <%= qa_session_file.try(:mime_type).blank? ? 'n/a' : qa_session_file.mime_type %>
+      </td>
+      <td>
+        <%= qa_session_file.try(:modality).blank? ? 'n/a' :  qa_session_file.modality %>
+      </td>
+      <td>
+        <% if qa_session_file.scan_protocol.blank? %>n/a<% else %><%= link_to qa_session_file.scan_protocol, qa_session_file.scan_protocol %><% end %>
+      </td>
+      <td>
+        <% if qa_session_file.scan_series.blank? %>n/a<% else %><%= link_to qa_session_file.scan_series, qa_session_file.scan_series %><% end %>
+      </td>
+      <td>
+        <div class="dropdown pull-right">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <i class="fa fa-cog"></i>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dLabel">
+            <li><%= link_to 'Show Info', qa_session_file %></li>
+            <li><%= link_to 'Download', qa_session_file.file_url, download: qa_session_file.file.original_filename %></li>
+            <li><%= link_to 'Create Protocol', new_scan_protocol_path(qa_session_file_id: qa_session_file.id) %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to 'Delete', qa_session_file, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -26,14 +26,20 @@
 //= require chartkick
 //= require cocoon
 //= require turbolinks
+//= require sorttable
 //= require_tree .
 
 // TODO: remove jquery dependency
-document.addEventListener('turbolinks:load', () => {
+// document.addEventListener('turbolinks:load', () => {
+$(document).ready(function () {
+  // jQuery Bootstrap DatePicker
   $('.datepicker').datepicker({
     format: "yyyy-mm-dd",
     todayHighlight: true,
     todayBtn: true,
     orientation: "bottom"
   });
+  $("tr[data-link]").click(function() {
+    window.location = $(this).data("link")
+  })
 })

@@ -39,7 +39,7 @@ function fileUpload(fileInput) {
 
   uppy.on('complete', (result) => {
     if (result.failed == 0) {
-      location.reload();
+      setTimeout(window.location.reload.bind(window.location), 2000);
     }
   })
 
@@ -59,7 +59,7 @@ function fileUpload(fileInput) {
       }
     }
 
-    axios.post(successPath, { qa_session_file: { file: uploadedFileData } })
+    axios.post(successPath, { qa_session_file: { file: uploadedFileData } }, { responseType: 'json' })
     .then(function (response) {
       console.log(response);
     })

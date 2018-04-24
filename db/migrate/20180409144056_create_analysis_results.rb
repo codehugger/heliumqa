@@ -3,6 +3,7 @@ class CreateAnalysisResults < ActiveRecord::Migration[5.1]
     create_table :analysis_results do |t|
       t.belongs_to :analysis_response, foreign_key: true
       t.text :key
+      t.text :label
       t.text :result_type
       t.text :type
       t.jsonb :result_data

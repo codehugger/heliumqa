@@ -1,0 +1,9 @@
+<% if analysis_result.file %>
+  <% if analysis_result.file.mime_type =~ /image/ %>
+    <%= image_tag analysis_result.file_url, style: "width: 100%" %>
+  <% else %>
+    <%= link_to analysis_result.file.filename, url_for(analysis_result.file) %>
+  <% end %>
+<% else %>
+<p class="text-danger">File attachment missing</p>
+<% end %>

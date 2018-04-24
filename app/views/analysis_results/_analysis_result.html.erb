@@ -1,0 +1,3 @@
+<h3><%= analysis_result.label || analysis_result.key %></h3>
+
+<%= render "analysis_results/#{analysis_result.type.underscore}", analysis_result: analysis_result %>

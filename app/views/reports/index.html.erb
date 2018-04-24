@@ -17,26 +17,54 @@
           <h5>Reports</h5>
         </div>
         <div class="ibox-content">
-          <table class="table table-hover">
-            <thead>
-              <th>Status</th>
-              <th>Report date</th>
-              <th>Scan Acquisition date</th>
-              <th>Performed by</th>
-              <th>Actions</th>
-            </thead>
-            <tbody>
-              <% @reports.each do |report| %>
-              <tr>
-                <td><%= report.status %></td>
-                <td><%= report.report_date %></td>
-                <td><%= report.scan_acquisition_date %></td>
-                <td><%= report.performed_by %></td>
-                <th>Download files</th>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
+          <% if @reports.empty? %>
+            <p>No reports in the system yet.</p>
+          <% else %>
+            <table class="table table-hover sortable">
+              <thead>
+                <th>Status</th>
+                <th>MR Scanner</th>
+                <th>Protocol</th>
+                <th>Series</th>
+                <th>Report date</th>
+                <th>Scan Acquisition date</th>
+                <th>Performed by</th>
+                <th style="text-align: right" class="sorttable_nosort">Actions</th>
+              </thead>
+              <tbody>
+                <% @reports.each do |report| %>
+                <tr>
+                  <td>
+                    <% if report.analysis_response %>
+                      <%= link_to 'View report', report_path(report) %>
+                    <% else %>
+                      <%= report.status %>
+                    <% end %>
+                  </td>
+                  <td><%= link_to Equipment.first, Equipment.first %></td>
+                  <td><%= link_to report.scan_protocol, report.scan_protocol %></td>
+                  <td><%= link_to report.scan_series, report.scan_series %></td>
+                  <td><%= report.report_date.to_date.to_s(:db) %></td>
+                  <td><%= report.scan_acquisition_date.to_date.to_s(:db) %></td>
+                  <td><%= report.performed_by %></td>
+                  <td>
+                    <div class="dropdown pull-right">
+                      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <i class="fa fa-cog"></i>
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dLabel">
+                        <li><%= link_to 'Download files', download_files_scan_series_path(report.scan_series), download: "#{report.scan_series.description}.zip" %></li>
+                        <li role="separator" class="divider"></li>
+                        <li><%= link_to 'Delete', report, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% end %>
         </div>
       </div>
     </div>

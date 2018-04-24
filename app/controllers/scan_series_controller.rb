@@ -1,5 +1,10 @@
 class ScanSeriesController < ApplicationController
-  before_action :set_scan_series, only: [:show, :edit, :update, :destroy]
+  # enable streaming responses
+  include ActionController::Streaming
+  # enable zipline
+  include Zipline
+
+  before_action :set_scan_series, only: [:show, :edit, :update, :destroy, :download_files]
 
   # GET /scan_series
   # GET /scan_series.json
@@ -56,9 +61,15 @@ class ScanSeriesController < ApplicationController
   def destroy
     @scan_series.destroy
     respond_to do |format|
-      format.html { redirect_to scan_series_index_url, notice: 'Scan series was successfully destroyed.' }
+      format.html { redirect_back fallback_location: scan_series_index_url, notice: 'Scan series was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # GET /scan_series/1/download_files
+  def download_files
+    files = @scan_series.qa_session_files.map { |f| [f.file, f.filename] }
+    zipline(files, "#{@scan_series.description}.zip")
   end
 
   private

@@ -7,6 +7,7 @@ class QaSessionFile < ApplicationRecord
   DICOM_SERIES_NUMBER_TAG = '0020,0011'
   DICOM_MODALITY_TAG = '0008,0060'
   DICOM_SERIES_DESCRIPTION_TAG = '0008,103E'
+  DICOM_ACQUISITION_DATE = '0008,0022'
 
   # Relationships
   belongs_to :qa_session
@@ -19,7 +20,7 @@ class QaSessionFile < ApplicationRecord
 
   # Validations
   validates :file, presence: true
-  validates :filename, uniqueness: { scope: :scan_series }
+  # validates :filename, uniqueness: { scope: :scan_series_id }
 
   # Scopes
   scope :unmatched, ->{ where(scan_protocol: nil) }
@@ -28,6 +29,8 @@ class QaSessionFile < ApplicationRecord
   # TODO: needs to be improved to sort both ASC and DESC
   scope :order_alphanumeric, ->(field) { reorder("SUBSTRING(#{field.to_s} FROM '^(.*?)(\\d+)?$'),
     COALESCE(SUBSTRING(#{field.to_s} FROM '(\\d+)$')::INTEGER, 0);") }
+
+  default_scope -> { order(filename: :asc) }
 
   # Hooks
   before_save :extract_file_attributes
@@ -51,20 +54,14 @@ class QaSessionFile < ApplicationRecord
   def extract_scan_attributes
     if !scan_header_extracted.blank? && file_attacher.stored?
       if scan_header.key?(DICOM_SERIES_ID_TAG)
-        begin
-          self.scan_series = ScanSeries.where(uid: scan_header[DICOM_SERIES_ID_TAG]).first_or_create do |series|
-            series.number = scan_header[DICOM_SERIES_NUMBER_TAG]
-            series.description = scan_header[DICOM_SERIES_DESCRIPTION_TAG]
-          end
-        rescue ActiveRecord::RecordNotUnique => e
-          self.scan_series = ScanSeries.where(uid: scan_header[DICOM_SERIES_ID_TAG])
-        rescue Exception => e
-          puts "SQL error in #{ __method__ }"
-          ActiveRecord::Base.connection.execute 'ROLLBACK'
-          raise e
-        end
+        # This utilizes Postgres UPSERT to ensure thread safety
+        self.scan_series = ScanSeries.upsert(uid: scan_header[DICOM_SERIES_ID_TAG],
+                                             number: scan_header[DICOM_SERIES_NUMBER_TAG],
+                                             description: scan_header[DICOM_SERIES_DESCRIPTION_TAG])
+        self.scan_series = ScanSeries.find_by(uid: scan_header[DICOM_SERIES_ID_TAG]) unless self.scan_series
       end
       self.modality = scan_header.fetch(DICOM_MODALITY_TAG, '')
+      self.scan_acquisition_date = scan_header.fetch(DICOM_ACQUISITION_DATE, '')
       self.scan_attributes_extracted = Time.now
     end
   end

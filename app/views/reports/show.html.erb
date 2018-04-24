@@ -1,74 +1,41 @@
 <div class="row wrapper border-bottom white-bg page-heading article">
   <div class="col-sm-12">
-    <h2>Report - <%= @analysis.equipment %> (Inspected at <%= @analysis.qa_session.performed_at.to_date %>)</h2>
+    <h2>Report for <strong><%= Equipment.first %></strong></h2>
     <ol class="breadcrumb">
       <li>
         Reports
       </li>
       <li class="active">
-        <strong><%= link_to @analysis.qa_session, @analysis.qa_session %></strong>
+        <strong><%= @report %></strong>
       </li>
     </ol>
   </div>
 </div>
 
-<% @analysis.analysis_requests.each do |analysis| %>
 <div class="wrapper wrapper-content article">
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="ibox">
-        <div class="ibox-content">
+  <div class="ibox">
+    <div class="ibox-content">
+      <div class="row">
+        <div class="col-sm-2">
+          <ul data-spy="affix" data-offset-top="190" style="list-style: none; margin-left: 0; padding-left: 0">
+            <% @report.groups.each do |group| %>
+              <li style="margin: 10px 0; padding: 10px 5px"><a href="#group-<%= group.id %>"><%= group.label %></a></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="col-sm-10">
           <div class="text-center article-title">
-            <span class="text-muted">Inspected at <strong><%= @analysis.qa_session.decorate.performed_at_date %></strong></span>
-            <h1><%= @analysis.equipment %></h1>
-            <h2>MagphanRT Analysis</h2>
-          </div>
-          <div class="tabs-container">
-            <ul class="nav nav-tabs">
-              <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true"> This is tab</a></li>
-              <li class=""><a data-toggle="tab" href="#tab-2" aria-expanded="false">This is second tab</a></li>
-            </ul>
-            <div class="tab-content">
-              <div id="tab-1" class="tab-pane active">
-                <div class="panel-body">
-                  <% if analysis.response_data.key?("groups") %>
-                    <% analysis.response_data["groups"].each do |group| %>
-                      <h3><%= group["label"] %></h3>
-                        <% group["results"].each do |result| %>
-                          <% next if result["hidden"] %>
-                          <div class="row">
-                            <div class="hr-line-dashed"></div>
-                            <div class="col-sm-12">
-                              <%= render "analysis_results/#{result["type"]}", result: result %>
-                            </div>
-                          </div>
-                        <% end %>
-                      <% end %>
-                  <% else %>
-                    <% analysis.response_data["results"].each do |result| %>
-                      <% next if result["hidden"] %>
-                      <div class="row">
-                        <div class="hr-line-dashed"></div>
-                        <div class="col-sm-12">
-                          <%= render "analysis_results/#{result["type"]}", result: result %>
-                        </div>
-                      </div>
-                    <% end %>
-                  <% end %>
-                </div>
-              </div>
-              <div id="tab-2" class="tab-pane">
-                <div class="panel-body">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, unde error similique, et facilis odit impedit quod adipisci itaque consequatur voluptatibus totam neque laudantium aliquam in, possimus voluptatem recusandae mollitia.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <span class="text-muted"><i class="fa fa-clock-o"></i> <%= @report.created_at %></span>
+            <h1>Report for <%= Equipment.first %></h1>
+            <% @report.groups.each do |group| %>
+              <h2 id="group-<%= group.id %>"><%= group.label %></h2>
+              <% group.results.each do |result| %>
+                <%= render 'analysis_results/analysis_result', analysis_result: result %>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<% end %>

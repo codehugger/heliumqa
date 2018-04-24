@@ -10,7 +10,7 @@
   <div class="col-sm-6">
     <div class="title-action">
       <%= link_to qa_sessions_path, class: 'btn btn-primary', method: :post do %>
-        <i class="fa fa-play-circle"></i> Upload
+      <i class="fa fa-play-circle"></i> Upload
       <% end %>
     </div>
   </div>
@@ -35,7 +35,9 @@
         </div>
         <div class="ibox-content">
           <p>You have no QA sessions.</p>
-          <%= link_to 'Upload', new_qa_session_path %>
+          <%= link_to qa_sessions_path, class: 'btn btn-primary', method: :post do %>
+            <i class="fa fa-play-circle"></i> Upload
+          <% end %>
         </div>
       </div>
       <% end %>

@@ -18,7 +18,7 @@
       <div class="col-lg-12">
         <div class="ibox">
           <div class="ibox-title">
-            <p>This session has been finalized please see <%= link_to "reports", reports_path %> for further details.</p>
+            <p>This QA session has been finalized please see <%= link_to "reports", reports_path %> for further details.</p>
           </div>
         </div>
       </div>
@@ -32,46 +32,55 @@
           </div>
           <div class="ibox-content">
             <form action="#">
-              <input type="file" multiple="" data-presign-path="<%= presign_qa_session_files_path %>" data-success-path="<%= qa_session_qa_session_files_path(@qa_session) %>" } %>
+              <input type="file" multiple="" data-presign-path="<%= presign_qa_session_files_path(format: :json) %>" data-success-path="<%= qa_session_qa_session_files_path(@qa_session, format: :json) %>" } %>
             </form>
           </div>
         </div>
       </div>
     </div>
+  <% end %>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="ibox">
-          <div class="ibox-title">
-            <h5>Scan Series</h5>
-          </div>
-          <div class="ibox-content">
-            <% if @qa_session.qa_session_files.empty? %>
-              No files uploaded yet.
-            <% elsif @qa_session.qa_session_files.all? { |f| f.scan_attributes_extracted } %>
-              <%= render 'scan_series/scan_series', scan_series: @qa_session.scan_series.uniq %>
-            <% else %>
-              Analyzed <%= @qa_session.qa_session_files.select { |f| f.scan_attributes_extracted }.count %> of <%= @qa_session.qa_session_files.count %> files
-            <% end %>
-          </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox">
+        <div class="ibox-title">
+          <h5>Scan Series</h5>
+        </div>
+        <div class="ibox-content">
+          <% if @qa_session.qa_session_files.empty? %>
+            No files uploaded yet.
+          <% elsif @qa_session.qa_session_files.all? { |f| f.scan_attributes_extracted } %>
+            <%= render 'scan_series/scan_series', scan_series: @qa_session.scan_series.uniq %>
+          <% else %>
+            <div class="progress progress-mini">
+              <div style="width: <%= @qa_session.analyzed_file_ratio %>%;" class="progress-bar"></div>
+            </div>
+            <div class="m-t-sm small">
+              Analyzed
+              <%= @qa_session.analyzed_file_count %>
+              of
+              <%= @qa_session.qa_session_files.count %> files. Page will refresh automatically.
+            </div>
+            <script>setTimeout(window.location.reload.bind(window.location), 5000);</script>
+          <% end %>
         </div>
       </div>
     </div>
+  </div>
 
-    <% if @qa_session.qa_session_files.count > 0 && @qa_session.qa_session_files.all? { |f| f.scan_attributes_extracted } %>
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="ibox float-e-margins">
-          <div class="ibox-title">
-            <h5>Processing</h5>
-          </div>
-          <div class="ibox-content">
-            <h4>Done uploading?</h4>
-            <%= link_to "Start processing", qa_session_analysis_sessions_path(@qa_session), class: 'btn btn-primary btn-lg btn-block', method: :post %>
-          </div>
+  <% if @qa_session.qa_session_files.count > 0 && @qa_session.qa_session_files.all? { |f| f.scan_attributes_extracted } && @qa_session.analysis_sessions.count == 0 %>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Processing</h5>
+        </div>
+        <div class="ibox-content">
+          <h4>Done uploading?</h4>
+          <%= link_to "Finalize and start processing", qa_session_analysis_sessions_path(@qa_session), class: 'btn btn-primary btn-lg btn-block', method: :post %>
         </div>
       </div>
     </div>
-    <% end %>
+  </div>
   <% end %>
 </div>

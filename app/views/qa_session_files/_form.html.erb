@@ -1,4 +1,4 @@
-<%= form_with(model: qa_session_file, local: true) do |form| %>
+<%= form_with(model: [@qa_session, qa_session_file], local: true) do |form| %>
   <% if qa_session_file.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(qa_session_file.errors.count, "error") %> prohibited this qa_session_file from being saved:</h2>

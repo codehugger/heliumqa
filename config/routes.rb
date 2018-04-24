@@ -43,12 +43,19 @@ Rails.application.routes.draw do
   resources :accounts
   resources :reports
 
-  resources :scan_series
+  resources :scan_series do
+    member do
+      get :download_files
+    end
+  end
 
-  namespace :api do
+  namespace :api, :defaults => { :format => :json } do
     namespace :v1 do
-      resources :accounts
-      resources :auth
+      resources :accounts, only: [:index, :show]
+      resources :auth, only: [:create], controller: "authentication"
+      resources :analysis_requests do
+        resources :analysis_responses, shallow: true
+      end
     end
   end
 

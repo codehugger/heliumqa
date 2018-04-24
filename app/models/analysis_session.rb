@@ -9,9 +9,8 @@ class AnalysisSession < ApplicationRecord
   protected
 
     def create_analysis_requests
-      scan_series.each do |series|
+      scan_series.uniq.each do |series|
         a = analysis_requests.create(scan_series_id: series.id, request_data: {})
-        byebug
       end
     end
 end
