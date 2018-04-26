@@ -35,8 +35,8 @@ class QaSessionFile < ApplicationRecord
   # Hooks
   before_save :extract_file_attributes
   before_save :extract_scan_header
-  before_save :match_scan_protocol
   before_save :extract_scan_attributes
+  before_save :match_scan_protocol
   after_save :generate_preview
 
   def extract_file_attributes

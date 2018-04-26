@@ -24,6 +24,10 @@ class ScanSeries < ApplicationRecord
     files[files.count/2].preview if files.count > 0
   end
 
+  def previewable?
+    !!preview
+  end
+
   def status
     analysis_requests.try(:first).try(:status) || 'Unprocessed'
   end

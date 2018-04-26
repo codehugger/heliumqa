@@ -11,7 +11,13 @@
   <tbody>
     <% scan_series.each do |series| %>
       <tr>
-        <td><%= image_tag series.preview.file_url(:tiny) %></td>
+        <td>
+          <% if series.previewable? %>
+            <%= image_tag series.preview.file_url(:tiny) %>
+          <% else %>
+            n/a
+          <% end %>
+        </td>
         <td>
           <% if series.report %>
             <%= link_to 'View report', report_path(series.report) %>

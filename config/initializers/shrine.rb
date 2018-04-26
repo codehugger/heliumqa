@@ -33,6 +33,7 @@ Shrine.plugin :upload_endpoint
 # service.
 # http://shrinerb.com/rdoc/classes/Shrine/Plugins/PresignEndpoint.html
 Shrine.plugin :presign_endpoint,
+              method: :put,
               presign_options: ->(request) do
                 filename = request.params["filename"]
                 {content_disposition: "attachment; filename=#{filename.inspect}"}
@@ -40,6 +41,11 @@ Shrine.plugin :presign_endpoint,
               presign_location: -> (request) do
                 "#{SecureRandom.hex}/#{request.params["filename"]}"
               end
+
+# The cached_attachment_data plugin adds the ability to retain the cached file
+# across form redisplays, which means the file doesn't have to be reuploaded in
+# case of validation errors.
+Shrine.plugin :cached_attachment_data
 
 # The restore_cached_data plugin re-extracts metadata when assigning already
 # cached files, i.e. when the attachment has been retained on validation errors
