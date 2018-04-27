@@ -13,7 +13,7 @@
       <tr>
         <td>
           <% if series.previewable? %>
-            <%= image_tag series.preview.file_url(:tiny) %>
+            <%= image_tag series.preview.file_url(:tiny), width: "64px", height: "64px" %>
           <% else %>
             n/a
           <% end %>
