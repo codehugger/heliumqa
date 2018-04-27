@@ -82,7 +82,7 @@ function fileUpload(fileInput) {
         <div class="m-t-sm small">Uploading files. <strong>Please don't refresh the page.</strong></div>
       `)
       if (fileUploadCount <= 0) {
-        setTimeout(window.location.reload.bind(window.location), 5000);
+        setTimeout(window.location.reload.bind(window.location), 1500);
       }
     })
     .catch(function (error) {
