@@ -57,7 +57,9 @@ class QaSessionFile < ApplicationRecord
         # This utilizes Postgres UPSERT to ensure thread safety
         self.scan_series = ScanSeries.upsert(uid: scan_header[DICOM_SERIES_ID_TAG],
                                              number: scan_header[DICOM_SERIES_NUMBER_TAG],
-                                             description: scan_header[DICOM_SERIES_DESCRIPTION_TAG])
+                                             description: scan_header[DICOM_SERIES_DESCRIPTION_TAG],
+                                             qa_session_id: qa_session.id,
+                                             equipment_id: qa_session.try(:account).try(:equipment).try(:first))
         self.scan_series = ScanSeries.find_by(uid: scan_header[DICOM_SERIES_ID_TAG]) unless self.scan_series
       end
       self.modality = scan_header.fetch(DICOM_MODALITY_TAG, '')

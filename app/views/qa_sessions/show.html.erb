@@ -76,8 +76,12 @@
           <h5>Processing</h5>
         </div>
         <div class="ibox-content">
-          <h4>Done uploading?</h4>
-          <%= link_to "Finalize and start processing", qa_session_analysis_sessions_path(@qa_session), class: 'btn btn-primary btn-lg btn-block', method: :post %>
+          <% if @qa_session.scan_series.all? { |ss| !!ss.equipment } %>
+            <h4>Done uploading?</h4>
+            <%= link_to "Start processing", qa_session_analysis_sessions_path(@qa_session), class: 'btn btn-primary btn-lg btn-block', method: :post %>
+          <% else %>
+            <p class="text-danger text-center">Not all series have assigned equipment.</p>
+          <% end %>
         </div>
       </div>
     </div>

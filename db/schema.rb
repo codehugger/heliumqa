@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180424185841) do
+ActiveRecord::Schema.define(version: 20180427142710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -181,6 +181,10 @@ ActiveRecord::Schema.define(version: 20180424185841) do
     t.text "description", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "qa_session_id"
+    t.bigint "equipment_id"
+    t.index ["equipment_id"], name: "index_scan_series_on_equipment_id"
+    t.index ["qa_session_id"], name: "index_scan_series_on_qa_session_id"
     t.index ["uid"], name: "index_scan_series_on_uid", unique: true
   end
 
@@ -243,6 +247,8 @@ ActiveRecord::Schema.define(version: 20180424185841) do
   add_foreign_key "scan_protocol_matchers", "scan_protocols"
   add_foreign_key "scan_protocol_matchers", "value_type_matchers"
   add_foreign_key "scan_protocols", "sites"
+  add_foreign_key "scan_series", "equipment"
+  add_foreign_key "scan_series", "qa_sessions"
   add_foreign_key "sites", "accounts"
   add_foreign_key "users", "accounts"
   add_foreign_key "value_type_matchers", "value_types"

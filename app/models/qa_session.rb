@@ -3,12 +3,14 @@ class QaSession < ApplicationRecord
 
   # Relationships
   belongs_to :account
+  has_many :scan_series
   has_many :qa_session_files, dependent: :destroy
   has_many :scan_protocols, through: :qa_session_files
-  has_many :scan_series, through: :qa_session_files
   has_many :analysis_sessions, dependent: :destroy
 
   before_save :set_default_values
+
+  delegate :equipment, to: :account
 
   def analyzed_file_count
     qa_session_files.select { |f| f.scan_attributes_extracted }.count

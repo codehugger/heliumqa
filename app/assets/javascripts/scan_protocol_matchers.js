@@ -1,7 +1,7 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-// TODO: remove jQuery dependency
+// FIXME: this does not work with many matchers on the screen at the same time
 document.addEventListener('turbolinks:load', () => {
   var tag_matchers = $('#value_type_matcher_id').html()
 
