@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scan_protocol: one
+  filename: MyText
+  file_data: 
+
+two:
+  scan_protocol: two
+  filename: MyText
+  file_data: 

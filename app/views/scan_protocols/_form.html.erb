@@ -12,8 +12,9 @@
 </div>
 <% end %>
 
+<hr/>
+
 <fieldset>
-  <legend>Details</legend>
   <div class="form-group">
     <%= form.label :name, class: 'col-sm-2 control-label' %>
     <div class="col-sm-10">
@@ -27,27 +28,49 @@
     </div>
   </div>
   <div class="form-group">
-    <%= form.label :specifications, class: 'col-sm-2 control-label' %>
+    <%= form.label :analysis_options_file, class: 'col-sm-2 control-label' %>
     <div class="col-sm-10">
-      <%= form.text_area :specifications, class: 'form-control' %>
+      <%= form.file_field :analysis_options_file %><% if scan_protocol.try(:analysis_options_file) %><span><%= scan_protocol.analysis_options_file.original_filename %></span><% end %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :specifications_file, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= form.file_field :specifications_file %><% if scan_protocol.try(:specifications_file) %><span><%= scan_protocol.specifications_file.original_filename %></span><% end %>
     </div>
   </div>
 </fieldset>
 
+<hr/>
+
 <fieldset>
-  <legend>Matchers</legend>
   <div class="form-group">
-    <div class="row">
-      <div class="col-sm-offset-2 col-sm-10">
-        <%= form.fields_for :matchers do |builder| %>
-          <%= render 'matcher_fields', f: builder %>
-        <% end %>
-        <div class="links">
-        <%= link_to_add_association form, :matchers, class: 'btn btn-default' do %>
-          <i class="fa fa-plus"></i> Add matcher
-        <% end %>
-      </div>
-      </div>
+    <%= form.label :phantom_module_files, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= form.fields_for :phantom_module_files do |builder| %>
+        <%= render 'phantom_module_file_fields', f: builder %>
+      <% end %>
+      <div class="links">
+      <%= link_to_add_association form, :phantom_module_files, class: 'btn btn-default' do %>
+        <i class="fa fa-plus"></i> Add phantom module file
+      <% end %>
+    </div>
+  </div>
+</fieldset>
+
+<hr/>
+
+<fieldset>
+  <div class="form-group">
+    <%= form.label :matchers, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= form.fields_for :matchers do |builder| %>
+        <%= render 'matcher_fields', f: builder %>
+      <% end %>
+      <div class="links">
+      <%= link_to_add_association form, :matchers, class: 'btn btn-default' do %>
+        <i class="fa fa-plus"></i> Add matcher
+      <% end %>
     </div>
   </div>
 </fieldset>

@@ -1,0 +1,17 @@
+<%= form_with(model: phantom_module_file, local: true) do |form| %>
+  <% if phantom_module_file.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(phantom_module_file.errors.count, "error") %> prohibited this phantom_module_file from being saved:</h2>
+
+      <ul>
+      <% phantom_module_file.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

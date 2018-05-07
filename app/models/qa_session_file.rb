@@ -82,7 +82,7 @@ class QaSessionFile < ApplicationRecord
   end
 
   def generate_preview(force=false)
-    if (file_data_changed? || force) && file_attacher.stored?
+    if file_attacher.stored?
       case file.mime_type
       when 'application/dicom'
         file.download.tap do |tempfile|

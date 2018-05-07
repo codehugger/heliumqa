@@ -101,3 +101,9 @@ Shrine.plugin :delete_promoted
 # automatically parsing JSON query parameters, allowing you to assign cached
 # files with hashes/arrays.
 Shrine.plugin :parsed_json
+
+# The download_endpoint plugin provides a Rack endpoint for downloading
+# uploaded files from specified storages. This can be useful when files from
+# your storages aren't accessible over URL (e.g. database storages) or if
+# you want to authenticate your downloads. It requires the Roda gem.
+Shrine.plugin :download_endpoint, storages: [:store], prefix: "files"

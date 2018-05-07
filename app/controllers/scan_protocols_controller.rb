@@ -46,8 +46,6 @@ class ScanProtocolsController < ApplicationController
   # PATCH/PUT /scan_protocols/1
   # PATCH/PUT /scan_protocols/1.json
   def update
-    byebug
-
     respond_to do |format|
       if @scan_protocol.update(scan_protocol_params)
         format.html { redirect_to @scan_protocol, notice: 'Scan protocol was successfully updated.' }
@@ -82,6 +80,10 @@ class ScanProtocolsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def scan_protocol_params
       params.require(:scan_protocol).permit(:site_id, :name,
-        matchers_attributes: [:id, :scan_header_tag_id, :value_type_matcher_id, :value, :matcher, :_destroy])
+        :analysis_options_file,
+        :specifications_file,
+        phantom_module_files_attributes: [:id, :file, :_destroy],
+        matchers_attributes: [:id, :scan_header_tag_id,
+          :value_type_matcher_id, :value, :matcher, :_destroy])
     end
 end

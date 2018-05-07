@@ -1,0 +1,2 @@
+module PhantomModuleFilesHelper
+end

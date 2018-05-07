@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180424185841) do
+ActiveRecord::Schema.define(version: 2018_05_07_184754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,15 @@ ActiveRecord::Schema.define(version: 20180424185841) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "phantom_module_files", force: :cascade do |t|
+    t.bigint "scan_protocol_id"
+    t.text "filename"
+    t.jsonb "file_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["scan_protocol_id"], name: "index_phantom_module_files_on_scan_protocol_id"
+  end
+
   create_table "qa_session_file_previews", force: :cascade do |t|
     t.bigint "qa_session_file_id"
     t.jsonb "file_data"
@@ -172,6 +181,8 @@ ActiveRecord::Schema.define(version: 20180424185841) do
     t.text "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.jsonb "specifications_file_data"
+    t.jsonb "analysis_options_file_data"
     t.index ["site_id"], name: "index_scan_protocols_on_site_id"
   end
 
@@ -235,6 +246,7 @@ ActiveRecord::Schema.define(version: 20180424185841) do
   add_foreign_key "analysis_results", "analysis_result_groups"
   add_foreign_key "analysis_sessions", "qa_sessions"
   add_foreign_key "equipment", "sites"
+  add_foreign_key "phantom_module_files", "scan_protocols"
   add_foreign_key "qa_session_file_previews", "qa_session_files"
   add_foreign_key "qa_session_files", "qa_sessions"
   add_foreign_key "qa_session_files", "scan_protocols"

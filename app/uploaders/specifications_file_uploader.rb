@@ -1,0 +1,2 @@
+class SpecificationsFileUploader < Shrine
+end

@@ -39,6 +39,8 @@ Rails.application.routes.draw do
     resources :analysis_sessions, shallow: true
   end
 
+  resources :phantom_module_files
+
   resources :equipment
   resources :accounts
   resources :reports

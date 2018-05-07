@@ -1,0 +1,2 @@
+class PhantomModuleFileUploader < Shrine
+end
