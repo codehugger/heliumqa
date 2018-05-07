@@ -3,8 +3,10 @@
 // * babel-polyfill (https://babeljs.io/docs/usage/polyfill/)
 // * whatwg-fetch (https://github.github.io/fetch/)
 // * uppy (https://uppy.io)
-
 function fileUpload(fileInput) {
+  var filePresignCount = 0;
+  var fileUploadCount = 0;
+
   fileInput.classList.add('uppy-Loaded')
   fileInput.style.display = 'none'
 
@@ -29,21 +31,31 @@ function fileUpload(fileInput) {
       }
     }
   })
-  .use(Uppy.StatusBar, { target: fileInput.parentNode, hideAfterFinish: false })
+  //.use(Uppy.StatusBar, { target: fileInput.parentNode, hideAfterFinish: false })
   .use(Uppy.AwsS3, {
+    limit: 5,
     getUploadParameters: function (file) {
-      return fetch(presignPath + '?filename=' + file.name) // Shrine's presign endpoint
-      .then(function (response) { return response.json() })
-    }
-  })
-
-  uppy.on('complete', (result) => {
-    if (result.failed == 0) {
-      setTimeout(window.location.reload.bind(window.location), 2000);
+      // Shrine's presign endpoint
+      return fetch(presignPath + '?filename=' + file.name)
+      .then((response) => {
+        $('#progressBar').show()
+        filePresignCount += 1;
+        fileUploadCount = filePresignCount;
+        return response.json()
+      })
     }
   })
 
   uppy.run()
+
+  $(fileInput.parentNode).append(`
+    <div id="progressBar" hidden>
+      <div class="progress progress progress-striped active">
+        <div class="progress-bar" style="width: 100%"></div>
+      </div>
+      <div class="m-t-sm small">Presigning files ... <strong>Please don't refresh the page.</strong></div>
+    </div>
+  `)
 
   uppy.on('upload-success', function (fileId, data) {
     var file = uppy.getFile(fileId)
@@ -61,7 +73,17 @@ function fileUpload(fileInput) {
 
     axios.post(successPath, { qa_session_file: { file: uploadedFileData } }, { responseType: 'json' })
     .then(function (response) {
-      console.log(response);
+      fileUploadCount -= 1;
+      console.log(filePresignCount, fileUploadCount);
+      $('#progressBar').html(`
+        <div class="progress progress">
+          <div class="progress-bar" style="width: ${100-((fileUploadCount*1.0)/(filePresignCount*1.0))*100}%"></div>
+        </div>
+        <div class="m-t-sm small">Uploading files. <strong>Please don't refresh the page.</strong></div>
+      `)
+      if (fileUploadCount <= 0) {
+        setTimeout(window.location.reload.bind(window.location), 1500);
+      }
     })
     .catch(function (error) {
       console.log(error);

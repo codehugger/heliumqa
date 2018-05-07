@@ -52,11 +52,11 @@
           <% elsif @qa_session.qa_session_files.all? { |f| f.scan_attributes_extracted } %>
             <%= render 'scan_series/scan_series', scan_series: @qa_session.scan_series.uniq %>
           <% else %>
-            <div class="progress progress-mini">
+            <div class="progress">
               <div style="width: <%= @qa_session.analyzed_file_ratio %>%;" class="progress-bar"></div>
             </div>
             <div class="m-t-sm small">
-              Analyzed
+              Inspecting file headers
               <%= @qa_session.analyzed_file_count %>
               of
               <%= @qa_session.qa_session_files.count %> files. Page will refresh automatically.
@@ -76,8 +76,12 @@
           <h5>Processing</h5>
         </div>
         <div class="ibox-content">
-          <h4>Done uploading?</h4>
-          <%= link_to "Finalize and start processing", qa_session_analysis_sessions_path(@qa_session), class: 'btn btn-primary btn-lg btn-block', method: :post %>
+          <% if @qa_session.scan_series.all? { |ss| !!ss.equipment } %>
+            <h4>Done uploading?</h4>
+            <%= link_to "Start processing", qa_session_analysis_sessions_path(@qa_session), class: 'btn btn-primary btn-lg btn-block', method: :post %>
+          <% else %>
+            <p class="text-danger text-center">Not all series have assigned equipment.</p>
+          <% end %>
         </div>
       </div>
     </div>

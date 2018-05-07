@@ -1,6 +1,6 @@
 <div class="row wrapper border-bottom white-bg page-heading article">
   <div class="col-sm-12">
-    <h2>Report for <strong><%= Equipment.first %></strong></h2>
+    <h2>Report for <strong><%= @report.equipment %></strong></h2>
     <ol class="breadcrumb">
       <li>
         Reports
@@ -26,7 +26,7 @@
         <div class="col-sm-10">
           <div class="text-center article-title">
             <span class="text-muted"><i class="fa fa-clock-o"></i> <%= @report.created_at %></span>
-            <h1>Report for <%= Equipment.first %></h1>
+            <h1>Report for <%= @report.equipment %></h1>
             <% @report.groups.each do |group| %>
               <h2 id="group-<%= group.id %>"><%= group.label %></h2>
               <% group.results.each do |result| %>

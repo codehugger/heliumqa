@@ -17,29 +17,9 @@ class ScanSeriesController < ApplicationController
   def show
   end
 
-  # GET /scan_series/new
-  def new
-    @scan_series = ScanSeries.new
-  end
-
   # GET /scan_series/1/edit
   def edit
-  end
-
-  # POST /scan_series
-  # POST /scan_series.json
-  def create
-    @scan_series = ScanSeries.new(scan_series_params)
-
-    respond_to do |format|
-      if @scan_series.save
-        format.html { redirect_to @scan_series, notice: 'Scan series was successfully created.' }
-        format.json { render :show, status: :created, location: @scan_series }
-      else
-        format.html { render :new }
-        format.json { render json: @scan_series.errors, status: :unprocessable_entity }
-      end
-    end
+    session[:previous_url] = request.referrer
   end
 
   # PATCH/PUT /scan_series/1
@@ -47,7 +27,7 @@ class ScanSeriesController < ApplicationController
   def update
     respond_to do |format|
       if @scan_series.update(scan_series_params)
-        format.html { redirect_to @scan_series, notice: 'Scan series was successfully updated.' }
+        format.html { redirect_to session[:previous_url], notice: 'Scan series was successfully updated.' }
         format.json { render :show, status: :ok, location: @scan_series }
       else
         format.html { render :edit }
