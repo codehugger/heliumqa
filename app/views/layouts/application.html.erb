@@ -55,6 +55,7 @@
   <!-- End wrapper-->
 
   <script>
+    // Make sure ALL server requests include the CSRF token
     $(document).ready(function() {
       window.axios.defaults.headers.common = {
         'X-Requested-With': 'XMLHttpRequest',

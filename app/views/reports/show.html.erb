@@ -23,10 +23,11 @@
             <% end %>
           </ul>
         </div>
-        <div class="col-sm-10">
+        <div class="col-sm-12">
           <div class="text-center article-title">
             <span class="text-muted"><i class="fa fa-clock-o"></i> <%= @report.created_at %></span>
             <h1>Report for <%= @report.equipment %></h1>
+            <%= @report.groups.count %>
             <% @report.groups.each do |group| %>
               <h2 id="group-<%= group.id %>"><%= group.label %></h2>
               <% group.results.each do |result| %>
