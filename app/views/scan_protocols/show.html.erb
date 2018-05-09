@@ -33,7 +33,11 @@
             <dt>Matched Files</dt>
             <dd><%= @scan_protocol.qa_session_files.count %></dd>
             <dt>Analysis Options File</dt>
-            <dd><%= link_to 'Download', @scan_protocol.analysis_options_file_url, download: @scan_protocol.analysis_options_file.original_filename, target: '_blank' %></dd>
+            <% if @scan_protocol.specifications_file %>
+              <dd><%= link_to 'Download', @scan_protocol.specifications_file_url, download: @scan_protocol.specifications_file.original_filename, target: '_blank' %></dd>
+            <% else %>
+              <dd>not available</dd>
+            <% end %>
             <dt>Specifications File</dt>
             <% if @scan_protocol.specifications_file %>
               <dd><%= link_to 'Download', @scan_protocol.specifications_file_url, download: @scan_protocol.specifications_file.original_filename, target: '_blank' %></dd>
@@ -74,7 +78,7 @@
                 </tbody>
               </table>
             <% else %>
-              <p>No files.</p>
+              <p>no module files found</p>
             <% end %>
           </div>
         </div>

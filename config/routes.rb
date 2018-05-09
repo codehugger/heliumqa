@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   }
   mount Shrine.presign_endpoint(:cache) => "/qa_session_files/presign", as: 'presign_qa_session_files'
 
+  mount Shrine.download_endpoint => "/files"
+
   resources :analysis_responses
   resources :analyses do
     resources :analysis_requests, shallow: true
