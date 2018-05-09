@@ -27,7 +27,7 @@ class ScanSeriesController < ApplicationController
   def update
     respond_to do |format|
       if @scan_series.update(scan_series_params)
-        format.html { redirect_to session[:previous_url], notice: 'Scan series was successfully updated.' }
+        format.html { redirect_back fallback_location: session[:previous_url], notice: 'Scan series was successfully updated.' }
         format.json { render :show, status: :ok, location: @scan_series }
       else
         format.html { render :edit }

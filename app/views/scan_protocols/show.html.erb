@@ -33,14 +33,18 @@
             <dt>Matched Files</dt>
             <dd><%= @scan_protocol.qa_session_files.count %></dd>
             <dt>Analysis Options File</dt>
-            <% if @scan_protocol.specifications_file %>
-              <dd><%= link_to 'Download', @scan_protocol.specifications_file_url, download: @scan_protocol.specifications_file.original_filename, target: '_blank' %></dd>
+            <% if @scan_protocol.analysis_options_file %>
+              <dd><%= link_to @scan_protocol.analysis_options_file.original_filename, @scan_protocol.analysis_options_file_url, download: @scan_protocol.analysis_options_file.original_filename, target: '_blank' %>
+              (<%= link_to delete_analysis_options_file_scan_protocol_path(@scan_protocol), method: :post, data: { confirm: 'Are you sure?' }, class: 'text-danger' do %>remove<% end %>)
+              </dd>
             <% else %>
               <dd>not available</dd>
             <% end %>
             <dt>Specifications File</dt>
             <% if @scan_protocol.specifications_file %>
-              <dd><%= link_to 'Download', @scan_protocol.specifications_file_url, download: @scan_protocol.specifications_file.original_filename, target: '_blank' %></dd>
+              <dd><%= link_to @scan_protocol.specifications_file.original_filename, @scan_protocol.specifications_file_url, download: @scan_protocol.specifications_file.original_filename, target: '_blank' %>
+                (<%= link_to delete_specifications_file_scan_protocol_path(@scan_protocol), method: :post, data: { confirm: 'Are you sure?' }, class: 'text-danger' do %>remove<% end %>)
+              </dd>
             <% else %>
               <dd>not available</dd>
             <% end %>

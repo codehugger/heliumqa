@@ -3,11 +3,14 @@
   <div class="col-xs-4">
     <%= f.collection_select :scan_header_tag_id, ScanHeaderTag.order(label: :asc), :id, :label, {}, class: 'form-control col-xs-4' %>
   </div>
-  <div class="col-xs-4">
+  <!-- <div class="col-xs-4">
     <%= f.grouped_collection_select :value_type_matcher_id, ScanHeaderTag.all, :value_type_matchers, :label, :id, :label, {}, class: 'form-control', id: :value_type_matcher_id %>
-  </div>
-  <div class="col-xs-3">
+  </div> -->
+  <!-- <div class="col-xs-3">
     <%= f.text_field :value, class: 'form-control text-fixed-width col-xs-4' %>
+  </div> -->
+  <div class="col-xs-7">
+    <%= f.text_field :matcher, class: 'form-control text-fixed-width' %>
   </div>
   <div class="col-xs-1">
     <%= link_to_remove_association f, class: 'btn btn-danger btn-xs' do %>

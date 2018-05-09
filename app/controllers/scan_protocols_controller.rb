@@ -1,6 +1,6 @@
 class ScanProtocolsController < ApplicationController
   before_action :set_site, only: [:new, :create]
-  before_action :set_scan_protocol, only: [:show, :edit, :update, :destroy]
+  before_action :set_scan_protocol, only: [:show, :edit, :update, :destroy, :delete_analysis_options_file, :delete_specifications_file]
 
   # GET /scan_protocols
   # GET /scan_protocols.json
@@ -64,6 +64,30 @@ class ScanProtocolsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to scan_protocols_url, notice: 'Scan protocol was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def delete_specifications_file
+    respond_to do |format|
+      if @scan_protocol.update(specifications_file: nil)
+        format.html { redirect_to @scan_protocol, notice: 'Scan protocol was successfully updated.' }
+        format.json { render :show, status: :ok, location: @scan_protocol }
+      else
+        format.html { render :edit }
+        format.json { render json: @scan_protocol.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def delete_analysis_options_file
+    respond_to do |format|
+      if @scan_protocol.update(analysis_options_file: nil)
+        format.html { redirect_to @scan_protocol, notice: 'Scan protocol was successfully updated.' }
+        format.json { render :show, status: :ok, location: @scan_protocol }
+      else
+        format.html { render :edit }
+        format.json { render json: @scan_protocol.errors, status: :unprocessable_entity }
+      end
     end
   end
 

@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   end
   resources :scan_protocols do
     resources :scan_protocol_matchers, shallow: true
+    member do
+      post :delete_specifications_file
+      post :delete_analysis_options_file
+    end
   end
   resources :sites do
     resources :scan_protocols, shallow: true

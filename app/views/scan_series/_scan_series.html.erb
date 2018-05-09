@@ -28,12 +28,12 @@
         <td><%= link_to series.description, series %></td>
         <td><%= link_to series.scan_protocol, series.scan_protocol %></td>
         <td>
-          <% if series.finalized? %>
-            <%= link_to series.equipment, series.equipment %>
-          <% else %>
+          <% if !series.finalized? && current_account.equipment.count > 1 %>
             <%= form_for series do |f| %>
               <%= f.collection_select(:equipment_id, current_account.equipment.all, :id, :name, {prompt:"Unassigned", class: 'form-control' }, :onchange => 'this.form.submit()') %>
             <% end %>
+          <% else %>
+            <%= link_to series.equipment, series.equipment %>
           <% end %>
         </td>
         <td><%= series.files.count %></td>
@@ -44,11 +44,11 @@
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dLabel">
-              <% unless series.finalized? %>
+              <!--<% unless series.finalized? %>
                 <li>
                   <%= link_to 'Assign Equipment', edit_scan_series_path(series) %>
                 </li>
-              <% end %>
+              <% end %>-->
               <li><%= link_to 'Create Protocol', new_scan_protocol_path(qa_session_file_id: series.files.first.id) %></li>
               <li><%= link_to 'Download Files', download_files_scan_series_path(series), download: "#{series.description}.zip"%></li>
               <% unless series.finalized? %>

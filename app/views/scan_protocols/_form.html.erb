@@ -51,7 +51,7 @@
         <%= render 'phantom_module_file_fields', f: builder %>
       <% end %>
       <div class="links">
-      <%= link_to_add_association form, :phantom_module_files, class: 'btn btn-default' do %>
+      <%= link_to_add_association form, :phantom_module_files, class: 'btn btn-primary btn-xs' do %>
         <i class="fa fa-plus"></i> Add phantom module file
       <% end %>
     </div>
@@ -68,7 +68,7 @@
         <%= render 'matcher_fields', f: builder %>
       <% end %>
       <div class="links">
-      <%= link_to_add_association form, :matchers, class: 'btn btn-default' do %>
+      <%= link_to_add_association form, :matchers, class: 'btn btn-primary btn-xs' do %>
         <i class="fa fa-plus"></i> Add matcher
       <% end %>
     </div>
@@ -79,6 +79,7 @@
   <hr/>
   <div class="form-group">
     <div class="col-sm-12 text-right">
+      <%= link_to 'Cancel', :back, class: 'btn btn-default' %>
       <%= form.submit class: 'btn btn-primary' %>
     </div>
   </div>

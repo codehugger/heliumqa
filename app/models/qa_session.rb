@@ -3,7 +3,7 @@ class QaSession < ApplicationRecord
 
   # Relationships
   belongs_to :account
-  has_many :scan_series
+  has_many :scan_series, dependent: :destroy
   has_many :qa_session_files, dependent: :destroy
   has_many :scan_protocols, through: :qa_session_files
   has_many :analysis_sessions, dependent: :destroy
