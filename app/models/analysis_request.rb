@@ -16,6 +16,8 @@ class AnalysisRequest < ApplicationRecord
   after_create :set_static_response_data
   after_create :set_initial_status
 
+  scope :without_response, ->() { includes(:analysis_response).where(:analysis_responses => { :id => nil }) }
+
   def status
     "In progress"
   end
