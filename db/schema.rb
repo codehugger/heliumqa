@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_07_184754) do
+ActiveRecord::Schema.define(version: 2018_05_14_143848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2018_05_07_184754) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "analysis_session_id"
+    t.text "status"
     t.index ["analysis_session_id"], name: "index_analysis_requests_on_analysis_session_id"
     t.index ["scan_series_id"], name: "index_analysis_requests_on_scan_series_id"
   end

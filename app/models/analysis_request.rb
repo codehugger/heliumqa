@@ -14,6 +14,7 @@ class AnalysisRequest < ApplicationRecord
   end
 
   after_create :set_static_response_data
+  after_create :set_initial_status
 
   def status
     "In progress"
@@ -34,5 +35,9 @@ class AnalysisRequest < ApplicationRecord
   # TODO: this bypasses the RabbitMQ workflow and should be removed
   def set_static_response_data
     create_analysis_response(response_data: JSON.parse(File.read(Rails.root.join('public', 'example.json'))))
+  end
+
+  def set_initial_status
+    update(status: 'in progress')
   end
 end

@@ -62,7 +62,7 @@ Rails.application.routes.draw do
       resources :accounts, only: [:index, :show]
       resources :auth, only: [:create], controller: "authentication"
       resources :analysis_requests do
-        resources :analysis_responses, shallow: true
+        resource :analysis_responses, shallow: true
       end
     end
   end

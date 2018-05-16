@@ -1,8 +1,8 @@
 class Api::V1::AnalysisResponsesController < ApiController
   before_action :set_analysis_request
 
-  def index
-    @analysis_request.analysis_response
+  def show
+    render json: @analysis_request.analysis_response
   end
 
   # POST /analysis_responses
