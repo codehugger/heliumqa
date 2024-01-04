@@ -1,0 +1,883 @@
+repo_name: codehugger/heliumqa
+report_id: 9cba5a417de260702cab901b1be8a18f
+version: 0.1
+repo_type: Public
+timestamp: '2024-01-04T14:54:00+00:00'
+requested_by: codehugger
+provider: github
+branch: master
+detected_tools_count: 59
+tools:
+- name: CSS 3
+  description: The latest evolution of the Cascading Style Sheets language
+  website_url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/6727/css.png
+  detection_source_url: https://github.com/codehugger/heliumqa
+  detection_source: Repo Metadata
+- name: JavaScript
+  description: Lightweight, interpreted, object-oriented language with first-class
+    functions
+  website_url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/codehugger/heliumqa
+  detection_source: Repo Metadata
+- name: Mustache
+  description: Logic-less templates
+  website_url: http://mustache.github.io/
+  version: 1.0.5
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Templating Languages & Extensions
+  image_url: https://img.stackshare.io/service/1142/197655.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-06 10:50:06.000000000 Z
+- name: Ruby
+  description: A dynamic, interpreted, open source programming language with a focus
+    on simplicity and productivity
+  website_url: https://www.ruby-lang.org
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/989/ruby.png
+  detection_source_url: https://github.com/codehugger/heliumqa
+  detection_source: Repo Metadata
+- name: Bootstrap
+  description: Simple and flexible HTML, CSS, and JS for popular UI components and
+    interactions
+  website_url: http://getbootstrap.com/
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Front-End Frameworks
+  image_url: https://img.stackshare.io/service/1101/C9QJ7V3X.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-06 10:50:06.000000000 Z
+- name: Vue.js
+  description: A progressive framework for building user interfaces
+  website_url: http://vuejs.org/
+  version: 2.5.16
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Javascript MVC Frameworks
+  image_url: https://img.stackshare.io/service/3837/paeckCWC.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/package-lock.json
+  detection_source: package.json
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: Amazon S3
+  description: Store and retrieve any amount of data, at any time, from anywhere on
+    the web
+  website_url: http://aws.amazon.com/s3
+  open_source: false
+  hosted_saas: true
+  category: Data Stores
+  sub_category: Cloud Storage
+  image_url: https://img.stackshare.io/service/25/amazon-s3.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-31 17:09:16.000000000 Z
+- name: PostgreSQL
+  description: A powerful, open source object-relational database system
+  website_url: http://www.postgresql.org/
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: Databases
+  image_url: https://img.stackshare.io/service/1028/ASOhU5xJ.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: Redis
+  description: Open source (BSD licensed), in-memory data structure store
+  website_url: http://redis.io/
+  version: 4.0.1
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: In-Memory Databases
+  image_url: https://img.stackshare.io/service/1031/default_cbce472cd134adc6688572f999e9122b9657d4ba.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-02-06 09:23:08.000000000 Z
+- name: Sidekiq
+  description: Simple, efficient background processing for Ruby
+  website_url: http://sidekiq.org/
+  version: 5.1.3
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: Background Processing
+  image_url: https://img.stackshare.io/service/1078/4b7277462dadad85454ab427ce3f0ca7.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-02-05 23:21:20.000000000 Z
+- name: Babel
+  description: Use next generation JavaScript, today.
+  website_url: http://babeljs.io/
+  version: 6.26.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: JavaScript Compilers
+  image_url: https://img.stackshare.io/service/2739/-1wfGjNw.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/package-lock.json
+  detection_source: ".babelrc"
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-02-08 16:15:23.000000000 Z
+- name: Capybara
+  description: Acceptance test framework for web applications
+  website_url: http://jnicklas.github.io/capybara/
+  version: 2.18.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Testing Frameworks
+  image_url: https://img.stackshare.io/service/2595/capybara.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/codehugger/heliumqa
+  detection_source: Repo Metadata
+- name: Puma
+  description: A Modern, Concurrent Web Server for Ruby
+  website_url: http://puma.io/
+  version: 3.11.4
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Application Hosting
+  sub_category: Web Servers
+  image_url: https://img.stackshare.io/service/1055/favicon.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: Rails Spring
+  description: Rails application preloader
+  website_url: https://github.com/rails/spring
+  version: 2.0.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Rails Testing
+  image_url: https://img.stackshare.io/no-img-open-source.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-24 21:43:36.000000000 Z
+- name: RubyGems
+  description: Easily download, install, and use ruby software packages on your system
+  website_url: https://rubygems.org/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/service/12795/5jL6-BA5_400x400.jpeg
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-02-05 23:21:20.000000000 Z
+- name: Webpack
+  description: A bundler for javascript and friends
+  website_url: http://webpack.js.org
+  version: 4.8.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: JS Build Tools / JS Task Runners
+  image_url: https://img.stackshare.io/service/1682/IMG_4636.PNG
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/package-lock.json
+  detection_source: package.json
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-26 16:56:36.000000000 Z
+- name: Webpacker
+  description: Use Webpack to manage app-like JavaScript modules in Rails (by Rails)
+  website_url: https://github.com/rails/webpacker
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: JS Build Tools / JS Task Runners
+  image_url: https://img.stackshare.io/no-img-open-source.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-26 16:56:36.000000000 Z
+- name: Yarn
+  description: A new package manager for JavaScript
+  website_url: https://yarnpkg.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Front End Package Manager
+  image_url: https://img.stackshare.io/service/5848/44mC-kJ3.jpg
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/yarn.lock
+  detection_source: yarn.lock
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-02-08 16:15:23.000000000 Z
+- name: npm
+  description: The package manager for JavaScript.
+  website_url: https://www.npmjs.com/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Front End Package Manager
+  image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/package.json
+  detection_source: package.json
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: Heroku
+  description: Build, deliver, monitor and scale web apps and APIs with a trail blazing
+    developer experience.
+  website_url: https://www.heroku.com
+  open_source: false
+  hosted_saas: true
+  category: Application Hosting
+  sub_category: Platform as a Service
+  image_url: https://img.stackshare.io/service/133/3wgIDj3j.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-02-06 22:11:58.000000000 Z
+- name: Twilio SendGrid
+  description: Email Delivery. Simplified.
+  website_url: http://sendgrid.com
+  open_source: false
+  hosted_saas: true
+  category: Communications
+  sub_category: Transactional Email
+  image_url: https://img.stackshare.io/service/43/kQ_6nwmP.jpg
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/config/environments/production.rb
+  detection_source: config/environments/production.rb
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: Devise
+  description: Flexible authentication solution for Rails with Warden
+  website_url: https://github.com/plataformatec/devise
+  version: 4.4.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Application Utilities
+  sub_category: User Management and Authentication
+  image_url: https://img.stackshare.io/service/1432/devise.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-02-06 09:23:08.000000000 Z
+- name: Font Awesome
+  description: The internet's most popular icon toolkit
+  website_url: https://fontawesome.com/
+  version: 4.7.0
+  open_source: true
+  hosted_saas: false
+  category: Design
+  sub_category: Fonts
+  image_url: https://img.stackshare.io/service/3244/1_Mr1Fy00XjPGNf1Kkp_hWtw_2x.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-31 17:09:16.000000000 Z
+- name: JSON Web Token
+  description: A JSON-based open standard for creating access tokens
+  website_url: http://jwt.io/
+  version: 2.1.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Application Utilities
+  sub_category: User Management and Authentication
+  image_url: https://img.stackshare.io/service/6417/jwt-icon.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-23 08:30:03.000000000 Z
+- name: MiniMagick
+  website_url: https://github.com/minimagick/minimagick
+  open_source: false
+  hosted_saas: false
+  image_url: https://img.stackshare.io/service/3924/2532832.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-31 17:09:16.000000000 Z
+- name: Turbolinks
+  description: Makes navigating your web application faster
+  website_url: https://github.com/turbolinks/turbolinks
+  version: 5.1.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Application Utilities
+  sub_category: Ruby Utilities
+  image_url: https://img.stackshare.io/service/3028/default_ce0a839b05d39c32172761cba1f092a8433d381c.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: package.json
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-26 16:39:22.000000000 Z
+- name: UglifyJS
+  description: A JavaScript parser, minifier, compressor and beautifier toolkit.
+  website_url: http://lisperator.net/uglifyjs/
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Javascript Utilities & Libraries
+  image_url: https://img.stackshare.io/service/2203/default_9058af6f02375a99f634f537d727e32df92ac262.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: administrate
+  description: Administrate is heavily inspired by projects like Rails Admin and ActiveAdmin
+  package_url: https://rubygems.org/administrate
+  version: 0.10.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/19542/default_562580b79fad90dfa9e41120387ed1e3bf8ace9d.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-06 10:50:06.000000000 Z
+  vulnerabilities:
+  - name: Sort order SQL injection in Administrate
+    cve_id: CVE-2020-5257
+    cve_url: https://github.com/advisories/GHSA-2p5p-m353-833w
+    detected_date: Aug 22
+    severity: high
+    first_patched: 0.13.0
+- name: aws-sdk-s3
+  description: Official AWS Ruby gem for Amazon Simple Storage Service
+  package_url: https://rubygems.org/aws-sdk-s3
+  version: 1.9.1
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/19078/default_4df61286a41b221e05fffb41a1003ffc1a8eaf4e.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-31 17:09:16.000000000 Z
+- name: bcrypt
+  description: Bcrypt
+  package_url: https://rubygems.org/bcrypt
+  version: 3.1.11
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/19054/default_2be036aaca5c71baf790e00f1ef80dd37a625905.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-06 10:50:06.000000000 Z
+- name: bootstrap-sass
+  description: Bootstrap-sass is a Sass-powered version of Bootstrap 3
+  package_url: https://rubygems.org/bootstrap-sass
+  version: 3.3.7
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/18976/default_bc359c39d5bb5b07850d1bca94ab8afbc55734a2.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-06 10:50:06.000000000 Z
+  vulnerabilities:
+  - name: Bootstrap Vulnerable to Cross-Site Scripting
+    cve_id: CVE-2019-8331
+    cve_url: https://github.com/advisories/GHSA-9v3m-8fp8-mj99
+    detected_date: Jan 28
+    severity: moderate
+    first_patched: 3.4.1
+- name: bunny
+  description: Easy to use, feature complete Ruby client for RabbitMQ
+  package_url: https://rubygems.org/bunny
+  version: 2.9.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/19028/default_5e6f4490e7ced4a026c6f8459237f2bb9d24fbdb.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-31 17:09:16.000000000 Z
+- name: byebug
+  description: Byebug is a Ruby debugger
+  package_url: https://rubygems.org/byebug
+  version: 10.0.2
+  license: BSD-2-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/18849/default_887cb273c504fac90d07fc552b7b223fbb32ca39.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: chartkick
+  description: Create beautiful JavaScript charts with one line of Ruby
+  package_url: https://rubygems.org/chartkick
+  version: 2.3.4
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/19780/default_8565a968ca51eae150056642a7d40e1156076adc.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-31 17:09:16.000000000 Z
+  vulnerabilities:
+  - name: Prototype Pollution in chartkick
+    cve_id: CVE-2019-18841
+    cve_url: https://github.com/advisories/GHSA-5pm8-492c-92p5
+    detected_date: Aug 22
+    severity: high
+    first_patched: 3.3.0
+  - name: Cross-site Scripting in Chartkick
+    cve_id: CVE-2019-12732
+    cve_url: https://github.com/advisories/GHSA-g45g-g52h-39rg
+    detected_date: Aug 22
+    severity: moderate
+    first_patched: 3.2.0
+  - name: CSS Injection in Chartkick gem
+    cve_id: CVE-2020-16254
+    cve_url: https://github.com/advisories/GHSA-3j95-fjv2-3m4p
+    detected_date: Aug 22
+    severity: moderate
+    first_patched: 3.4.0
+- name: cocoon
+  description: Unobtrusive nested forms handling, using jQuery
+  package_url: https://rubygems.org/cocoon
+  version: 1.2.11
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/19721/default_494e7d37d3a2cead7ed09c505b11b32ae3606a2b.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-06 10:50:06.000000000 Z
+- name: draper
+  description: Draper adds an object-oriented layer of presentation logic to your
+    Rails apps
+  package_url: https://rubygems.org/draper
+  version: 3.0.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/19385/default_b0770ebdd12e1eb479a98261d0175b1714524f87.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-31 17:09:16.000000000 Z
+- name: figaro
+  description: Simple
+  package_url: https://rubygems.org/figaro
+  version: 1.1.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/19607/default_ad0710c65b106932707389deb3b2e0b93a1ef7b6.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-31 17:09:16.000000000 Z
+- name: font-awesome-rails
+  description: Font-awesome-rails provides the Font-Awesome web fonts and stylesheets
+    as a Rails engine for use with the asset pipeline
+  package_url: https://rubygems.org/font-awesome-rails
+  version: 4.7.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/19068/default_caa1b13a6ba2271b33fd22cf8d7e73bec9616bff.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-24 21:43:36.000000000 Z
+- name: friendly_id
+  description: FriendlyId is the "Swiss Army bulldozer" of slugging and permalink
+    plugins for Active Record
+  package_url: https://rubygems.org/friendly_id
+  version: 5.2.4
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/19084/default_54dcdbda5f19ac7cce7dfde7a31f57a35d2cdc2f.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-06 10:50:06.000000000 Z
+- name: jbuilder
+  description: Create JSON structures via a Builder-style DSL
+  package_url: https://rubygems.org/jbuilder
+  version: 2.7.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/19105/default_fca7ffebc4c078263714788a3e4853bf74bde297.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: jwt
+  description: A pure ruby implementation of the RFC 7519 OAuth JSON Web Token
+  package_url: https://rubygems.org/jwt
+  version: 2.1.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/18991/default_e5e3569d4beb5d51f9ce87c88e8b44a2308e087b.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: listen
+  description: The Listen gem listens to file modifications and notifies you about
+    the changes
+  package_url: https://rubygems.org/listen
+  version: 3.1.5
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/18942/default_a51418802dbfb428c729400211798b5046fe4140.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: mini_magick
+  description: Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick
+  package_url: https://rubygems.org/mini_magick
+  version: 4.8.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/18955/default_89409eddf4c844af508d7b2a0c2436ec652e1120.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-02-06 22:11:58.000000000 Z
+  vulnerabilities:
+  - name: OS Command Injection in MiniMagick
+    cve_id: CVE-2019-13574
+    cve_url: https://github.com/advisories/GHSA-r7j3-vvh2-xrpj
+    detected_date: Aug 22
+    severity: high
+    first_patched: 4.9.4
+- name: pg
+  description: Pg is the Ruby interface to the {PostgreSQL RDBMS}[http://www.postgresql.org/]
+  package_url: https://rubygems.org/pg
+  version: 0.21.0
+  license: BSD-2-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/18855/default_d343d9a7c573fa5dcbeb4d3c43d2ffe4afa82cc1.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: pry-rails
+  description: Use Pry as your rails console
+  package_url: https://rubygems.org/pry-rails
+  version: 0.3.6
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/19013/default_3667c8b28d9ec2ad93884ef523ec8f357774f78e.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-24 21:43:36.000000000 Z
+- name: roda
+  description: Routing tree web toolkit
+  package_url: https://rubygems.org/roda
+  version: 3.7.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/19466/default_9fadec62becac7e7d4b0d823b4daea6bad21b1be.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-31 17:09:16.000000000 Z
+- name: sass-rails
+  description: Sass adapter for the Rails asset pipeline
+  package_url: https://rubygems.org/sass-rails
+  version: 5.0.7
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/18876/default_d416e715a80ce80ae31b87cff032f5873c8a9d2a.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-24 21:43:36.000000000 Z
+- name: selenium-webdriver
+  description: WebDriver is a tool for writing automated tests of websites
+  package_url: https://rubygems.org/selenium-webdriver
+  version: 3.11.0
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/18901/default_f0ad2b1ffbe10fdd866f9f8e5f812599d9e8085b.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: shrine
+  description: Shrine is a toolkit for file attachments in Ruby applications
+  package_url: https://rubygems.org/shrine
+  version: 2.10.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/19793/default_9b707ab11055cff6b2bfbaf07a716777f5e9a059.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-31 17:09:16.000000000 Z
+  vulnerabilities:
+  - name: Possible timing attack in derivation_endpoint
+    cve_id: CVE-2020-15237
+    cve_url: https://github.com/advisories/GHSA-5jjv-x4fq-qjwp
+    detected_date: Aug 22
+    severity: moderate
+    first_patched: 3.3.0
+- name: spring
+  description: Preloads your application so things like console
+  package_url: https://rubygems.org/spring
+  version: 2.0.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/19382/default_b8d34ca81aebc76c0b551b666a1d21df7e697544.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: tzinfo-data
+  description: TZInfo::Data contains data from the IANA Time Zone database packaged
+    as Ruby modules for use with TZInfo
+  package_url: https://rubygems.org/tzinfo-data
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/19516/default_07037590725b871de29c1d2ebb4610950e953355.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-31 17:09:16.000000000 Z
+- name: uglifier
+  description: Uglifier minifies JavaScript files by wrapping UglifyJS to be accessible
+    in Ruby
+  package_url: https://rubygems.org/uglifier
+  version: 4.1.10
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/18967/default_20d16c1471b93397c8ef93b19baf0989f59663c0.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: extract-text-webpack-plugin
+  description: Extract text from bundle into a file
+  package_url: https://www.npmjs.com/extract-text-webpack-plugin
+  version: 3.0.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15855/default_a2f722724df977d0f7752839e5d8845ab41f69d5.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/package-lock.json
+  detection_source: package.json
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-26 16:56:36.000000000 Z
+- name: npm
+  description: A package manager for JavaScript
+  package_url: https://www.npmjs.com/npm
+  version: 6.0.0
+  license: Artistic-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16105/default_5a461d436012a0c4024534aaba303dcdb0297d24.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/package-lock.json
+  detection_source: package.json
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+  vulnerabilities:
+  - name: npm Vulnerable to Global node_modules Binary Overwrite
+    cve_id: CVE-2019-16777
+    cve_url: https://github.com/advisories/GHSA-4328-8hgf-7wjr
+    detected_date: Aug 22
+    severity: high
+    first_patched: 6.13.4
+  - name: Arbitrary File Write in npm
+    cve_id: CVE-2019-16775
+    cve_url: https://github.com/advisories/GHSA-m6cx-g6qm-p2cx
+    detected_date: Aug 22
+    severity: high
+    first_patched: 6.13.3
+  - name: npm symlink reference outside of node_modules
+    cve_id: CVE-2019-16776
+    cve_url: https://github.com/advisories/GHSA-x8qc-rrcw-4r46
+    detected_date: Aug 22
+    severity: high
+    first_patched: 6.13.3
+  - name: npm CLI exposing sensitive information through logs
+    cve_id: CVE-2020-15095
+    cve_url: https://github.com/advisories/GHSA-93f3-23rq-pjfp
+    detected_date: Aug 22
+    severity: moderate
+    first_patched: 6.14.6
+- name: vue
+  description: Vue
+  package_url: https://www.npmjs.com/vue
+  version: 2.5.16
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15844/default_b71c906aeda030a5e2f1fe40bf12a93be52404ab.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/package-lock.json
+  detection_source: package.json
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: vue-loader
+  description: "&gt; webpack loader for Vue Single-File Components"
+  package_url: https://www.npmjs.com/vue-loader
+  version: 15.0.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15901/default_3af1504b6f77c55205ba630fe08c472f43b95f6e.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/package-lock.json
+  detection_source: package.json
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-05-07 18:42:08.000000000 Z
+- name: vue-template-compiler
+  description: Template compiler for Vue 2.0
+  package_url: https://www.npmjs.com/vue-template-compiler
+  version: 2.5.16
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15850/default_0b10af8ca19c215f781dc07442e75bdc831089d0.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/package-lock.json
+  detection_source: package.json
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-05-07 18:42:08.000000000 Z
+- name: webpack-dev-server
+  description: Serves a webpack app. Updates the browser on changes
+  package_url: https://www.npmjs.com/webpack-dev-server
+  version: 3.1.4
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15821/default_64690bc3e49bcee57094e51a7a26c620c48dbd82.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/package-lock.json
+  detection_source: package.json
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-26 16:56:36.000000000 Z
+  vulnerabilities:
+  - name: Missing Origin Validation in webpack-dev-server
+    cve_id: CVE-2018-14732
+    cve_url: https://github.com/advisories/GHSA-cf66-xwfp-gvc4
+    detected_date: Aug 22
+    severity: high
+    first_patched: 3.1.11
