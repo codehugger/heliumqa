@@ -26,6 +26,7 @@ codehugger/heliumqa is built on the following main stack:
 - [Yarn](https://yarnpkg.com/) – Front End Package Manager
 - [Webpacker](https://github.com/rails/webpacker) – JS Build Tools / JS Task Runners
 - [JSON Web Token](http://jwt.io/) – User Management and Authentication
+- [dicom](https://github.com/suyashkumar/dicom) – Image Processing and Management
 
 Full tech stack [here](/techstack.md)
 
@@ -58,6 +59,7 @@ codehugger/heliumqa is built on the following main stack:
 - <img width='25' height='25' src='https://img.stackshare.io/service/5848/44mC-kJ3.jpg' alt='Yarn'/> [Yarn](https://yarnpkg.com/) – Front End Package Manager
 - <img width='25' height='25' src='https://img.stackshare.io/no-img-open-source.png' alt='Webpacker'/> [Webpacker](https://github.com/rails/webpacker) – JS Build Tools / JS Task Runners
 - <img width='25' height='25' src='https://img.stackshare.io/service/6417/jwt-icon.png' alt='JSON Web Token'/> [JSON Web Token](http://jwt.io/) – User Management and Authentication
+- <img width='25' height='25' src='https://img.stackshare.io/service/11171/dicom.png' alt='dicom'/> [dicom](https://github.com/suyashkumar/dicom) – Image Processing and Management
 
 Full tech stack [here](/techstack.md)
 
@@ -68,7 +70,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [codehugger/heliumqa](https://github.com/codehugger/heliumqa)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|59<br/>Tools used|01/05/24 <br/>Report generated|
+|66<br/>Tools used|01/11/24 <br/>Report generated|
 |------|------|
 </div>
 
@@ -267,12 +269,20 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
-## <img src='https://img.stackshare.io/saas.svg'/> Software as a Service (SaaS) (1)
+## <img src='https://img.stackshare.io/saas.svg'/> Software as a Service (SaaS) (2)
 <table><tr>
   <td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/43/kQ_6nwmP.jpg' alt='Twilio SendGrid'>
   <br>
   <sub><a href="http://sendgrid.com">Twilio SendGrid</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
+<td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/11171/dicom.png' alt='dicom'>
+  <br>
+  <sub><a href="https://github.com/suyashkumar/dicom">dicom</a></sub>
   <br>
   <sub></sub>
 </td>
@@ -334,30 +344,35 @@ Full tech stack [here](/techstack.md)
 </table>
 
 
-## <img src='https://img.stackshare.io/group.svg' /> Open source packages (31)</h2>
+## <img src='https://img.stackshare.io/group.svg' /> Open source packages (37)</h2>
 
-## <img width='24' height='24' src='https://img.stackshare.io/service/12795/5jL6-BA5_400x400.jpeg'/> RubyGems (25)
+## <img width='24' height='24' src='https://img.stackshare.io/service/12795/5jL6-BA5_400x400.jpeg'/> RubyGems (31)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
 |[administrate](https://rubygems.org/administrate)|v0.10.0|04/06/18|Bjarki Gudlaugsson |MIT|[CVE-2020-5257](https://github.com/advisories/GHSA-2p5p-m353-833w) (High)|
 |[aws-sdk-s3](https://rubygems.org/aws-sdk-s3)|v1.9.1|01/31/18|Bjarki Gudlaugsson |Apache-2.0|N/A|
 |[bcrypt](https://rubygems.org/bcrypt)|v3.1.11|04/06/18|Bjarki Gudlaugsson |MIT|N/A|
+|[bootstrap-datepicker-rails](https://rubygems.org/bootstrap-datepicker-rails)|v1.8.0|04/26/18|Bjarki Gudlaugsson |MIT|N/A|
 |[bootstrap-sass](https://rubygems.org/bootstrap-sass)|v3.3.7|04/06/18|Bjarki Gudlaugsson |MIT|[CVE-2019-8331](https://github.com/advisories/GHSA-9v3m-8fp8-mj99) (Moderate)|
 |[bunny](https://rubygems.org/bunny)|v2.9.2|01/31/18|Bjarki Gudlaugsson |MIT|N/A|
 |[byebug](https://rubygems.org/byebug)|v10.0.2|01/24/18|Bjarki Gudlaugsson |BSD-2-Clause|N/A|
 |[chartkick](https://rubygems.org/chartkick)|v2.3.4|01/31/18|Bjarki Gudlaugsson |MIT|[CVE-2019-18841](https://github.com/advisories/GHSA-5pm8-492c-92p5) (High)<br/>[CVE-2019-12732](https://github.com/advisories/GHSA-g45g-g52h-39rg) (Moderate)<br/>[CVE-2020-16254](https://github.com/advisories/GHSA-3j95-fjv2-3m4p) (Moderate)|
 |[cocoon](https://rubygems.org/cocoon)|v1.2.11|04/06/18|Bjarki Gudlaugsson |MIT|N/A|
+|[dentaku](https://rubygems.org/dentaku)|v3.2.0|04/23/18|Bjarki Gudlaugsson |MIT|N/A|
 |[draper](https://rubygems.org/draper)|v3.0.1|01/31/18|Bjarki Gudlaugsson |MIT|N/A|
 |[figaro](https://rubygems.org/figaro)|v1.1.1|01/31/18|Bjarki Gudlaugsson |MIT|N/A|
 |[font-awesome-rails](https://rubygems.org/font-awesome-rails)|v4.7.0|04/24/18|Bjarki Gudlaugsson |MIT|N/A|
 |[friendly_id](https://rubygems.org/friendly_id)|v5.2.4|04/06/18|Bjarki Gudlaugsson |MIT|N/A|
+|[image_processing](https://rubygems.org/image_processing)|v1.2.0|04/06/18|Bjarki Gudlaugsson |MIT|[CVE-2022-24720](https://github.com/advisories/GHSA-cxf7-qrc5-9446) (Critical)|
 |[jbuilder](https://rubygems.org/jbuilder)|v2.7.0|01/24/18|Bjarki Gudlaugsson |MIT|N/A|
 |[jwt](https://rubygems.org/jwt)|v2.1.0|01/24/18|Bjarki Gudlaugsson |MIT|N/A|
 |[listen](https://rubygems.org/listen)|v3.1.5|01/24/18|Bjarki Gudlaugsson |MIT|N/A|
 |[mini_magick](https://rubygems.org/mini_magick)|v4.8.0|02/06/18|Bjarki Gudlaugsson |MIT|[CVE-2019-13574](https://github.com/advisories/GHSA-r7j3-vvh2-xrpj) (High)|
 |[pg](https://rubygems.org/pg)|v0.21.0|01/24/18|Bjarki Gudlaugsson |BSD-2-Clause|N/A|
 |[pry-rails](https://rubygems.org/pry-rails)|v0.3.6|04/24/18|Bjarki Gudlaugsson |MIT|N/A|
+|[rack-timeout](https://rubygems.org/rack-timeout)|v0.4.2|04/06/18|Bjarki Gudlaugsson |MIT|N/A|
+|[rails-erd](https://rubygems.org/rails-erd)|v1.5.2|04/24/18|Bjarki Gudlaugsson |MIT|N/A|
 |[roda](https://rubygems.org/roda)|v3.7.0|01/31/18|Bjarki Gudlaugsson |MIT|N/A|
 |[sass-rails](https://rubygems.org/sass-rails)|v5.0.7|04/24/18|Bjarki Gudlaugsson |MIT|N/A|
 |[selenium-webdriver](https://rubygems.org/selenium-webdriver)|v3.11.0|01/24/18|Bjarki Gudlaugsson |Apache-2.0|N/A|
@@ -365,6 +380,7 @@ Full tech stack [here](/techstack.md)
 |[spring](https://rubygems.org/spring)|v2.0.2|01/24/18|Bjarki Gudlaugsson |MIT|N/A|
 |[tzinfo-data](https://rubygems.org/tzinfo-data)|N/A|01/31/18|Bjarki Gudlaugsson |MIT|N/A|
 |[uglifier](https://rubygems.org/uglifier)|v4.1.10|01/24/18|Bjarki Gudlaugsson |MIT|N/A|
+|[web-console](https://rubygems.org/web-console)|v3.6.1|01/24/18|Bjarki Gudlaugsson |MIT|N/A|
 
 
 ## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (6)
