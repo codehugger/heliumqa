@@ -2,11 +2,11 @@ repo_name: codehugger/heliumqa
 report_id: 9cba5a417de260702cab901b1be8a18f
 version: 0.1
 repo_type: Public
-timestamp: '2024-01-05T09:27:11+00:00'
+timestamp: '2024-01-11T12:13:00+00:00'
 requested_by: codehugger
 provider: github
 branch: master
-detected_tools_count: 59
+detected_tools_count: 66
 tools:
 - name: CSS 3
   description: The latest evolution of the Cascading Style Sheets language
@@ -287,6 +287,19 @@ tools:
   detection_source: config/environments/production.rb
   last_updated_by: Bjarki Gudlaugsson
   last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: dicom
+  description: A High Performance DICOM Medical Image Parser in Go
+  website_url: https://github.com/suyashkumar/dicom
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Assets and Media
+  sub_category: Image Processing and Management
+  image_url: https://img.stackshare.io/service/11171/dicom.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-31 17:09:16.000000000 Z
 - name: Devise
   description: Flexible authentication solution for Rails with Warden
   website_url: https://github.com/plataformatec/devise
@@ -412,6 +425,20 @@ tools:
   detection_source: Gemfile
   last_updated_by: Bjarki Gudlaugsson
   last_updated_on: 2018-04-06 10:50:06.000000000 Z
+- name: bootstrap-datepicker-rails
+  description: A date picker for Twitter Bootstrap
+  package_url: https://rubygems.org/bootstrap-datepicker-rails
+  version: 1.8.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/rubygems/image.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-26 16:56:36.000000000 Z
 - name: bootstrap-sass
   description: Bootstrap-sass is a Sass-powered version of Bootstrap 3
   package_url: https://rubygems.org/bootstrap-sass
@@ -508,6 +535,20 @@ tools:
   detection_source: Gemfile
   last_updated_by: Bjarki Gudlaugsson
   last_updated_on: 2018-04-06 10:50:06.000000000 Z
+- name: dentaku
+  description: Dentaku is a parser and evaluator for mathematical formulas
+  package_url: https://rubygems.org/dentaku
+  version: 3.2.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/rubygems/image.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-23 08:30:03.000000000 Z
 - name: draper
   description: Draper adds an object-oriented layer of presentation logic to your
     Rails apps
@@ -567,6 +608,28 @@ tools:
   detection_source: Gemfile
   last_updated_by: Bjarki Gudlaugsson
   last_updated_on: 2018-04-06 10:50:06.000000000 Z
+- name: image_processing
+  description: High-level wrapper for processing images for the web with ImageMagick
+    or libvips
+  package_url: https://rubygems.org/image_processing
+  version: 1.2.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/rubygems/image.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-06 10:50:06.000000000 Z
+  vulnerabilities:
+  - name: Remote shell execution vulnerability in image_processing
+    cve_id: CVE-2022-24720
+    cve_url: https://github.com/advisories/GHSA-cxf7-qrc5-9446
+    detected_date: Mar 2
+    severity: critical
+    first_patched: 1.12.2
 - name: jbuilder
   description: Create JSON structures via a Builder-style DSL
   package_url: https://rubygems.org/jbuilder
@@ -655,6 +718,35 @@ tools:
   category: Libraries
   sub_category: RubyGems Packages
   image_url: https://img.stackshare.io/package/19013/default_3667c8b28d9ec2ad93884ef523ec8f357774f78e.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-24 21:43:36.000000000 Z
+- name: rack-timeout
+  description: Rack middleware which aborts requests that have been running for longer
+    than a specified timeout
+  package_url: https://rubygems.org/rack-timeout
+  version: 0.4.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/rubygems/image.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-04-06 10:50:06.000000000 Z
+- name: rails-erd
+  description: Automatically generate an entity-relationship diagram
+  package_url: https://rubygems.org/rails-erd
+  version: 1.5.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/rubygems/image.png
   detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
   detection_source: Gemfile
   last_updated_by: Bjarki Gudlaugsson
@@ -761,6 +853,20 @@ tools:
   category: Libraries
   sub_category: RubyGems Packages
   image_url: https://img.stackshare.io/package/18967/default_20d16c1471b93397c8ef93b19baf0989f59663c0.png
+  detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
+  detection_source: Gemfile
+  last_updated_by: Bjarki Gudlaugsson
+  last_updated_on: 2018-01-24 14:56:46.000000000 Z
+- name: web-console
+  description: A debugging tool for your Ruby on Rails applications
+  package_url: https://rubygems.org/web-console
+  version: 3.6.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: RubyGems Packages
+  image_url: https://img.stackshare.io/package/rubygems/image.png
   detection_source_url: https://github.com/codehugger/heliumqa/blob/master/Gemfile.lock
   detection_source: Gemfile
   last_updated_by: Bjarki Gudlaugsson
